@@ -33,23 +33,37 @@ export const splitProps = ({ props, parser }: { props: { [key: string]: any }; p
 };
 
 export const resolveStyleProps = (props: any, colorsSchema?: ColorsSchema, sizeSchema?: SizesSchema<number>) => {
-  let output = { ...props };
-  for (const key in props) {
-    const value = props[key];
-    output[key] = value;
+  const output = {};
+  const seenObjects = new WeakSet();
 
-    if (typeof value === "string") {
-      if (ColorRegex.test(value)) {
-        output[key] = color(value, colorsSchema, false);
-      } else if (SizeRegex.test(value)) {
-        output[key] = size(value, sizeSchema);
+  const recursiveResolve = (input) => {
+      if (typeof input !== 'object' || input === null || seenObjects.has(input)) {
+          return input;
       }
-    } else if (typeof value === "object" && value !== null) {
-      output[key] = resolveStyleProps(value, colorsSchema, sizeSchema);
-    }
-  }
 
-  return output;
+      seenObjects.add(input);
+      const result = Array.isArray(input) ? [] : {};
+
+      for (const key in input) {
+          const value = input[key];
+          if (typeof value === "string") {
+              if (ColorRegex.test(value)) {
+                  result[key] = color(value, colorsSchema, false);
+              } else if (SizeRegex.test(value)) {
+                  result[key] = size(value, sizeSchema);
+              } else {
+                  result[key] = value;
+              }
+          } else if (typeof value === "object" && value !== null) {
+              result[key] = recursiveResolve(value);
+          } else {
+              result[key] = value;
+          }
+      }
+      return result;
+  };
+
+  return recursiveResolve(props);
 };
 export const hexToRGB = (hex: string) => hex.match(/\w\w/g).map((hex: string) => parseInt(hex, 16));
 

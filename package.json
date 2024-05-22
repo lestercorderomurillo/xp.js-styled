@@ -1,6 +1,6 @@
 {
   "name": "zen-styled",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create styled components for Web, Android and iOS extremely fast.",
   "license": "MIT",
   "main": "index.ts",
