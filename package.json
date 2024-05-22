@@ -1,0 +1,66 @@
+{
+  "name": "zen-style",
+  "version": "0.0.1",
+  "description": "Create styled components for Web, Android and iOS extremely fast.",
+  "license": "MIT",
+  "main": "index.ts",
+  "types": "lib/index.d.ts",
+  "files": [
+    "/lib"  
+  ],
+  "compilerOptions": {
+    "types": ["react", "jest"]
+  },
+  "keywords": [
+    "react",
+    "style-library",
+    "react-hooks",
+    "frontend",
+    "library",
+    "css",
+    "styleable"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "yarn prettier . --write"
+  },
+  "prettier": {
+    "printWidth": 140,
+    "plugins": [
+      "prettier-plugin-organize-imports"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lestercorderomurillo/zen-state.git"
+  },
+  "author": "Lester Cordero Murillo",
+  "bugs": {
+    "url": "https://github.com/lestercorderomurillo/zen-state/issues"
+  },
+  "homepage": "https://github.com/lestercorderomurillo/zen-state#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-native": "^0.74.1",
+    "type-fest": "^4.18.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.79",
+    "@types/react-native": "^18.2.79",
+    "prettier": "3.2.5",
+    "prettier-plugin-organize-imports": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
