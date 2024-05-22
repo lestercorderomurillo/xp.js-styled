@@ -44,14 +44,13 @@ export const resolveStyleProps = (props: any, colorsSchema?: ColorsSchema, sizeS
       } else if (SizeRegex.test(value)) {
         output[key] = size(value, sizeSchema);
       }
-    } else if (typeof value === "object") {
-      output[key] = resolveStyleProps(props, colorsSchema, sizeSchema);
+    } else if (typeof value === "object" && value !== null) {
+      output[key] = resolveStyleProps(value, colorsSchema, sizeSchema);
     }
   }
 
   return output;
 };
-
 export const hexToRGB = (hex: string) => hex.match(/\w\w/g).map((hex: string) => parseInt(hex, 16));
 
 export const reshade = (hex: string, lumen: number): string => {
@@ -83,24 +82,24 @@ export const color = (value: string, colors?: ColorsSchema, ignoreOwn = true): s
     return ColorPallete[value];
   }
 
-  if (colors[value]) {
+  if (colors?.[value]) {
     return colors[value];
   }
 
   if (ColorRegex.test(value)) {
     const [colorName, lumen] = value.split(".");
-    const color = ColorPallete[colorName];
-    if (color) {
-      return reshade(color, parseInt(lumen));
+    const baseColor = ColorPallete[colorName];
+    if (baseColor) {
+      return reshade(baseColor, parseInt(lumen));
     }
   } else if (colors && !ignoreOwn) {
     const themeColors = Object.keys(colors).join("|");
     const themeColorRegex = new RegExp(`\\b(?:${themeColors})\\.${ColorIntensity}\\b`);
     if (themeColorRegex.test(value)) {
       const [colorName, lumen] = value.split(".");
-      const color = colors[colorName];
-      if (color) {
-        return reshade(color, parseInt(lumen));
+      const themeColor = colors[colorName];
+      if (themeColor) {
+        return reshade(themeColor, parseInt(lumen));
       }
     }
   }
