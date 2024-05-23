@@ -1,7 +1,9 @@
-import { ColorIntensity, ColorPallete, ColorRegex, DefaultSizes, SizeRegex } from "../constants";
-import { ColorsSchema, SizesSchema } from "../types";
-import { isStyle } from "../utils";
+import { Appearance, Dimensions, Platform } from "react-native";
+import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
+import { ColorsSchema, SizesSchema, WithMediaQuery } from "../types";
+import { deepMerge, hexToRGB, isStyle } from "../utils";
 
+/*
 export const splitProps = ({ props, parser }: { props: { [key: string]: any }; parser?: Function }) => {
   let output = {
     props: {},
@@ -33,62 +35,23 @@ export const splitProps = ({ props, parser }: { props: { [key: string]: any }; p
 };
 
 export const resolveStyleProps = (props: any, colorsSchema?: ColorsSchema, sizeSchema?: SizesSchema<number>) => {
-  const output = {};
-  const seenObjects = new WeakSet();
+  let output = { ...props };
+  for (const key in props) {
+    const value = props[key];
+    output[key] = value;
 
-  const recursiveResolve = (input) => {
-      if (typeof input !== 'object' || input === null || seenObjects.has(input)) {
-          return input;
+    if (typeof value === "string") {
+      if (ColorRegex.test(value)) {
+        output[key] = color(value, colorsSchema, false);
+      } else if (SizeRegex.test(value)) {
+        output[key] = size(value, sizeSchema);
       }
-
-      seenObjects.add(input);
-      const result = Array.isArray(input) ? [] : {};
-
-      for (const key in input) {
-          const value = input[key];
-          if (typeof value === "string") {
-              if (ColorRegex.test(value)) {
-                  result[key] = color(value, colorsSchema, false);
-              } else if (SizeRegex.test(value)) {
-                  result[key] = size(value, sizeSchema);
-              } else {
-                  result[key] = value;
-              }
-          } else if (typeof value === "object" && value !== null) {
-              result[key] = recursiveResolve(value);
-          } else {
-              result[key] = value;
-          }
-      }
-      return result;
-  };
-
-  return recursiveResolve(props);
-};
-export const hexToRGB = (hex: string) => hex.match(/\w\w/g).map((hex: string) => parseInt(hex, 16));
-
-export const reshade = (hex: string, lumen: number): string => {
-  const rgb = hexToRGB(hex);
-
-  let factorValue = 0;
-  if (lumen === 500) {
-    factorValue = 0;
-  } else if (lumen > 500) {
-    factorValue = (lumen - 500) / 400;
-  } else {
-    factorValue = (500 - lumen) / 400;
+    } else if (typeof value === "object" && value !== null) {
+      output[key] = resolveStyleProps(value, colorsSchema, sizeSchema);
+    }
   }
 
-  factorValue *= 0.9;
-
-  const newRgb = rgb.map((colorChannel) => {
-    const newValue = colorChannel + factorValue * (lumen < 500 ? 255 - colorChannel : -colorChannel);
-    return Math.min(255, Math.max(0, Math.round(newValue)));
-  });
-
-  const newHex = newRgb.map((value) => value.toString(16).padStart(2, "0")).join("");
-
-  return `#${newHex}`;
+  return output;
 };
 
 export const color = (value: string, colors?: ColorsSchema, ignoreOwn = true): string => {
@@ -133,30 +96,90 @@ export const size = (value: string, sizesSchema?: SizesSchema<number>) => {
     return { ...DefaultSizes, ...sizesSchema }[value] ?? 12;
   }
 };
+*/
 
-/**
- * Merges an array of objects deeply.
- * @param {object[]} objects - The array of objects to merge.
- * @returns {object} The merged object.
- */
-export const deepMerge = (objects: any[]): object => {
-  if (!Array.isArray(objects)) {
-    throw new TypeError("Expected an array of objects");
+
+export const media = <T = any>(values: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => {
+  
+  const colorScheme = Appearance.getColorScheme();
+  const width = Dimensions.get("window").width;
+  
+  const breakpointsValues = breakpoints ?? DefaultBreakpoints;
+
+  let output: any = values;
+  const platformSpecificValue = values[`@${Platform.OS}`];
+  const breakpointKeys = Object.keys(breakpointsValues).sort((a, b) => breakpointsValues[a] - breakpointsValues[b]);
+
+  if (platformSpecificValue) {
+    output = deepMerge([output, platformSpecificValue]);
   }
 
-  const isObject = (obj: any) => obj && typeof obj === "object" && !Array.isArray(obj);
+  for (const breakpointKey of breakpointKeys) {
+    const threshold = breakpointsValues[breakpointKey];
+    const value = values["@" + breakpointKey];
 
-  return objects.reduce((acc, obj) => {
-    Object.keys(obj).forEach((key) => {
-      if (isObject(obj[key])) {
-        if (!acc[key]) {
-          acc[key] = {};
-        }
-        acc[key] = deepMerge([acc[key], obj[key]]);
-      } else {
-        acc[key] = obj[key];
-      }
-    });
-    return acc;
-  }, {});
+    if (width > threshold && value) {
+      output = deepMerge([output, value]);
+    }
+  }
+
+  if (colorScheme == "dark" && values["@dark"]) {
+    output = deepMerge([output, values["@dark"]]);
+  } else if (colorScheme == "light" && values["@light"]) {
+    output = deepMerge([output, values["@light"]]);
+  }
+
+  return output;
+};
+
+export const shade = (hex: string, lumen: number): string => {
+  const rgb = hexToRGB(hex);
+
+  let factorValue = 0;
+  if (lumen === 500) {
+    factorValue = 0;
+  } else if (lumen > 500) {
+    factorValue = (lumen - 500) / 400;
+  } else {
+    factorValue = (500 - lumen) / 400;
+  }
+
+  factorValue *= 0.9;
+
+  const newRgb = rgb.map((colorChannel) => {
+    const newValue = colorChannel + factorValue * (lumen < 500 ? 255 - colorChannel : -colorChannel);
+    return Math.min(255, Math.max(0, Math.round(newValue)));
+  });
+
+  const newHex = newRgb.map((value) => value.toString(16).padStart(2, "0")).join("");
+
+  return `#${newHex}`;
+};
+
+export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: SizesSchema<number>): string => {
+
+  if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")){
+      return value;
+  }
+
+  if (ColorPallete[value]) {
+    return ColorPallete[value];
+  }
+
+  if (colorScheme?.[value]) {
+    return colorScheme[value];
+  }
+
+  const colorNames = Object.keys({...ColorPallete, ...media(colorScheme, breakpoints)}).join("|")
+  const colorRegex = new RegExp(`\\b(?:${colorNames})\\.${ColorIntensity}\\b`);
+
+  if (colorRegex.test(value)) {
+    const [colorName, lumen] = value.split(".");
+    const baseColor = ColorPallete[colorName];
+    if (baseColor) {
+      return shade(baseColor, parseInt(lumen));
+    }
+  }
+
+  return value;
 };

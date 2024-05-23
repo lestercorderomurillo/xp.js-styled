@@ -9,8 +9,7 @@ type HSLColor = `hsl(${number}, ${number}, ${number})`;
 type HSLAColor = `hsla(${number}, ${number}, ${number}, ${number})`;
 type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 600 | 650 | 700 | 750 | 800 | 850 | 900;
 type DeclarativeColor = `${string}.${ColorRange}` | `${ColorPalleteKeys}`;
-
-export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
+type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
 
 export type WithMediaQuery<T = any> = T & {
   "@ios"?: T;
@@ -40,7 +39,7 @@ type TypedProps = {
   [key in `${string}Color`]?: TypedColor;
 };
 
-export type StylesSchema = Partial<{
+export type StylesheetSchema  = Partial<{
   [key: string]: WithMediaQuery<Style>;
 }>;
 
@@ -53,26 +52,23 @@ export type SizesSchema<T = any> = { [key in SizeNameKeys]: T };
 
 export type ThemeSchema = {
   colors?: ColorsSchema;
-  styles?: StylesSchema;
+  styles?: StylesheetSchema ;
   sizes?: SizesSchema<number>;
   fontSizes?: SizesSchema<number>;
   breakpoints?: SizesSchema<number>;
-};
-
-export type Theme = {
-  schema: Readonly<ThemeSchema>;
 };
 
 export type ColorPalleteKeys = keyof typeof ColorPallete;
 
 export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
 
-export type StyledComponentSchema = {
-  theme?: Theme;
+export type StyledSchema = {
+  theme?: ThemeSchema;
   parentStyles?: string[];
-} & WithMediaQuery<Style> & { variants?: { [x: string]: WithMediaQuery<Style> } };
+  variants?: { [x: string]: WithMediaQuery<Style> };
+} & WithMediaQuery<Style>;
 
-export type StyledComponentProps<TProps, TStyleProps, TVariants> = TProps &
+export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
   TStyleProps & {
     variant?: TVariants;
     children?: React.ReactNode;

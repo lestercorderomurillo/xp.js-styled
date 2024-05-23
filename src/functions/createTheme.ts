@@ -1,7 +1,5 @@
-import { Theme, ThemeSchema } from "../types";
+import { ThemeSchema } from "../types";
 
-export const createTheme = (schema: ThemeSchema): Theme => {
-  return {
-    schema,
-  };
+export const createTheme = (schema: ThemeSchema) => {
+  return schema;
 };

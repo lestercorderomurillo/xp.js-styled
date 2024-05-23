@@ -1,20 +1,25 @@
 import { useMemo } from "react";
-import { Theme } from "../types";
-import { useMediaQuery } from "./useMediaQuery";
-import { resolveStyleProps } from "../functions/transformers";
+import { ThemeSchema } from "../types";
+import { useColorScheme, useWindowDimensions } from "react-native";
+import { media } from "../functions/transformers";
 
-export const useTheme = (theme?: Theme) => {
-  const breakpoints = theme?.schema?.breakpoints;
-  const stylesSchema = theme?.schema?.styles;
-  const colorsSchema = theme?.schema?.colors;
+export const useTheme = (theme?: ThemeSchema) => {
 
-  const { resolveMediaQuery } = useMediaQuery(breakpoints);
+  const colorScheme = useColorScheme();
+  const windowDimensions = useWindowDimensions();
 
-  const styles = useMemo(() => stylesSchema ? resolveMediaQuery(stylesSchema) : {}, [stylesSchema, resolveMediaQuery]);
-  const colors = useMemo(() => colorsSchema ? resolveStyleProps(colorsSchema) : {}, [colorsSchema]);
+  const colors = useMemo(() => {
+    return media(theme.colors);
+  }, [colorScheme]);
+
+  const styles = useMemo(() => {
+    return media(theme.styles, theme.breakpoints);
+  }, [colorScheme, windowDimensions]);
 
   return {
     styles,
     colors,
+    sizes: theme.sizes,
+    fontSizes: theme.fontSizes
   };
 };

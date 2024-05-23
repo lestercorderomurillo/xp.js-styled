@@ -309,6 +309,6 @@ export const DefaultBreakpoints = {
 
 export const SizeNames = Object.keys(DefaultBreakpoints);
 export const SizeRegex = new RegExp(`\\b(?:[1-9]?${SizeNames.join("|")})\\b`);
-export const ColorPalleteNames = Object.keys(ColorPallete).join("|");
+//export const ColorPalleteNames = Object.keys(ColorPallete).join("|");
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";
-export const ColorRegex = new RegExp(`\\b(?:${ColorPalleteNames})\\.${ColorIntensity}\\b`);
+//export const ColorRegex = new RegExp(`\\b(?:${ColorPalleteNames})\\.${ColorIntensity}\\b`);
