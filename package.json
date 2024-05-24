@@ -30,7 +30,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "format": "yarn prettier . --write",
-    "release": "bash ./release.sh"
+    "release": "bash ./release.sh",
+    "reset": "git reset --hard origin/main"
   },
   "prettier": {
     "printWidth": 140,
