@@ -15,4 +15,4 @@ git commit -m "release: $NEW_VERSION"
 git push
 
 # Publish the package
-npm publish
+npm publish --access=public
