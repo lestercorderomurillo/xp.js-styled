@@ -9,11 +9,11 @@ export const useTheme = (theme?: ThemeSchema) => {
   const windowDimensions = useWindowDimensions();
 
   const colors = useMemo(() => {
-    return media(theme.colors);
+    return media(theme?.colors);
   }, [colorScheme]);
 
   const styles = useMemo(() => {
-    return media(theme.styles, theme.breakpoints);
+    return media(theme?.styles, theme?.breakpoints);
   }, [colorScheme, windowDimensions]);
 
   return {
