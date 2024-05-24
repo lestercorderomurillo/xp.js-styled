@@ -34,7 +34,7 @@ import { View } from "react-native";
 export const createStyled = <TProps extends {}>(Component: React.ComponentType<any>, schema: StyledSchema) => {
 
   return ({style, ...args}) => {
-    const {} = useTheme();
+    const {} = useTheme(schema.theme);
     return <Component {...args} style={deepMerge([style, schema])} />
   }
 };

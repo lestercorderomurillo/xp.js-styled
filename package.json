@@ -6,10 +6,13 @@
   "main": "index.ts",
   "types": "lib/index.d.ts",
   "files": [
-    "/lib"  
+    "/lib"
   ],
   "compilerOptions": {
-    "types": ["react", "jest"]
+    "types": [
+      "react",
+      "jest"
+    ]
   },
   "keywords": [
     "react",
@@ -25,7 +28,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "yarn prettier . --write"
+    "build": "tsc",
+    "format": "yarn prettier . --write",
+    "release": "yarn build && git add . && git commit -m \"Release v$(node -p \"require('./package.json').version\")\" && git tag -a \"v$(node -p \"require('./package.json').version\")\" -m \"Release v$(node -p \"require('./package.json').version\")\" && npm publish"
   },
   "prettier": {
     "printWidth": 140,
@@ -52,7 +57,6 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.79",
-    "@types/react-native": "^18.2.79",
     "prettier": "3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4"
   },

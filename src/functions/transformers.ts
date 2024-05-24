@@ -1,7 +1,7 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
 import { ColorsSchema, SizesSchema, WithMediaQuery } from "../types";
-import { deepMerge, hexToRGB, isStyle } from "../utils";
+import { deepMerge, hexToRGB, isStyleProp } from "../utils";
 
 /*
 export const splitProps = ({ props, parser }: { props: { [key: string]: any }; parser?: Function }) => {
