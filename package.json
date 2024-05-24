@@ -30,7 +30,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "format": "yarn prettier . --write",
-    "release": "yarn build && git add . && git commit -m \"Release v$(node -p \"require('./package.json').version\")\" && git tag -a \"v$(node -p \"require('./package.json').version\")\" -m \"Release v$(node -p \"require('./package.json').version\")\" && npm publish"
+    "release": "yarn build && git add . && npm version patch && git push && npm publish"
   },
   "prettier": {
     "printWidth": 140,
