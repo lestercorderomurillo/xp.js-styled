@@ -3,7 +3,7 @@ import { ThemeSchema } from "../types";
 import { useColorScheme, useWindowDimensions } from "react-native";
 import { media } from "../functions/transformers";
 
-export const useTheme = (theme: ThemeSchema) => {
+export const useTheme = (theme?: ThemeSchema) => {
 
   const colorScheme = useColorScheme();
   const windowDimensions = useWindowDimensions();
@@ -19,7 +19,7 @@ export const useTheme = (theme: ThemeSchema) => {
   return {
     styles,
     colors,
-    sizes: theme.sizes,
-    fontSizes: theme.fontSizes
+    sizes: theme?.sizes ?? {},
+    fontSizes: theme?.fontSizes ?? {}
   };
 };

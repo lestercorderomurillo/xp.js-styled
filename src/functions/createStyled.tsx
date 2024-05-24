@@ -31,7 +31,16 @@ import { View } from "react-native";
   };
 };*/
 
-export const createStyled = <TProps extends {}>(Component: React.ComponentType<any>, schema: StyledSchema) => {
+
+
+
+/**
+ * Create a Styled Component given a style schema and a base theme (both optional).
+ * @param {React.ComponentType<any>} Component The component to render. 
+ * @param {StyledSchema} schema The style schema.
+ * @returns A HOC wrapper around your component with extended features.
+ */
+export const createStyled = <TProps extends {}>(Component: React.ComponentType<any>, schema?: StyledSchema) => {
 
   return ({style, ...args}) => {
     const {} = useTheme(schema.theme);

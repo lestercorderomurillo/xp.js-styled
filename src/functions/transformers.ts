@@ -99,35 +99,39 @@ export const size = (value: string, sizesSchema?: SizesSchema<number>) => {
 */
 
 
-export const media = <T = any>(values: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => {
+export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => {
   
   const colorScheme = Appearance.getColorScheme();
   const width = Dimensions.get("window").width;
-  
   const breakpointsValues = breakpoints ?? DefaultBreakpoints;
 
-  let output: any = values;
-  const platformSpecificValue = values[`@${Platform.OS}`];
-  const breakpointKeys = Object.keys(breakpointsValues).sort((a, b) => breakpointsValues[a] - breakpointsValues[b]);
+  let output: any = values ?? {};
 
-  if (platformSpecificValue) {
-    output = deepMerge([output, platformSpecificValue]);
-  }
+  if(values){
 
-  for (const breakpointKey of breakpointKeys) {
-    const threshold = breakpointsValues[breakpointKey];
-    const value = values["@" + breakpointKey];
+    const platformSpecificValue = values[`@${Platform.OS}`];
+    const breakpointKeys = Object.keys(breakpointsValues).sort((a, b) => breakpointsValues[a] - breakpointsValues[b]);
 
-    if (width > threshold && value) {
-      output = deepMerge([output, value]);
+    if (platformSpecificValue) {
+      output = deepMerge([output, platformSpecificValue]);
+    }
+
+    for (const breakpointKey of breakpointKeys) {
+      const threshold = breakpointsValues[breakpointKey];
+      const value = values["@" + breakpointKey];
+  
+      if (width > threshold && value) {
+        output = deepMerge([output, value]);
+      }
+    }
+  
+    if (colorScheme == "dark" && values["@dark"]) {
+      output = deepMerge([output, values["@dark"]]);
+    } else if (colorScheme == "light" && values["@light"]) {
+      output = deepMerge([output, values["@light"]]);
     }
   }
-
-  if (colorScheme == "dark" && values["@dark"]) {
-    output = deepMerge([output, values["@dark"]]);
-  } else if (colorScheme == "light" && values["@light"]) {
-    output = deepMerge([output, values["@light"]]);
-  }
+  
 
   return output;
 };

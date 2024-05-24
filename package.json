@@ -30,7 +30,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "format": "yarn prettier . --write",
-    "release": "yarn build && git add . && npm version patch && git push && npm publish"
+    "release": "bash ./release.sh"
   },
   "prettier": {
     "printWidth": 140,
@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.79",
+    "typescript": "^4.8.2",
     "prettier": "3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4"
   },
