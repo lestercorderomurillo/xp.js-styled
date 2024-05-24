@@ -50,7 +50,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-native": "^0.74.1",
-    "type-fest": "^4.18.2"
+    "type-fest": "^4.18.2",
+    "yarn": "^1.22.22"
   },
   "peerDependencies": {
     "react": "^18.2.0"
