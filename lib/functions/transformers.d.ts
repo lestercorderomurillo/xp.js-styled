@@ -77,4 +77,4 @@ export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoi
  * @param sizesSchema - Size schema.
  * @returns Resolved size value.
  */
-export declare const size: (value: string, sizesSchema?: SizesSchema<number>) => number;
+export declare const size: (value: string | number, sizesSchema?: SizesSchema<number>) => number;

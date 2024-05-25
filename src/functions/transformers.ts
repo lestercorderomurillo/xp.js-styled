@@ -236,19 +236,21 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: S
  * @param sizesSchema - Size schema.
  * @returns Resolved size value.
  */
-export const size = (value: string, sizesSchema?: SizesSchema<number>) => {
-  console.log('size');
-  const match = SizeRegex.exec(value);
-  console.log('value');
-  console.log(value);
-  console.log('match');
-  console.log(match);
-  if (match && match.length > 1) {
-    const multiplier = parseInt(match[1]);
-    const baseSize = match[2];
-    const baseValue = { ...DefaultSizes, ...sizesSchema }[baseSize] ?? 12;
-    return multiplier * baseValue;
+export const size = (value: string | number, sizesSchema?: SizesSchema<number>) => {
+
+  if (typeof value == 'string'){
+    const match = SizeRegex.exec(value);
+    if (match && match.length > 0) {
+      const multiplier = typeof match[0] == 'string' ? parseInt(match[0]) : 1;
+      const breakpointSize = match[1] ?? 'md';
+      const sizes = { ...DefaultSizes, ...sizesSchema }
+      const value = sizes[breakpointSize];
+      return multiplier * value;
+    } else {
+      return { ...DefaultSizes, ...sizesSchema }[value];
+    }
   } else {
-    return { ...DefaultSizes, ...sizesSchema }[value] ?? 12;
+    return value;
   }
+  
 };
