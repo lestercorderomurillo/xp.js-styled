@@ -237,8 +237,12 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: S
  * @returns Resolved size value.
  */
 export const size = (value: string, sizesSchema?: SizesSchema<number>) => {
+  console.log('size');
   const match = SizeRegex.exec(value);
-
+  console.log('value');
+  console.log(value);
+  console.log('match');
+  console.log(match);
   if (match && match.length > 1) {
     const multiplier = parseInt(match[1]);
     const baseSize = match[2];
