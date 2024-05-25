@@ -13,11 +13,11 @@ export const createStyled = <TProps extends {}>(Component: React.ComponentType<a
   return ({ ...args }) => {
     const mutableSchema = schema ? { ...schema } : {};
 
-    delete mutableSchema.theme;
-    delete mutableSchema.variants;
-
     const schemaStyle = deepTransform(mutableSchema, schema?.theme);
     const style = deepTransform(args.style, schema?.theme);
+
+    delete mutableSchema.theme;
+    delete mutableSchema.variants;
 
     return <Component {...args} style={deepMerge([schemaStyle, style])} />;
   };
