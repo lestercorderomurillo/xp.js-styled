@@ -3,6 +3,7 @@ import { useTheme } from "../hooks/useTheme";
 import { StyledProps, StyledSchema } from "../types";
 import { deepMerge } from "../utils";
 import { View } from "react-native";
+import { deepSize } from "./transformers";
 
 /*export const createStyled = <TProps extends {}>(Component: React.ComponentType<any>, schema: StyledSchema) => {
   return ({ variant, ...args }: StyledProps<TProps, {}, "primary" | "secondary">) => {
@@ -42,8 +43,8 @@ import { View } from "react-native";
  */
 export const createStyled = <TProps extends {}>(Component: React.ComponentType<any>, schema?: StyledSchema) => {
 
-  return ({style, ...args}) => {
+  return ({style, ...args}) => { 
     const {} = useTheme(schema.theme);
-    return <Component {...args} style={deepMerge([style, schema])} />
+    return <Component {...args} style={deepMerge([style, deepSize(schema)])} />
   }
 };

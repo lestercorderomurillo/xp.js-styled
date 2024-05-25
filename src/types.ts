@@ -74,3 +74,18 @@ export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
     children?: React.ReactNode;
     style?: StyleProp<TStyleProps> & TypedProps;
   } & TypedProps;
+
+  
+/**
+ * Type defining the properties required by the deepTransform function.
+ */
+export type DeepMapProps = {
+  /** The input object to be transformed. */
+  input: any;
+  /** Optional context data for transformation. */
+  context?: any;
+  /** Function to transform individual values within the input object. */
+  map: ({ value, key, context }: { value: any; key?: string; context?: any }) => any;
+  /** Function to determine if a value should be transformed. */
+  match: (value: any) => boolean;
+};

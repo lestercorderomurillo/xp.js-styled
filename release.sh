@@ -16,3 +16,6 @@ git push
 
 # Publish the package
 npm publish --access=public
+
+# Pull the changes from the remote repository
+git pull || exit 1

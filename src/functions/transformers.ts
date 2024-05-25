@@ -1,32 +1,49 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
-import { ColorsSchema, SizesSchema, WithMediaQuery } from "../types";
-import { deepMerge, hexToRGB, isStyleProp } from "../utils";
+import { ColorsSchema, DeepMapProps, SizesSchema, ThemeSchema, WithMediaQuery } from "../types";
+import { deepMerge, hexToRGB, isObject, isString, isStyleProp } from "../utils";
 
-/*
-export const splitProps = ({ props, parser }: { props: { [key: string]: any }; parser?: Function }) => {
-  let output = {
-    props: {},
+/**
+ * Splits the input props object into separate props and style objects.
+ *
+ * @param props - The input props object containing both regular props and style props.
+ * @param parser - An optional function to transform the resulting props and style objects.
+ * @returns An object containing the separated props and style objects.
+ */
+export const splitProps = ({
+  props,
+  parser,
+}: {
+  props: { [key: string]: any };
+  parser?: (value: any) => any;
+}): {
+  props: { [key: string]: any };
+  style: { [key: string]: any };
+} => {
+  // Initialize output objects
+  const output = {
+    props: { ...props }, // Create a shallow copy of props to avoid mutation
     style: {},
   };
 
-  for (const prop in props) {
-    if (isStyle(prop)) {
-      output.style[prop] = props[prop];
-    } else {
-      output.props[prop] = props[prop];
+  // Iterate over the props and separate style props
+  for (const prop in output.props) {
+    if (isStyleProp(prop)) {
+      output.style[prop] = output.props[prop];
+      delete output.props[prop];
     }
   }
 
+  // Handle size, width, and height props
   if (props.size || props.width) {
-    output.style["width"] = props.size ?? props.width;
+    output.style['width'] = props.size ?? props.width;
   }
-
   if (props.size || props.height) {
-    output.style["height"] = props.size ?? props.height;
+    output.style['height'] = props.size ?? props.height;
   }
 
-  const parse = (values) => (parser ? parser(values) : values);
+  // Apply the parser function if provided
+  const parse = (value: any) => (parser ? parser(value) : value);
 
   return {
     props: parse(output.props),
@@ -34,71 +51,83 @@ export const splitProps = ({ props, parser }: { props: { [key: string]: any }; p
   };
 };
 
-export const resolveStyleProps = (props: any, colorsSchema?: ColorsSchema, sizeSchema?: SizesSchema<number>) => {
-  let output = { ...props };
-  for (const key in props) {
-    const value = props[key];
-    output[key] = value;
 
-    if (typeof value === "string") {
-      if (ColorRegex.test(value)) {
-        output[key] = color(value, colorsSchema, false);
-      } else if (SizeRegex.test(value)) {
-        output[key] = size(value, sizeSchema);
-      }
-    } else if (typeof value === "object" && value !== null) {
-      output[key] = resolveStyleProps(value, colorsSchema, sizeSchema);
-    }
-  }
+/**
+ * Recursively transforms nested objects based on the provided match and localTransform functions.
+ * @param input - The input object to be transformed.
+ * @param context - Optional context data for transformation.
+ * @param match - Function to determine if a value should be transformed.
+ * @param map - Function to transform individual values within the input object.
+ * @returns Transformed object.
+ */
+export const deepMap = ({input, context, match, map}: DeepMapProps) => {
 
-  return output;
-};
+  if (match(input)) {
+    return map({value: input, context}); 
 
-export const color = (value: string, colors?: ColorsSchema, ignoreOwn = true): string => {
-  if (ColorPallete[value]) {
-    return ColorPallete[value];
-  }
+  }else if (isObject(input)){
+    let output = { };
 
-  if (colors?.[value]) {
-    return colors[value];
-  }
-
-  if (ColorRegex.test(value)) {
-    const [colorName, lumen] = value.split(".");
-    const baseColor = ColorPallete[colorName];
-    if (baseColor) {
-      return reshade(baseColor, parseInt(lumen));
-    }
-  } else if (colors && !ignoreOwn) {
-    const themeColors = Object.keys(colors).join("|");
-    const themeColorRegex = new RegExp(`\\b(?:${themeColors})\\.${ColorIntensity}\\b`);
-    if (themeColorRegex.test(value)) {
-      const [colorName, lumen] = value.split(".");
-      const themeColor = colors[colorName];
-      if (themeColor) {
-        return reshade(themeColor, parseInt(lumen));
+    for (const key in input) {
+      const value = input[key];
+      output[key] = value;
+  
+      if (match(value)) {
+        output[key] = map({value, context});
+      } else if (isObject(value)) {
+        output[key] = deepMap({input: value, context, match, map});
       }
     }
   }
 
-  return value;
+  return input;
 };
 
-export const size = (value: string, sizesSchema?: SizesSchema<number>) => {
-  const match = SizeRegex.exec(value);
-
-  if (match && match.length > 1) {
-    const multiplier = parseInt(match[1]);
-    const baseSize = match[2];
-    const baseValue = { ...DefaultSizes, ...sizesSchema }[baseSize] ?? 12;
-    return multiplier * baseValue;
-  } else {
-    return { ...DefaultSizes, ...sizesSchema }[value] ?? 12;
-  }
+/**
+ * Utility function to recursively transform size strings within an object.
+ * @param props - The input object containing size strings to be transformed.
+ * @param sizeSchema - Optional schema for size transformation.
+ * @returns Object with size strings transformed.
+ */
+export const deepSize = (props: object, sizeSchema?: SizesSchema<number>) => {
+  return deepMap({
+    input: props,
+    match: (value) => isString(value) && SizeRegex.test(value),
+    map: ({value}) => size(value, sizeSchema)
+  });
 };
-*/
 
+/**
+ * Utility function to recursively transform color strings within an object.
+ * @param props - The input object containing color strings to be transformed.
+ * @param colorsSchema - Optional schema for color transformation.
+ * @returns Object with color strings transformed.
+ */
+export const deepColor = (props: object, colorsSchema?: ColorsSchema) => {
+  const colorRegex = new RegExp(`\\b(?:${Object.keys({...ColorPallete, ...colorsSchema}).join("|")})\\.${ColorIntensity}\\b`);
+  return deepMap({
+    input: props,
+    match: (value) => isString(value) && colorRegex.test(value),
+    map: ({value}) => color(value, colorsSchema)
+  });
+};
 
+/**
+ * Utility function to perform transformations given a theme schema on a object recursively.
+ * @param props - The input object containing values to be transformed.
+ * @param colorsSchema - Optional schema for transformation.
+ * @returns Object with values transformed.
+ */
+export const deepTransform = (object, theme?: ThemeSchema) => {
+  return deepSize(deepColor(object, theme?.colors), theme?.sizes);
+}
+
+/**
+ * Function to consume media queries based on breakpoints and the device color scheme.
+ * @param values - Media query values.
+ * @param breakpoints - Breakpoint sizes.
+ * @returns Generated style with media queries applied on.
+ */
 export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => {
   
   const colorScheme = Appearance.getColorScheme();
@@ -136,6 +165,12 @@ export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSc
   return output;
 };
 
+/**
+ * Function to generate shades of a color.
+ * @param hex - Base color in hexadecimal format.
+ * @param lumen - Luminosity value. 100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900
+ * @returns Generated shaded color.
+ */
 export const shade = (hex: string, lumen: number): string => {
   const rgb = hexToRGB(hex);
 
@@ -160,6 +195,13 @@ export const shade = (hex: string, lumen: number): string => {
   return `#${newHex}`;
 };
 
+/**
+ * Function to resolve color values.
+ * @param value - Color value to resolve.
+ * @param colorScheme - Color scheme.
+ * @param breakpoints - Breakpoint sizes.
+ * @returns Resolved color value.
+ */
 export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: SizesSchema<number>): string => {
 
   if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")){
@@ -186,4 +228,23 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: S
   }
 
   return value;
+};
+
+/**
+ * Function to resolve size values.
+ * @param value - Size value to resolve.
+ * @param sizesSchema - Size schema.
+ * @returns Resolved size value.
+ */
+export const size = (value: string, sizesSchema?: SizesSchema<number>) => {
+  const match = SizeRegex.exec(value);
+
+  if (match && match.length > 1) {
+    const multiplier = parseInt(match[1]);
+    const baseSize = match[2];
+    const baseValue = { ...DefaultSizes, ...sizesSchema }[baseSize] ?? 12;
+    return multiplier * baseValue;
+  } else {
+    return { ...DefaultSizes, ...sizesSchema }[value] ?? 12;
+  }
 };

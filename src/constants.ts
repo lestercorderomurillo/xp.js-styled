@@ -307,8 +307,5 @@ export const DefaultBreakpoints = {
   "4k": 3840,
 };
 
-export const SizeNames = Object.keys(DefaultBreakpoints);
-export const SizeRegex = new RegExp(`\\b(?:[1-9]?${SizeNames.join("|")})\\b`);
-//export const ColorPalleteNames = Object.keys(ColorPallete).join("|");
+export const SizeRegex = /\b(?:[2-9]\d*|1\d+|[2-9])?(us|xs|sm|md|lg|xl|2k|4k)\b/;
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";
-//export const ColorRegex = new RegExp(`\\b(?:${ColorPalleteNames})\\.${ColorIntensity}\\b`);
