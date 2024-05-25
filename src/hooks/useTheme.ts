@@ -1,10 +1,9 @@
 import { useMemo } from "react";
-import { ThemeSchema } from "../types";
 import { useColorScheme, useWindowDimensions } from "react-native";
 import { media } from "../functions/transformers";
+import { ThemeSchema } from "../types";
 
 export const useTheme = (theme?: ThemeSchema) => {
-
   const colorScheme = useColorScheme();
   const windowDimensions = useWindowDimensions();
 
@@ -20,6 +19,6 @@ export const useTheme = (theme?: ThemeSchema) => {
     styles,
     colors,
     sizes: theme?.sizes ?? {},
-    fontSizes: theme?.fontSizes ?? {}
+    fontSizes: theme?.fontSizes ?? {},
   };
 };

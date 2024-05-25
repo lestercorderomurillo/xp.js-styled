@@ -39,7 +39,7 @@ type TypedProps = {
   [key in `${string}Color`]?: TypedColor;
 };
 
-export type StylesheetSchema  = Partial<{
+export type StylesheetSchema = Partial<{
   [key: string]: WithMediaQuery<Style>;
 }>;
 
@@ -52,7 +52,7 @@ export type SizesSchema<T = any> = { [key in SizeNameKeys]: T };
 
 export type ThemeSchema = {
   colors?: ColorsSchema;
-  styles?: StylesheetSchema ;
+  styles?: StylesheetSchema;
   sizes?: SizesSchema<number>;
   fontSizes?: SizesSchema<number>;
   breakpoints?: SizesSchema<number>;
@@ -66,7 +66,8 @@ export type StyledSchema = {
   theme?: ThemeSchema;
   parentStyles?: string[];
   variants?: { [x: string]: WithMediaQuery<Style> };
-} & WithMediaQuery<Style> & object;
+} & WithMediaQuery<Style> &
+  object;
 
 export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
   TStyleProps & {
@@ -75,7 +76,6 @@ export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
     style?: StyleProp<TStyleProps> & TypedProps;
   } & TypedProps;
 
-  
 /**
  * Type defining the properties required by the deepTransform function.
  */

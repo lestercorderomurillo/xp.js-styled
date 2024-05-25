@@ -36,10 +36,10 @@ export const splitProps = ({
 
   // Handle size, width, and height props
   if (props.size || props.width) {
-    output.style['width'] = props.size ?? props.width;
+    output.style["width"] = props.size ?? props.width;
   }
   if (props.size || props.height) {
-    output.style['height'] = props.size ?? props.height;
+    output.style["height"] = props.size ?? props.height;
   }
 
   // Apply the parser function if provided
@@ -51,7 +51,6 @@ export const splitProps = ({
   };
 };
 
-
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.
  * @param input - The input object to be transformed.
@@ -60,22 +59,20 @@ export const splitProps = ({
  * @param map - Function to transform individual values within the input object.
  * @returns Transformed object.
  */
-export const deepMap = ({input, context, match, map}: DeepMapProps) => {
-
+export const deepMap = ({ input, context, match, map }: DeepMapProps) => {
   if (match(input)) {
-    return map({value: input, context}); 
-
-  }else if (isObject(input)){
-    let output = { };
+    return map({ value: input, context });
+  } else if (isObject(input)) {
+    let output = {};
 
     for (const key in input) {
       const value = input[key];
       output[key] = value;
-  
+
       if (match(value)) {
-        output[key] = map({value, context});
+        output[key] = map({ value, context });
       } else if (isObject(value)) {
-        output[key] = deepMap({input: value, context, match, map});
+        output[key] = deepMap({ input: value, context, match, map });
       }
     }
   }
@@ -93,7 +90,7 @@ export const deepSize = (props: object, sizeSchema?: SizesSchema<number>) => {
   return deepMap({
     input: props,
     match: (value) => isString(value) && SizeRegex.test(value),
-    map: ({value}) => size(value, sizeSchema)
+    map: ({ value }) => size(value, sizeSchema),
   });
 };
 
@@ -104,11 +101,11 @@ export const deepSize = (props: object, sizeSchema?: SizesSchema<number>) => {
  * @returns Object with color strings transformed.
  */
 export const deepColor = (props: object, colorsSchema?: ColorsSchema) => {
-  const colorRegex = new RegExp(`\\b(?:${Object.keys({...ColorPallete, ...colorsSchema}).join("|")})\\.${ColorIntensity}\\b`);
+  const colorRegex = new RegExp(`\\b(?:${Object.keys({ ...ColorPallete, ...colorsSchema }).join("|")})\\.${ColorIntensity}\\b`);
   return deepMap({
     input: props,
     match: (value) => isString(value) && colorRegex.test(value),
-    map: ({value}) => color(value, colorsSchema)
+    map: ({ value }) => color(value, colorsSchema),
   });
 };
 
@@ -120,7 +117,7 @@ export const deepColor = (props: object, colorsSchema?: ColorsSchema) => {
  */
 export const deepTransform = (object, theme?: ThemeSchema) => {
   return deepSize(deepColor(object, theme?.colors), theme?.sizes);
-}
+};
 
 /**
  * Function to consume media queries based on breakpoints and the device color scheme.
@@ -129,15 +126,13 @@ export const deepTransform = (object, theme?: ThemeSchema) => {
  * @returns Generated style with media queries applied on.
  */
 export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => {
-  
   const colorScheme = Appearance.getColorScheme();
   const width = Dimensions.get("window").width;
   const breakpointsValues = breakpoints ?? DefaultBreakpoints;
 
   let output: any = values ?? {};
 
-  if(values){
-
+  if (values) {
     const platformSpecificValue = values[`@${Platform.OS}`];
     const breakpointKeys = Object.keys(breakpointsValues).sort((a, b) => breakpointsValues[a] - breakpointsValues[b]);
 
@@ -148,19 +143,18 @@ export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSc
     for (const breakpointKey of breakpointKeys) {
       const threshold = breakpointsValues[breakpointKey];
       const value = values["@" + breakpointKey];
-  
+
       if (width > threshold && value) {
         output = deepMerge([output, value]);
       }
     }
-  
+
     if (colorScheme == "dark" && values["@dark"]) {
       output = deepMerge([output, values["@dark"]]);
     } else if (colorScheme == "light" && values["@light"]) {
       output = deepMerge([output, values["@light"]]);
     }
   }
-  
 
   return output;
 };
@@ -203,9 +197,8 @@ export const shade = (hex: string, lumen: number): string => {
  * @returns Resolved color value.
  */
 export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: SizesSchema<number>): string => {
-
-  if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")){
-      return value;
+  if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")) {
+    return value;
   }
 
   if (ColorPallete[value]) {
@@ -216,7 +209,7 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: S
     return colorScheme[value];
   }
 
-  const colorNames = Object.keys({...ColorPallete, ...media(colorScheme, breakpoints)}).join("|")
+  const colorNames = Object.keys({ ...ColorPallete, ...media(colorScheme, breakpoints) }).join("|");
   const colorRegex = new RegExp(`\\b(?:${colorNames})\\.${ColorIntensity}\\b`);
 
   if (colorRegex.test(value)) {
