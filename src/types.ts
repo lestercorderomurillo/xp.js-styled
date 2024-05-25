@@ -66,7 +66,7 @@ export type StyledSchema = {
   theme?: ThemeSchema;
   parentStyles?: string[];
   variants?: { [x: string]: WithMediaQuery<Style> };
-} & WithMediaQuery<Style>;
+} & WithMediaQuery<Style> & object;
 
 export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
   TStyleProps & {

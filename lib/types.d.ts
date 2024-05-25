@@ -68,7 +68,7 @@ export type StyledSchema = {
     variants?: {
         [x: string]: WithMediaQuery<Style>;
     };
-} & WithMediaQuery<Style>;
+} & WithMediaQuery<Style> & object;
 export type StyledProps<TProps, TStyleProps, TVariants> = TProps & TStyleProps & {
     variant?: TVariants;
     children?: React.ReactNode;
