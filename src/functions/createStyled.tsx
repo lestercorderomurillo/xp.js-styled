@@ -15,19 +15,18 @@ export const createStyled = <TProps extends {}>(Component: React.ComponentType<a
     const deviceColorScheme = useColorScheme();
     const deviceDimensions = useWindowDimensions();
 
-    const schemaStyle = useMemo(() => {
-      const schemaWithQuery = media(schema ?? {}, schema?.theme?.breakpoints);
+    const memo = useMemo(() => {
+      const schemaStyle = deepTransform(media(schema ?? {}, schema?.theme?.breakpoints), schema?.theme);
+      const style = deepTransform(args.style, schema?.theme);
+      const variantStyle = schema?.variants && schema?.variants[args.variant] ? deepTransform(schema?.variants[args.variant], schema?.theme) : {};
 
-      delete schemaWithQuery.theme;
-      delete schemaWithQuery.variants;
-
-      return deepTransform(schemaWithQuery, schema?.theme);
+      return {
+        style,
+        variantStyle,
+        schemaStyle,
+      }
     }, [deviceColorScheme, deviceDimensions]);
 
-    const style = deepTransform(args.style, schema?.theme);
-    const variantStyle =
-      schema?.variants && schema?.variants[args.variant] ? deepTransform(schema?.variants[args.variant], schema?.theme) : {};
-
-    return <Component {...args} style={deepMerge([schemaStyle, style, variantStyle])} />;
+    return <Component {...args} style={deepMerge([memo.schemaStyle, memo.style, memo.variantStyle])} />;
   };
 };

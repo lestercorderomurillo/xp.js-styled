@@ -1,6 +1,6 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
-import { ColorsSchema, DeepMapProps, SizesSchema, ThemeSchema, WithMediaQuery } from "../types";
+import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
 import { deepMerge, hexToRGB, isObject, isString, isStyleProp } from "../utils";
 
 /**
@@ -93,7 +93,7 @@ export const deepMap = ({ input, context, match, map }: DeepMapProps) => {
  * @param sizeSchema - Optional schema for size transformation.
  * @returns Object with size strings transformed.
  */
-export const deepSize = (props: object, sizeSchema?: SizesSchema<number>) => {
+export const deepSize = (props: object, sizeSchema?: ResponsiveSchema<number>) => {
   return deepMap({
     input: props,
     match: (value) => isString(value) && (value == "2k" || value == "4k" || SizeRegex.test(value)),
@@ -132,7 +132,7 @@ export const deepTransform = (object, theme?: ThemeSchema) => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Generated style with media queries applied on.
  */
-export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => {
+export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: ResponsiveSchema<number>) => {
   const colorScheme = Appearance.getColorScheme();
   const width = Dimensions.get("window").width;
   const breakpointsValues = breakpoints ?? DefaultBreakpoints;
@@ -203,7 +203,7 @@ export const shade = (hex: string, lumen: number): string => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: SizesSchema<number>): string => {
+export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>): string => {
   if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")) {
     return value;
   }
@@ -236,7 +236,7 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: S
  * @param sizesSchema - Size schema.
  * @returns Resolved size value.
  */
-export const size = (value: string | number, sizesSchema?: SizesSchema<number>) => {
+export const size = (value: string | number, sizesSchema?: ResponsiveSchema<number>) => {
   if (typeof value == "string") {
     if (value != "2k" && value != "4k") {
       const match = SizeRegex.exec(value);
