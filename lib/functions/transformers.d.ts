@@ -1,4 +1,4 @@
-import { ColorsSchema, DeepMapProps, SizesSchema, ThemeSchema, WithMediaQuery } from "../types";
+import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
 /**
  * Splits the input props object into separate props and style objects.
  *
@@ -6,21 +6,18 @@ import { ColorsSchema, DeepMapProps, SizesSchema, ThemeSchema, WithMediaQuery } 
  * @param parser - An optional function to transform the resulting props and style objects.
  * @returns An object containing the separated props and style objects.
  */
-export declare const splitProps: ({
-  props,
-  parser,
-}: {
-  props: {
-    [key: string]: any;
-  };
-  parser?: (value: any) => any;
+export declare const splitProps: ({ props, parser, }: {
+    props: {
+        [key: string]: any;
+    };
+    parser?: (value: any) => any;
 }) => {
-  props: {
-    [key: string]: any;
-  };
-  style: {
-    [key: string]: any;
-  };
+    props: {
+        [key: string]: any;
+    };
+    style: {
+        [key: string]: any;
+    };
 };
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.
@@ -37,7 +34,7 @@ export declare const deepMap: ({ input, context, match, map }: DeepMapProps) => 
  * @param sizeSchema - Optional schema for size transformation.
  * @returns Object with size strings transformed.
  */
-export declare const deepSize: (props: object, sizeSchema?: SizesSchema<number>) => any;
+export declare const deepSize: (props: object, sizeSchema?: ResponsiveSchema<number>) => any;
 /**
  * Utility function to recursively transform color strings within an object.
  * @param props - The input object containing color strings to be transformed.
@@ -58,7 +55,7 @@ export declare const deepTransform: (object: any, theme?: ThemeSchema) => any;
  * @param breakpoints - Breakpoint sizes.
  * @returns Generated style with media queries applied on.
  */
-export declare const media: <T = any>(values?: WithMediaQuery<T>, breakpoints?: SizesSchema<number>) => any;
+export declare const media: <T = any>(values?: WithMediaQuery<T>, breakpoints?: ResponsiveSchema<number>) => any;
 /**
  * Function to generate shades of a color.
  * @param hex - Base color in hexadecimal format.
@@ -73,11 +70,11 @@ export declare const shade: (hex: string, lumen: number) => string;
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoints?: SizesSchema<number>) => string;
+export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>) => string;
 /**
  * Function to resolve size values.
  * @param value - Size value to resolve.
  * @param sizesSchema - Size schema.
  * @returns Resolved size value.
  */
-export declare const size: (value: string | number, sizesSchema?: SizesSchema<number>) => number;
+export declare const size: (value: string | number, sizesSchema?: ResponsiveSchema<number>) => number;
