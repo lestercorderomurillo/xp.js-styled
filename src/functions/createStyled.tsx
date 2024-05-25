@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledSchema } from "../types";
 import { deepMerge } from "../utils";
-import { deepTransform } from "./transformers";
+import { deepTransform, media } from "./transformers";
 
 /**
  * Create a Styled Component given a style schema and a base theme (both optional).
@@ -11,14 +11,16 @@ import { deepTransform } from "./transformers";
  */
 export const createStyled = <TProps extends {}>(Component: React.ComponentType<any>, schema?: StyledSchema) => {
   return ({ ...args }) => {
-    const mutableSchema = schema ? { ...schema } : {};
 
-    const schemaStyle = deepTransform(mutableSchema, schema?.theme);
+    const schemaWithQuery = media(schema ?? {}, schema?.theme?.breakpoints);
+
+    delete schemaWithQuery.theme;
+    delete schemaWithQuery.variants;
+
+    const schemaStyle = deepTransform(schemaWithQuery, schema?.theme);
     const style = deepTransform(args.style, schema?.theme);
+    const variantStyle = schema?.variants && schema?.variants[args.variant] ? deepTransform(schema?.variants[args.variant], schema?.theme) : {};
 
-    delete mutableSchema.theme;
-    delete mutableSchema.variants;
-
-    return <Component {...args} style={deepMerge([schemaStyle, style])} />;
+    return <Component {...args} style={deepMerge([schemaStyle, style, variantStyle])} />;
   };
 };
