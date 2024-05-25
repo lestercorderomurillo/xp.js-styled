@@ -14,4 +14,4 @@ git push
 yarn publish --access public
 
 # Pull the changes from the remote repository
-git pull || exit 1
+git reset --hard HEAD
