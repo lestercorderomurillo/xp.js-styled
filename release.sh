@@ -5,7 +5,7 @@ yarn build
 git add .
 
 # Bump the version
-yarn version --patch
+#yarn version --patch
 
 # Push the changes to the remote repository
 git push
