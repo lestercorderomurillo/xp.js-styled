@@ -1,3 +1,12 @@
 import React from "react";
-import { StyledComponentProps, StyledComponentSchema } from "../types";
-export declare const createStyled: <TProps extends {}>(Component: React.ComponentType<any>, schema: StyledComponentSchema) => ({ variant, ...args }: StyledComponentProps<TProps, {}, "primary" | "secondary">) => React.JSX.Element;
+import { StyledSchema } from "../types";
+/**
+ * Create a Styled Component given a style schema and a base theme (both optional).
+ * @param {React.ComponentType<any>} Component The component to render.
+ * @param {StyledSchema} schema The style schema.
+ * @returns A HOC wrapper around your component with extended features.
+ */
+export declare const createStyled: <TProps extends {}>(Component: React.ComponentType<any>, schema?: StyledSchema) => ({ style, ...args }: {
+    [x: string]: any;
+    style: any;
+}) => React.JSX.Element;

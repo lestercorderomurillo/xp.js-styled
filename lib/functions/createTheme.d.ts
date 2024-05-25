@@ -1,2 +1,2 @@
-import { Theme, ThemeSchema } from "../types";
-export declare const createTheme: (schema: ThemeSchema) => Theme;
+import { ThemeSchema } from "../types";
+export declare const createTheme: (schema: ThemeSchema) => ThemeSchema;

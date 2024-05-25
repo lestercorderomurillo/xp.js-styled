@@ -9,7 +9,7 @@ type HSLColor = `hsl(${number}, ${number}, ${number})`;
 type HSLAColor = `hsla(${number}, ${number}, ${number}, ${number})`;
 type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 600 | 650 | 700 | 750 | 800 | 850 | 900;
 type DeclarativeColor = `${string}.${ColorRange}` | `${ColorPalleteKeys}`;
-export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
+type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
 export type WithMediaQuery<T = any> = T & {
     "@ios"?: T;
     "@android"?: T;
@@ -37,7 +37,7 @@ type TypedProps = {
 } & {
     [key in `${string}Color`]?: TypedColor;
 };
-export type StylesSchema = Partial<{
+export type StylesheetSchema = Partial<{
     [key: string]: WithMediaQuery<Style>;
 }>;
 export type ColorsSchema = {
@@ -55,27 +55,40 @@ export type SizesSchema<T = any> = {
 };
 export type ThemeSchema = {
     colors?: ColorsSchema;
-    styles?: StylesSchema;
+    styles?: StylesheetSchema;
     sizes?: SizesSchema<number>;
     fontSizes?: SizesSchema<number>;
     breakpoints?: SizesSchema<number>;
 };
-export type Theme = {
-    schema: Readonly<ThemeSchema>;
-};
 export type ColorPalleteKeys = keyof typeof ColorPallete;
 export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
-export type StyledComponentSchema = {
-    theme?: Theme;
+export type StyledSchema = {
+    theme?: ThemeSchema;
     parentStyles?: string[];
-} & WithMediaQuery<Style> & {
     variants?: {
         [x: string]: WithMediaQuery<Style>;
     };
-};
-export type StyledComponentProps<TProps, TStyleProps, TVariants> = TProps & TStyleProps & {
+} & WithMediaQuery<Style>;
+export type StyledProps<TProps, TStyleProps, TVariants> = TProps & TStyleProps & {
     variant?: TVariants;
     children?: React.ReactNode;
     style?: StyleProp<TStyleProps> & TypedProps;
 } & TypedProps;
+/**
+ * Type defining the properties required by the deepTransform function.
+ */
+export type DeepMapProps = {
+    /** The input object to be transformed. */
+    input: any;
+    /** Optional context data for transformation. */
+    context?: any;
+    /** Function to transform individual values within the input object. */
+    map: ({ value, key, context }: {
+        value: any;
+        key?: string;
+        context?: any;
+    }) => any;
+    /** Function to determine if a value should be transformed. */
+    match: (value: any) => boolean;
+};
 export {};
