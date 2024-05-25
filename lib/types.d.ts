@@ -58,7 +58,7 @@ export type WithMediaQuery<T = any> = T & {
 /**
  * Type representing styles with typed properties for common attributes.
  */
-export type Style<TProps = ViewStyle> = StyleProp<TProps> & TypedProps;
+export type Style<TStyleProps = ViewStyle> = StyleProp<TStyleProps> & TypedProps;
 type TypedProps = {
     flex?: number;
     color?: TypedColor;
@@ -120,12 +120,10 @@ export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
 /**
  * Type representing styled components with support for theming, parent styles, and variants.
  */
-export type StyledSchema = {
+export type StyledSchema<TStyleProps = {}, TVariantNames extends string = never> = {
     theme?: ThemeSchema;
     parentStyles?: string[];
-    variants?: {
-        [x: string]: WithMediaQuery<Style>;
-    };
+    variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
 } & WithMediaQuery<Style> & object;
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
