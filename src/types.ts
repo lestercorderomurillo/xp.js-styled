@@ -1,6 +1,6 @@
 import { DimensionValue, StyleProp, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
-import { ColorPallete, DefaultSizes } from "./constants";
+import { ColorPallete, DefaultSizes, ReducedRangeSizes } from "./constants";
 
 /**
  * Type representing a color in RGB format.
@@ -67,18 +67,20 @@ export type WithMediaQuery<T = any> = T & {
  */
 export type Style<TStyleProps = ViewStyle> = StyleProp<TStyleProps> & TypedProps;
 
+type TypedDimension = DimensionValue | keyof ReducedRangeSizes | `${'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'}${keyof ReducedRangeSizes}` | '2k' | '4k';
+
 type TypedProps = {
   flex?: number;
   color?: TypedColor;
-  padding?: DimensionValue;
-  margin?: DimensionValue;
-  size?: DimensionValue;
-  width?: DimensionValue;
-  height?: DimensionValue;
+  padding?: TypedDimension;
+  margin?: TypedDimension;
+  size?: TypedDimension;
+  width?: TypedDimension;
+  height?: TypedDimension;
 } & {
-  [key in `padding${string}`]?: DimensionValue;
+  [key in `padding${string}`]?: TypedDimension;
 } & {
-  [key in `margin${string}`]?: DimensionValue;
+  [key in `margin${string}`]?: TypedDimension;
 } & {
   [key in `${string}Color`]?: TypedColor;
 };
@@ -134,14 +136,17 @@ export type StyledSchema<TStyleProps = {}, TVariantNames extends string = never>
 } & WithMediaQuery<Style> &
   object;
 
+type OmitTypedProps<TStyleProps, TypedProps> = Omit<TStyleProps, keyof TypedProps>;
+
+
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
  */
 export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
-  TStyleProps & {
+OmitTypedProps<TStyleProps, TypedProps>  & {
     variant?: TVariants;
     children?: React.ReactNode;
-    style?: StyleProp<TStyleProps> & TypedProps;
+    style?: StyleProp<OmitTypedProps<TStyleProps, TypedProps> > & TypedProps;
   } & TypedProps;
 
 /**

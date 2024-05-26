@@ -285,6 +285,8 @@ export const ColorPallete = {
   white: "#FFFFFF",
 };
 
+export type ReducedRangeSizes = Omit<Omit<typeof DefaultSizes,'2k'>, '4k'>;
+
 export const DefaultSizes = {
   us: 8,
   xs: 12,

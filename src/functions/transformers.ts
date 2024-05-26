@@ -17,8 +17,8 @@ export const splitProps = ({
   props: { [key: string]: any };
   parser?: (value: any) => any;
 }): {
-  props: { [key: string]: any };
-  style: { [key: string]: any };
+  elementProps: { [key: string]: any };
+  styleProps: { [key: string]: any };
 } => {
   // Initialize output objects
   const output = {
@@ -46,8 +46,8 @@ export const splitProps = ({
   const parse = (value: any) => (parser ? parser(value) : value);
 
   return {
-    props: parse(output.props),
-    style: parse(output.style),
+    elementProps: parse(output.props),
+    styleProps: parse(output.style),
   };
 };
 
@@ -139,7 +139,7 @@ export const media = <T = any>(values?: WithMediaQuery<T>, breakpoints?: Respons
 
   let output: any = values ?? {};
 
-  if (values) {
+  if (values && Object.keys(values).length > 0) {
     const platformSpecificValue = values[`@${Platform.OS}`];
     const breakpointKeys = Object.keys(breakpointsValues).sort((a, b) => breakpointsValues[a] - breakpointsValues[b]);
 
