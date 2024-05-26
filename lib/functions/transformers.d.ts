@@ -6,18 +6,21 @@ import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQue
  * @param parser - An optional function to transform the resulting props and style objects.
  * @returns An object containing the separated props and style objects.
  */
-export declare const splitProps: ({ props, parser, }: {
-    props: {
-        [key: string]: any;
-    };
-    parser?: (value: any) => any;
+export declare const splitProps: ({
+  props,
+  parser,
+}: {
+  props: {
+    [key: string]: any;
+  };
+  parser?: (value: any) => any;
 }) => {
-    props: {
-        [key: string]: any;
-    };
-    style: {
-        [key: string]: any;
-    };
+  props: {
+    [key: string]: any;
+  };
+  style: {
+    [key: string]: any;
+  };
 };
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.

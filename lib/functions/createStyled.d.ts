@@ -6,4 +6,7 @@ import { StyledProps, StyledSchema } from "../types";
  * @param {StyledSchema} schema The style schema.
  * @returns A HOC wrapper around your component with extended features.
  */
-export declare const createStyled: <TProps extends {}, TVariantNames extends string>(Component: React.ComponentType<any>, schema?: StyledSchema<{}, TVariantNames>) => ({ ...args }: StyledProps<{}, {}, TVariantNames>) => React.JSX.Element;
+export declare const createStyled: <TProps extends {}, TVariantNames extends string>(
+  Component: React.ComponentType<any>,
+  schema?: StyledSchema<{}, TVariantNames>,
+) => ({ ...args }: StyledProps<{}, {}, TVariantNames>) => React.JSX.Element;

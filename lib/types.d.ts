@@ -45,69 +45,69 @@ type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | Decla
  * Type defining all the optional media queries you can apply to a given component.
  */
 export type WithMediaQuery<T = any> = T & {
-    "@ios"?: T;
-    "@android"?: T;
-    "@windows"?: T;
-    "@macos"?: T;
-    "@web"?: T;
-    "@light"?: T;
-    "@dark"?: T;
+  "@ios"?: T;
+  "@android"?: T;
+  "@windows"?: T;
+  "@macos"?: T;
+  "@web"?: T;
+  "@light"?: T;
+  "@dark"?: T;
 } & {
-    [key in `@${SizeNameKeys}`]?: T;
+  [key in `@${SizeNameKeys}`]?: T;
 };
 /**
  * Type representing styles with typed properties for common attributes.
  */
 export type Style<TStyleProps = ViewStyle> = StyleProp<TStyleProps> & TypedProps;
 type TypedProps = {
-    flex?: number;
-    color?: TypedColor;
-    padding?: DimensionValue;
-    margin?: DimensionValue;
-    size?: DimensionValue;
-    width?: DimensionValue;
-    height?: DimensionValue;
+  flex?: number;
+  color?: TypedColor;
+  padding?: DimensionValue;
+  margin?: DimensionValue;
+  size?: DimensionValue;
+  width?: DimensionValue;
+  height?: DimensionValue;
 } & {
-    [key in `padding${string}`]?: DimensionValue;
+  [key in `padding${string}`]?: DimensionValue;
 } & {
-    [key in `margin${string}`]?: DimensionValue;
+  [key in `margin${string}`]?: DimensionValue;
 } & {
-    [key in `${string}Color`]?: TypedColor;
+  [key in `${string}Color`]?: TypedColor;
 };
 /**
  * Schema defining stylesheets with optional media queries.
  */
 export type StylesheetSchema = Partial<{
-    [key: string]: WithMediaQuery<Style>;
+  [key: string]: WithMediaQuery<Style>;
 }>;
 /**
  * Schema defining color palettes for light and dark modes, along with platform-specific colors.
  */
 export type ColorsSchema = {
-    "@light"?: {
-        [key: string]: TypedColor;
-    };
-    "@dark"?: {
-        [key: string]: TypedColor;
-    };
-} & {
+  "@light"?: {
     [key: string]: TypedColor;
+  };
+  "@dark"?: {
+    [key: string]: TypedColor;
+  };
+} & {
+  [key: string]: TypedColor;
 };
 /**
  * Responsive schema for defining layout at diferent breakpoints.
  */
 export type ResponsiveSchema<T = any> = {
-    [key in SizeNameKeys]: T;
+  [key in SizeNameKeys]: T;
 };
 /**
  * Schema combining color palettes, stylesheets, sizes, font sizes, and breakpoints to form a complete theme.
  */
 export type ThemeSchema = {
-    colors?: ColorsSchema;
-    styles?: StylesheetSchema;
-    sizes?: ResponsiveSchema<number>;
-    fontSizes?: ResponsiveSchema<number>;
-    breakpoints?: ResponsiveSchema<number>;
+  colors?: ColorsSchema;
+  styles?: StylesheetSchema;
+  sizes?: ResponsiveSchema<number>;
+  fontSizes?: ResponsiveSchema<number>;
+  breakpoints?: ResponsiveSchema<number>;
 };
 /**
  * Union type representing the keys of the color palette.
@@ -121,33 +121,31 @@ export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
  * Type representing styled components with support for theming, parent styles, and variants.
  */
 export type StyledSchema<TStyleProps = {}, TVariantNames extends string = never> = {
-    theme?: ThemeSchema;
-    parentStyles?: string[];
-    variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
-} & WithMediaQuery<Style> & object;
+  theme?: ThemeSchema;
+  parentStyles?: string[];
+  variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
+} & WithMediaQuery<Style> &
+  object;
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = TProps & TStyleProps & {
+export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
+  TStyleProps & {
     variant?: TVariants;
     children?: React.ReactNode;
     style?: StyleProp<TStyleProps> & TypedProps;
-} & TypedProps;
+  } & TypedProps;
 /**
  * Type defining the properties required by the deepTransform function.
  */
 export type DeepMapProps = {
-    /** The input object to be transformed. */
-    input: any;
-    /** Optional context data for transformation. */
-    context?: any;
-    /** Function to transform individual values within the input object. */
-    map: ({ value, key, context }: {
-        value: any;
-        key?: string;
-        context?: any;
-    }) => any;
-    /** Function to determine if a value should be transformed. */
-    match: (value: any) => boolean;
+  /** The input object to be transformed. */
+  input: any;
+  /** Optional context data for transformation. */
+  context?: any;
+  /** Function to transform individual values within the input object. */
+  map: ({ value, key, context }: { value: any; key?: string; context?: any }) => any;
+  /** Function to determine if a value should be transformed. */
+  match: (value: any) => boolean;
 };
 export {};

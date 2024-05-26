@@ -1,4 +1,4 @@
-import { DimensionValue, StyleProp, ViewStyle } from "react-native";
+import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, StyleProp, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
 import { ColorPallete, DefaultSizes, ReducedRangeSizes } from "./constants";
 
@@ -65,11 +65,22 @@ export type WithMediaQuery<T = any> = T & {
 /**
  * Type representing styles with typed properties for common attributes.
  */
-export type Style<TStyleProps = ViewStyle> = StyleProp<TStyleProps> & TypedProps;
+export type Style<TStyleProps = ViewStyle> = OmitKeys<TStyleProps, OverrideTypedProps> & OverrideTypedProps;
 
-type TypedDimension = DimensionValue | keyof ReducedRangeSizes | `${'2'|'3'|'4'|'5'|'6'|'7'|'8'|'9'}${keyof ReducedRangeSizes}` | '2k' | '4k';
+/**
+ * Type representing a dimension.
+ */
+type TypedDimension =
+  | DimensionValue
+  | keyof ReducedRangeSizes
+  | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${keyof ReducedRangeSizes}`
+  | "2k"
+  | "4k";
 
-type TypedProps = {
+/**
+ * Type representing override props for the base style type.
+ */
+type OverrideTypedProps = {
   flex?: number;
   color?: TypedColor;
   padding?: TypedDimension;
@@ -129,25 +140,25 @@ export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
 /**
  * Type representing styled components with support for theming, parent styles, and variants.
  */
-export type StyledSchema<TStyleProps = {}, TVariantNames extends string = never> = {
+export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
   theme?: ThemeSchema;
   parentStyles?: string[];
   variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
-} & WithMediaQuery<Style> &
-  object;
+} & WithMediaQuery<Style<TStyleProps>> & object;
 
-type OmitTypedProps<TStyleProps, TypedProps> = Omit<TStyleProps, keyof TypedProps>;
-
+/**
+ * Type to remove keys from type definitions.
+ */
+export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
 
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
-OmitTypedProps<TStyleProps, TypedProps>  & {
-    variant?: TVariants;
-    children?: React.ReactNode;
-    style?: StyleProp<OmitTypedProps<TStyleProps, TypedProps> > & TypedProps;
-  } & TypedProps;
+export type StyledProps<TProps, TStyleProps, TVariants> = OmitKeys<TProps & TStyleProps, OverrideTypedProps> & {
+  variant?: TVariants;
+  children?: React.ReactNode;
+  style?: OmitKeys<TStyleProps, OverrideTypedProps> & OverrideTypedProps;
+} & OverrideTypedProps;
 
 /**
  * Type defining the properties required by the deepTransform function.
@@ -162,3 +173,25 @@ export type DeepMapProps = {
   /** Function to determine if a value should be transformed. */
   match: (value: any) => boolean;
 };
+
+export type ExtractComponentProps<T> = T extends React.ComponentType<infer P> ? P : never;
+
+export type ExtractStyleProps<T> = T extends { style: infer S } ? S : never;
+
+export type ComponentStyleProps<T> = T extends typeof View
+  ? ViewStyle
+  : T extends typeof Pressable
+  ? ViewStyle
+  : T extends typeof Text
+  ? TextStyle
+  : T extends typeof Image
+  ? ImageStyle
+  : T extends typeof ScrollView
+  ? ViewStyle
+  : T extends typeof FlatList
+  ? ViewStyle
+  : T extends React.ComponentType<infer P>
+  ? P extends { style?: infer S }
+    ? S
+    : {}
+  : {};
