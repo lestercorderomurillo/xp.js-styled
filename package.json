@@ -1,6 +1,6 @@
 {
-  "name": "zen-styled",
-  "version": "0.3.2",
+  "name": "xspectrum-styled",
+  "version": "0.4.0",
   "description": "Create performant easy-to-use styled components for Web, iOS and Android extremely fast.",
   "license": "MIT",
   "main": "index.ts",
@@ -21,16 +21,17 @@
     "frontend",
     "library",
     "css",
-    "styleable"
+    "styleable",
+    "styled"
   ],
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "format": "yarn prettier . --write",
-    "reset": "git reset --hard origin/main"
+    "reset": "git reset --hard origin/main",
+    "release": "yarn format && bash ./release.sh"
   },
   "prettier": {
     "printWidth": 140,
