@@ -131,7 +131,8 @@ export type StyledSchema<TStyleProps = {}, TVariantNames extends string = never>
   theme?: ThemeSchema;
   parentStyles?: string[];
   variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
-} & WithMediaQuery<Style> & object;
+} & WithMediaQuery<Style> &
+  object;
 
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.

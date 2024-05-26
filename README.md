@@ -1,6 +1,6 @@
 <img src="xspectrum.png" alt="xspectrum" width="300"/>
 
-xspectrum-style is an style library for Modern React.
+xspectrum-styled is an style library for Modern React.
 
 ## Key features
 
@@ -12,7 +12,6 @@ To install this library, you can run this command.
 
 We highly recommend using yarn.
 
-
 ```sh
 yarn add xspectrum-styled
 ```
@@ -22,5 +21,3 @@ But you can still still though npm.
 ```sh
 npm install xspectrum-styled
 ```
-
-
