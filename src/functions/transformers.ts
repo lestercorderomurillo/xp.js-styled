@@ -49,7 +49,6 @@ export const splitProps = (
     elementProps: output.props,
     styleProps: output.style,
   };
-  
 };
 
 /**
