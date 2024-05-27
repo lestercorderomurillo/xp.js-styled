@@ -1,7 +1,8 @@
-import { Appearance, Dimensions, Platform } from "react-native";
+import { Appearance, Dimensions, Platform, View } from "react-native";
 import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
 import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
 import { deepMerge, hexToRGB, isObject, isString, isStyleProp } from "../utils";
+import { createStyled } from "./createStyled";
 
 /**
  * Splits the input props object into separate props and style objects.
@@ -254,3 +255,12 @@ export const size = (value: string | number, sizesSchema?: ResponsiveSchema<numb
 
   return value;
 };
+
+
+export const StyledView = createStyled(View, {
+  backgroundColor: 'blueViolet.800',
+  padding: 20,
+  '@md': {
+    padding: 25
+  }
+});

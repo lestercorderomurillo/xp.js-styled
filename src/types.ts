@@ -65,7 +65,7 @@ export type WithMediaQuery<T = any> = T & {
 /**
  * Type representing styles with typed properties for common attributes.
  */
-export type Style<TStyleProps = ViewStyle> = OmitKeys<TStyleProps, OverrideTypedProps> & OverrideTypedProps;
+export type Style<TStyleProps = ViewStyle> = TStyleProps & OverrideTypedProps;
 
 /**
  * Type representing a dimension.
@@ -143,7 +143,7 @@ export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
 export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
   theme?: ThemeSchema;
   parentStyles?: string[];
-  variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
+  variants?: Record<TVariantNames, Partial<WithMediaQuery<Style<TStyleProps>>>>;
 } & WithMediaQuery<Style<TStyleProps>> & object;
 
 /**
@@ -154,10 +154,10 @@ export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = OmitKeys<TProps & TStyleProps, OverrideTypedProps> & {
+export type StyledProps<TProps, TStyleProps, TVariants> = TProps & TStyleProps & OverrideTypedProps & {
   variant?: TVariants;
   children?: React.ReactNode;
-  style?: OmitKeys<TStyleProps, OverrideTypedProps> & OverrideTypedProps;
+  style?: TStyleProps & OverrideTypedProps;
 } & OverrideTypedProps;
 
 /**
@@ -178,20 +178,11 @@ export type ExtractComponentProps<T> = T extends React.ComponentType<infer P> ? 
 
 export type ExtractStyleProps<T> = T extends { style: infer S } ? S : never;
 
-export type ComponentStyleProps<T> = T extends typeof View
-  ? ViewStyle
-  : T extends typeof Pressable
-  ? ViewStyle
-  : T extends typeof Text
-  ? TextStyle
-  : T extends typeof Image
-  ? ImageStyle
-  : T extends typeof ScrollView
-  ? ViewStyle
-  : T extends typeof FlatList
-  ? ViewStyle
-  : T extends React.ComponentType<infer P>
-  ? P extends { style?: infer S }
-    ? S
-    : {}
-  : {};
+export type ComponentStyleProps<T> = 
+  T extends typeof View ? ViewStyle :
+  T extends typeof Pressable ? ViewStyle :
+  T extends typeof Text ? TextStyle :
+  T extends typeof Image ? ImageStyle :
+  T extends typeof ScrollView ? ViewStyle :
+  T extends typeof FlatList ? ViewStyle :
+  T extends React.ComponentType<infer P> ? P extends { style?: infer S } ? S : {} : {};

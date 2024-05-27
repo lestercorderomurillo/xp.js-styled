@@ -27,6 +27,7 @@ export declare const ColorPallete: {
   gray: string;
   white: string;
 };
+
 export declare const DefaultSizes: {
   us: number;
   xs: number;
