@@ -1,6 +1,6 @@
 {
   "name": "xspectrum-styled",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Create performant easy-to-use styled components for Web, iOS and Android extremely fast.",
   "license": "MIT",
   "main": "index.ts",
