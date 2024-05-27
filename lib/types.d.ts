@@ -1,7 +1,7 @@
 /// <reference types="react" />
-import { DimensionValue, StyleProp, ViewStyle } from "react-native";
+import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
-import { ColorPallete, DefaultSizes } from "./constants";
+import { ColorPallete, DefaultSizes, ReducedRangeSizes } from "./constants";
 /**
  * Type representing a color in RGB format.
  * Example: rgb(255, 255, 255)
@@ -45,69 +45,76 @@ type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | Decla
  * Type defining all the optional media queries you can apply to a given component.
  */
 export type WithMediaQuery<T = any> = T & {
-  "@ios"?: T;
-  "@android"?: T;
-  "@windows"?: T;
-  "@macos"?: T;
-  "@web"?: T;
-  "@light"?: T;
-  "@dark"?: T;
+    "@ios"?: T;
+    "@android"?: T;
+    "@windows"?: T;
+    "@macos"?: T;
+    "@web"?: T;
+    "@light"?: T;
+    "@dark"?: T;
 } & {
-  [key in `@${SizeNameKeys}`]?: T;
+    [key in `@${SizeNameKeys}`]?: T;
 };
 /**
  * Type representing styles with typed properties for common attributes.
  */
-export type Style<TStyleProps = ViewStyle> = StyleProp<TStyleProps> & TypedProps;
-type TypedProps = {
-  flex?: number;
-  color?: TypedColor;
-  padding?: DimensionValue;
-  margin?: DimensionValue;
-  size?: DimensionValue;
-  width?: DimensionValue;
-  height?: DimensionValue;
+export type Style<TStyleProps = ViewStyle> = TStyleProps & OverrideTypedProps;
+/**
+ * Type representing a dimension.
+ */
+type TypedDimension = DimensionValue | keyof ReducedRangeSizes | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${keyof ReducedRangeSizes}` | "2k" | "4k";
+/**
+ * Type representing override props for the base style type.
+ */
+type OverrideTypedProps = {
+    flex?: number;
+    color?: TypedColor;
+    padding?: TypedDimension;
+    margin?: TypedDimension;
+    size?: TypedDimension;
+    width?: TypedDimension;
+    height?: TypedDimension;
 } & {
-  [key in `padding${string}`]?: DimensionValue;
+    [key in `padding${string}`]?: TypedDimension;
 } & {
-  [key in `margin${string}`]?: DimensionValue;
+    [key in `margin${string}`]?: TypedDimension;
 } & {
-  [key in `${string}Color`]?: TypedColor;
+    [key in `${string}Color`]?: TypedColor;
 };
 /**
  * Schema defining stylesheets with optional media queries.
  */
 export type StylesheetSchema = Partial<{
-  [key: string]: WithMediaQuery<Style>;
+    [key: string]: WithMediaQuery<Style>;
 }>;
 /**
  * Schema defining color palettes for light and dark modes, along with platform-specific colors.
  */
 export type ColorsSchema = {
-  "@light"?: {
-    [key: string]: TypedColor;
-  };
-  "@dark"?: {
-    [key: string]: TypedColor;
-  };
+    "@light"?: {
+        [key: string]: TypedColor;
+    };
+    "@dark"?: {
+        [key: string]: TypedColor;
+    };
 } & {
-  [key: string]: TypedColor;
+    [key: string]: TypedColor;
 };
 /**
  * Responsive schema for defining layout at diferent breakpoints.
  */
 export type ResponsiveSchema<T = any> = {
-  [key in SizeNameKeys]: T;
+    [key in SizeNameKeys]: T;
 };
 /**
  * Schema combining color palettes, stylesheets, sizes, font sizes, and breakpoints to form a complete theme.
  */
 export type ThemeSchema = {
-  colors?: ColorsSchema;
-  styles?: StylesheetSchema;
-  sizes?: ResponsiveSchema<number>;
-  fontSizes?: ResponsiveSchema<number>;
-  breakpoints?: ResponsiveSchema<number>;
+    colors?: ColorsSchema;
+    styles?: StylesheetSchema;
+    sizes?: ResponsiveSchema<number>;
+    fontSizes?: ResponsiveSchema<number>;
+    breakpoints?: ResponsiveSchema<number>;
 };
 /**
  * Union type representing the keys of the color palette.
@@ -120,32 +127,45 @@ export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
 /**
  * Type representing styled components with support for theming, parent styles, and variants.
  */
-export type StyledSchema<TStyleProps = {}, TVariantNames extends string = never> = {
-  theme?: ThemeSchema;
-  parentStyles?: string[];
-  variants?: Record<TVariantNames, WithMediaQuery<Style<TStyleProps>>>;
-} & WithMediaQuery<Style> &
-  object;
+export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
+    theme?: ThemeSchema;
+    parentStyles?: string[];
+    variants?: Record<TVariantNames, Partial<WithMediaQuery<Style<TStyleProps>>>>;
+} & WithMediaQuery<Style<TStyleProps>> & object;
+/**
+ * Type to remove keys from type definitions.
+ */
+export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
 /**
  * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = TProps &
-  TStyleProps & {
+export type StyledProps<TProps, TStyleProps, TVariants> = TProps & TStyleProps & OverrideTypedProps & {
     variant?: TVariants;
     children?: React.ReactNode;
-    style?: StyleProp<TStyleProps> & TypedProps;
-  } & TypedProps;
+    style?: TStyleProps & OverrideTypedProps;
+} & OverrideTypedProps;
 /**
  * Type defining the properties required by the deepTransform function.
  */
 export type DeepMapProps = {
-  /** The input object to be transformed. */
-  input: any;
-  /** Optional context data for transformation. */
-  context?: any;
-  /** Function to transform individual values within the input object. */
-  map: ({ value, key, context }: { value: any; key?: string; context?: any }) => any;
-  /** Function to determine if a value should be transformed. */
-  match: (value: any) => boolean;
+    /** The input object to be transformed. */
+    input: any;
+    /** Optional context data for transformation. */
+    context?: any;
+    /** Function to transform individual values within the input object. */
+    map: ({ value, key, context }: {
+        value: any;
+        key?: string;
+        context?: any;
+    }) => any;
+    /** Function to determine if a value should be transformed. */
+    match: (value: any) => boolean;
 };
+export type ExtractComponentProps<T> = T extends React.ComponentType<infer P> ? P : never;
+export type ExtractStyleProps<T> = T extends {
+    style: infer S;
+} ? S : never;
+export type ComponentStyleProps<T> = T extends typeof View ? ViewStyle : T extends typeof Pressable ? ViewStyle : T extends typeof Text ? TextStyle : T extends typeof Image ? ImageStyle : T extends typeof ScrollView ? ViewStyle : T extends typeof FlatList ? ViewStyle : T extends React.ComponentType<infer P> ? P extends {
+    style?: infer S;
+} ? S : {} : {};
 export {};

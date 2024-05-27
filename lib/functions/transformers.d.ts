@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
 /**
  * Splits the input props object into separate props and style objects.
@@ -6,21 +7,18 @@ import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQue
  * @param parser - An optional function to transform the resulting props and style objects.
  * @returns An object containing the separated props and style objects.
  */
-export declare const splitProps: ({
-  props,
-  parser,
-}: {
-  props: {
-    [key: string]: any;
-  };
-  parser?: (value: any) => any;
+export declare const splitProps: ({ props, parser, }: {
+    props: {
+        [key: string]: any;
+    };
+    parser?: (value: any) => any;
 }) => {
-  props: {
-    [key: string]: any;
-  };
-  style: {
-    [key: string]: any;
-  };
+    elementProps: {
+        [key: string]: any;
+    };
+    styleProps: {
+        [key: string]: any;
+    };
 };
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.
@@ -81,3 +79,4 @@ export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoi
  * @returns Resolved size value.
  */
 export declare const size: (value: string | number, sizesSchema?: ResponsiveSchema<number>) => number;
+export declare const StyledView: (props: import("../types").StyledProps<import("react-native").ViewProps, import("react-native").ViewStyle, never>) => import("react").JSX.Element;
