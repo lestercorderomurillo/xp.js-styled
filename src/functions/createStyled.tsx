@@ -20,8 +20,8 @@ export const createStyled = <
   schema?: StyledSchema<TStyleProps, TVariantNames>,
 ) => {
   return (props: StyledProps<React.ComponentProps<TComponent>, ComponentStyleProps<TComponent>, keyof (typeof schema)["variants"]>) => {
-    const deviceColorScheme = useDebouncedState(useColorScheme());
-    const deviceDimensions = useDebouncedState(useWindowDimensions());
+    const deviceColorScheme = useColorScheme();
+    const deviceDimensions = useWindowDimensions();
 
     const compile = (object: any) => (object ? deepTransform(media(object, schema?.theme?.breakpoints), schema?.theme) : {});
 
