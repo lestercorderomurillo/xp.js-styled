@@ -41,11 +41,11 @@ In this case, we conditionally apply a padding override when the device is "medi
 
 ```jsx
 export const StyledView = createStyled(View, {
-  backgroundColor: 'blueViolet.800',
+  backgroundColor: "blueViolet.800",
   padding: 20,
-  '@md': {
-    padding: 25
-  }
+  "@md": {
+    padding: 25,
+  },
 });
 ```
 
@@ -99,10 +99,10 @@ Here is a full example of how to use most of the library.
 
 ```jsx
 export const Card = createStyled(View, {
-  backgroundColor: 'blueViolet.800',
+  backgroundColor: "blueViolet.800",
   padding: 20,
   borderRadius: 10,
-  shadowColor: 'darkBlue.800',
+  shadowColor: "darkBlue.800",
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.8,
   shadowRadius: 2,
@@ -113,25 +113,25 @@ export const Card = createStyled(View, {
 export const StyledText = createStyled(Text, {});
 
 export const StyledPressable = createStyled(Pressable, {
-  backgroundColor: 'lightGreen.500',
+  backgroundColor: "lightGreen.500",
   padding: 10,
   borderRadius: 5,
-  alignItems: 'center',
-  justifyContent: 'center',
+  alignItems: "center",
+  justifyContent: "center",
   marginTop: 20,
 });
 
 export default function Page(props) {
   return (
     <Card>
-      <StyledText color='white.900' fontSize={18} fontWeight="bold">
+      <StyledText color="white.900" fontSize={18} fontWeight="bold">
         Card Title
       </StyledText>
-      <StyledText color='gray.300' marginTop={10}>
+      <StyledText color="gray.300" marginTop={10}>
         This card component demonstrates how to use styled components with a color palette for consistent theming.
       </StyledText>
       <StyledPressable>
-        <StyledText color='white.900'>OK</StyledText>
+        <StyledText color="white.900">OK</StyledText>
       </StyledPressable>
     </Card>
   );

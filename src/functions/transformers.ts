@@ -256,11 +256,10 @@ export const size = (value: string | number, sizesSchema?: ResponsiveSchema<numb
   return value;
 };
 
-
 export const StyledView = createStyled(View, {
-  backgroundColor: 'blueViolet.800',
+  backgroundColor: "blueViolet.800",
   padding: 20,
-  '@md': {
-    padding: 25
-  }
+  "@md": {
+    padding: 25,
+  },
 });

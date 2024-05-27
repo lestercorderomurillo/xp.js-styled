@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Image, Pressable, StyleProp, Text, useColorScheme, useWindowDimensions, View, ViewStyle } from "react-native";
+import { useColorScheme, useWindowDimensions } from "react-native";
 import useDebouncedState from "../hooks/useDebouncedState";
 import { ComponentStyleProps, StyledProps, StyledSchema } from "../types";
 import { deepMerge } from "../utils";
@@ -14,12 +14,11 @@ import { deepTransform, media, splitProps } from "./transformers";
 export const createStyled = <
   TComponent extends React.ComponentType<{}>,
   TStyleProps = ComponentStyleProps<TComponent>,
-  TVariantNames extends string = never
+  TVariantNames extends string = never,
 >(
   Component: TComponent,
   schema?: StyledSchema<TStyleProps, TVariantNames>,
 ) => {
-
   return (props: StyledProps<React.ComponentProps<TComponent>, ComponentStyleProps<TComponent>, keyof (typeof schema)["variants"]>) => {
     const deviceColorScheme = useDebouncedState(useColorScheme());
     const deviceDimensions = useDebouncedState(useWindowDimensions());
@@ -47,7 +46,7 @@ export const createStyled = <
 
     return (
       <Component
-        {...memoized.elementProps as any}
+        {...(memoized.elementProps as any)}
         style={deepMerge([memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle]) as any}
       />
     );

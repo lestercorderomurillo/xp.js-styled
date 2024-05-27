@@ -41,13 +41,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lestercorderomurillo/zen-state.git"
+    "url": "git+https://github.com/lestercorderomurillo/xspectrum-styled.git"
   },
   "author": "Lester Cordero Murillo",
   "bugs": {
-    "url": "https://github.com/lestercorderomurillo/zen-state/issues"
+    "url": "https://github.com/lestercorderomurillo/xspectrum-styled/issues"
   },
-  "homepage": "https://github.com/lestercorderomurillo/zen-state#readme",
+  "homepage": "https://github.com/lestercorderomurillo/xspectrum-styled#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-native": "^0.74.1",
