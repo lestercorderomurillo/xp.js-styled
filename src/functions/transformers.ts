@@ -7,47 +7,43 @@ import { deepMerge, hexToRGB, isObject, isString, isStyleProp } from "../utils";
  * Splits the input props object into separate props and style objects.
  *
  * @param props - The input props object containing both regular props and style props.
- * @param parser - An optional function to transform the resulting props and style objects.
  * @returns An object containing the separated props and style objects.
  */
-export const splitProps = ({
-  props,
-  parser,
-}: {
-  props: { [key: string]: any };
-  parser?: (value: any) => any;
-}): {
+export const splitProps = (props): {
   elementProps: { [key: string]: any };
   styleProps: { [key: string]: any };
 } => {
-  // Initialize output objects
+
+  if(!isObject(props)){
+    return props;
+  }
+
+  const _props: any = { ...props};
+
   const output = {
-    props: { ...props }, // Create a shallow copy of props to avoid mutation
+    props: {}, 
     style: {},
   };
 
-  // Iterate over the props and separate style props
-  for (const prop in output.props) {
-    if (isStyleProp(prop)) {
-      output.style[prop] = output.props[prop];
-      delete output.props[prop];
+  for (const key in _props) {
+    if (isStyleProp(key)) {
+      output.style[key] = _props[key];
+    }else{
+      output.props[key] = _props[key];
     }
   }
 
   // Handle size, width, and height props
-  if (props.size || props.width) {
-    output.style["width"] = props.size ?? props.width;
+  if (_props.size || _props.width) {
+    output.style["width"] = _props.size ?? _props.width;
   }
-  if (props.size || props.height) {
-    output.style["height"] = props.size ?? props.height;
+  if (_props.size || _props.height) {
+    output.style["height"] = _props.size ?? _props.height;
   }
-
-  // Apply the parser function if provided
-  const parse = (value: any) => (parser ? parser(value) : value);
 
   return {
-    elementProps: parse(output.props),
-    styleProps: parse(output.style),
+    elementProps: output.props,
+    styleProps: output.style,
   };
 };
 
