@@ -1,5 +1,5 @@
 {
-  "name": "xspectrum-styled",
+  "name": "xpertjs-styled",
   "version": "0.4.4",
   "description": "Create performant easy-to-use styled components for Web, iOS and Android extremely fast.",
   "license": "MIT",
@@ -41,13 +41,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lestercorderomurillo/xspectrum-styled.git"
+    "url": "git+https://github.com/lestercorderomurillo/xpertjs-styled.git"
   },
   "author": "Lester Cordero Murillo",
   "bugs": {
-    "url": "https://github.com/lestercorderomurillo/xspectrum-styled/issues"
+    "url": "https://github.com/lestercorderomurillo/xpertjs-styled/issues"
   },
-  "homepage": "https://github.com/lestercorderomurillo/xspectrum-styled#readme",
+  "homepage": "https://github.com/lestercorderomurillo/xpertjs-styled#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-native": "^0.74.1",

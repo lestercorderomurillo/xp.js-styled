@@ -1,6 +1,8 @@
-<img src="xspectrum.png" alt="xspectrum" width="300"/>
+<p align="center">
+  <img src="logo.png" alt="logo" width="240">
+</p>
 
-**_xspectrum-styled_** is a style library for Modern React.
+**_xpertjs-styled_** is a style library for Modern React.
 
 Generate a styled component with media queries with an easy-to-use schema and type definition.
 
@@ -18,20 +20,20 @@ To install this library, you can run any of the following commands (only one):
 We highly recommend using yarn.
 
 ```sh
-yarn add xspectrum-styled
+yarn add xpertjs-styled
 ```
 
 But you can still use npm.
 
 ```sh
-npm install xspectrum-styled
+npm install xpertjs-styled
 ```
 
 # Quick Start
 
 ## CSS-in-JSX
 
-`xspectrum-styled` allows you to write CSS directly within your JSX, making it easy to style components dynamically and conditionally.
+`xpertjs-styled` allows you to write CSS directly within your JSX, making it easy to style components dynamically and conditionally.
 
 ## Media Queries
 
@@ -59,7 +61,7 @@ Any color-like prop on your styled component can apply a shade to a built-in col
 
 ## Themes
 
-`xspectrum-styled` supports themes to provide consistent styling across your application. You can define your own theme or use a pre-defined one.
+`xpertjs-styled` supports themes to provide consistent styling across your application. You can define your own theme or use a pre-defined one.
 
 ## Metrics
 
