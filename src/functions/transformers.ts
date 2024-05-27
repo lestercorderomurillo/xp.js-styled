@@ -9,26 +9,27 @@ import { deepMerge, hexToRGB, isObject, isString, isStyleProp } from "../utils";
  * @param props - The input props object containing both regular props and style props.
  * @returns An object containing the separated props and style objects.
  */
-export const splitProps = (props): {
+export const splitProps = (
+  props,
+): {
   elementProps: { [key: string]: any };
   styleProps: { [key: string]: any };
 } => {
-
-  if(!isObject(props)){
+  if (!isObject(props)) {
     return props;
   }
 
-  const _props: any = { ...props};
+  const _props: any = { ...props };
 
   const output = {
-    props: {}, 
+    props: {},
     style: {},
   };
 
   for (const key in _props) {
     if (isStyleProp(key)) {
       output.style[key] = _props[key];
-    }else{
+    } else {
       output.props[key] = _props[key];
     }
   }

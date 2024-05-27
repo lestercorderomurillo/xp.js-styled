@@ -3,15 +3,9 @@ import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQue
  * Splits the input props object into separate props and style objects.
  *
  * @param props - The input props object containing both regular props and style props.
- * @param parser - An optional function to transform the resulting props and style objects.
  * @returns An object containing the separated props and style objects.
  */
-export declare const splitProps: ({ props, parser, }: {
-    props: {
-        [key: string]: any;
-    };
-    parser?: (value: any) => any;
-}) => {
+export declare const splitProps: (props: any) => {
     elementProps: {
         [key: string]: any;
     };
