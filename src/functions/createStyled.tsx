@@ -19,7 +19,6 @@ export const createStyled = <
   schema?: StyledSchema<TStyleProps, TVariantNames>,
 ) => {
   return (props: StyledProps<React.ComponentProps<TComponent>, ComponentStyleProps<TComponent>, keyof (typeof schema)["variants"]>) => {
-    
     const deviceColorScheme = useColorScheme();
     const deviceDimensions = useWindowDimensions();
 
