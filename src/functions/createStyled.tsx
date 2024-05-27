@@ -26,7 +26,6 @@ export const createStyled = <
 
     const memoized = useMemo(() => {
       const { style, variant, ...restProps } = props;
-
       const { elementProps, styleProps } = splitProps(restProps ?? {});
 
       const variantStyle = variant && schema?.variants && schema.variants[variant as any] ? schema.variants[variant as any] : {};
