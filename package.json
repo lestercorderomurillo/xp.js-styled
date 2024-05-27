@@ -1,6 +1,6 @@
 {
   "name": "xpertjs-styled",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create performant easy-to-use styled components for Web, iOS and Android extremely fast.",
   "license": "MIT",
   "main": "index.ts",
