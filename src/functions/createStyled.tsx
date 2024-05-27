@@ -18,7 +18,7 @@ export const createStyled = <
   Component: TComponent,
   schema?: StyledSchema<TStyleProps, TVariantNames>,
 ) => {
-  return (props: StyledProps<React.ComponentProps<TComponent>, ComponentStyleProps<TComponent>, keyof (typeof schema)["variants"]>) => {
+  return ({children, ...props}: StyledProps<React.ComponentProps<TComponent>, ComponentStyleProps<TComponent>, keyof (typeof schema)["variants"]>) => {
     const deviceColorScheme = useColorScheme();
     const deviceDimensions = useWindowDimensions();
 
@@ -41,6 +41,7 @@ export const createStyled = <
 
     return (
       <Component
+        {...(children ? {children} : {})}
         {...(memoized.elementProps as any)}
         style={deepMerge([memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle]) as any}
       />
