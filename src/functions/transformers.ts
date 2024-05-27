@@ -16,7 +16,10 @@ export const splitProps = (
   styleProps: { [key: string]: any };
 } => {
   if (!isObject(props)) {
-    return props;
+    return {
+      elementProps: {},
+      styleProps: {},
+    };
   }
 
   const _props: any = { ...props };
@@ -46,6 +49,7 @@ export const splitProps = (
     elementProps: output.props,
     styleProps: output.style,
   };
+  
 };
 
 /**
@@ -60,28 +64,21 @@ export const deepMap = ({ input, context, match, map }: DeepMapProps) => {
   console.log(`Visiting input: ${JSON.stringify(input)}`);
 
   if (match(input)) {
-    console.log(`Transforming input: ${JSON.stringify(input)}`);
     return map({ value: input, context });
   } else if (isObject(input)) {
-    console.log(`Processing object: ${JSON.stringify(input)}`);
     let output = {};
     for (const key in input) {
       const value = input[key];
-      console.log(`Processing key: ${key}, value: ${JSON.stringify(value)}`);
       output[key] = value;
       if (match(value)) {
-        console.log(`Transforming value for key ${key}: ${JSON.stringify(value)}`);
         output[key] = map({ value, context });
       } else if (isObject(value)) {
-        console.log(`Recursing into value for key ${key}: ${JSON.stringify(value)}`);
         output[key] = deepMap({ input: value, context, match, map });
       }
     }
-    console.log(`Returning transformed object: ${JSON.stringify(output)}`);
     return output;
   }
 
-  console.log(`Returning input as is: ${JSON.stringify(input)}`);
   return input;
 };
 /**

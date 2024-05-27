@@ -27,19 +27,16 @@ export const createStyled = <
     const memoized = useMemo(() => {
       const { style, variant, ...restProps } = props;
 
-      const { elementProps, styleProps } = splitProps({
-        props: restProps,
-        parser: compile,
-      });
+      const { elementProps, styleProps } = splitProps(restProps ?? {});
 
       const variantStyle = variant && schema?.variants && schema.variants[variant as any] ? schema.variants[variant as any] : {};
 
       return {
-        elementProps,
+        elementProps: compile(elementProps),
         inlineStyle: compile(style),
         schemaStyle: compile(schema),
         variantStyle: compile(variantStyle),
-        overrideStyle: styleProps,
+        overrideStyle: compile(styleProps),
       };
     }, [props, deviceColorScheme, deviceDimensions]);
 
