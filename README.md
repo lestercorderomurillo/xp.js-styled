@@ -1,17 +1,19 @@
 <p align="center">
-  <img src="logo.png" alt="logo" width="240">
+  <img src="logo.png" alt="logo" width="180">
 </p>
 
-**_xpertjs-styled_** is a style library for Modern React.
+**xp.js** is a framework for Cross Platform React applications.
 
-Generate a styled component with media queries with an easy-to-use schema and type definition.
+**xp.js-styled** is an single package from that framework.
+
+The goal of this package is to build complex styled components with an easy-to-use schema definition.
 
 # Key Features
 
-- **CSS-in-JSX Prop Generation**: Automatically generate CSS props for your components for inline styling without having to use the style prop directly.
-- **Media Queries**: Encourages developers to easily write responsive components by default.
-- **Color Reshade**: Create variations of your colors in real-time or build time.
-- **Faster Iteration**: Thanks to its composable nature, it's easy to change colors while keeping lumen at fine control, allowing for faster rebranding among other solutions.
+- **CSS-in-JSX**: Automatically generate CSS props for your components for inline styling without having to use the style prop directly.
+- **Media Queries**: Encourages developers to easily write responsive components by default with their extremely simple media queries.
+- **Color Shade**: Create shades of your colors in real-time or build time with a simple range syntax.
+- **Faster Iteration**: Thanks to its nested nature, it's easy to change, allowing for faster rebranding among other styling solutions.
 
 # Installation
 
@@ -23,7 +25,7 @@ We highly recommend using yarn.
 yarn add xpertjs-styled
 ```
 
-But you can still use npm.
+But you can still use npm as well.
 
 ```sh
 npm install xpertjs-styled
@@ -31,9 +33,11 @@ npm install xpertjs-styled
 
 # Quick Start
 
+This guide will summary most of the features of this library.
+
 ## CSS-in-JSX
 
-`xpertjs-styled` allows you to write CSS directly within your JSX, making it easy to style components dynamically and conditionally.
+Allows you to write CSS directly within your JSX, making it easy to style components dynamically and conditionally.
 
 ## Media Queries
 

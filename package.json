@@ -1,7 +1,7 @@
 {
-  "name": "xpertjs-styled",
-  "version": "0.1.7",
-  "description": "Create performant easy-to-use styled components for Web, iOS and Android extremely fast.",
+  "name": "xp-styled",
+  "version": "1.0.0",
+  "description": "Create and iterate performant easy-to-use styled components for Web, iOS and Android.",
   "license": "MIT",
   "main": "index.ts",
   "types": "lib/index.d.ts",
@@ -15,6 +15,7 @@
     ]
   },
   "keywords": [
+    "modern",
     "react",
     "style-library",
     "react-hooks",
