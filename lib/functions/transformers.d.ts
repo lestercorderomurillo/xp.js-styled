@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
 /**
  * Splits the input props object into separate props and style objects.
@@ -79,4 +78,3 @@ export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoi
  * @returns Resolved size value.
  */
 export declare const size: (value: string | number, sizesSchema?: ResponsiveSchema<number>) => number;
-export declare const StyledView: (props: import("../types").StyledProps<import("react-native").ViewProps, import("react-native").ViewStyle, never>) => import("react").JSX.Element;
