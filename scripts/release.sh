@@ -45,6 +45,12 @@ else
     echo -e "${GREEN}Git repository is prepared for the release.${NO_COLOR}"
 fi
 
-# build the proyect
-echo -e "${YELLOW}Step 3: ${NO_COLOR}Building the project${NO_COLOR}"
-yarn build
+# Build the project
+echo -e "${YELLOW}Step 3: ${NO_COLOR}Building the project...${NO_COLOR}"
+
+if yarn build; then
+    echo "${GREEN}Build successful."
+else
+    echo "${YELLOW}Fatal: Build failed.${NO_COLOR}"
+    exit 1
+fi
