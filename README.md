@@ -8,8 +8,6 @@
 
 The goal of this package is to build complex styled components with an easy-to-use schema definition.
 
-Disclamer: Still in development, expects bugs as we get to stable 1.0.0
-
 # Key Features
 
 - **CSS-in-JSX**: Automatically generate CSS-in-JSX props for your components, making easy to inline style without having to use the prop directly.
@@ -23,18 +21,14 @@ The following guide will teach you how to get this library working rather fast:
 
 ## Installation
 
-To install this library, you can run any of the following commands (only one):
-
-We highly recommend using yarn.
+To get ready fast, here you can copy/paste to install from yarn or npm.
 
 ```sh
-yarn add xp.js-styled
+yarn add xp.js-state
 ```
 
-But you can still use npm as well.
-
 ```sh
-npm install xp.js-styled
+npm install xp.js-state
 ```
 
 ## CSS-in-JSX
