@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="logo" width="300">
+  <img src="docs/logo.png" alt="logo" width="300">
 </p>
 
 **xp.js(alpha)** is a framework for cross-platform React applications.

@@ -56,4 +56,6 @@ else
 fi
 
 echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public repository"
-yarn publish --access public
+yarn version --minor
+
+npm publish
