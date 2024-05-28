@@ -1,3 +1,7 @@
+import { View } from "react-native";
+import { createStyled } from "./functions/createStyled";
+import { createTheme } from "./functions/createTheme";
+
 export const StyleProps = [
   "alignContent",
   "alignItems",
@@ -311,3 +315,31 @@ export const DefaultBreakpoints = {
 
 export const SizeRegex = /\b(?:[2-9])?(us|xs|sm|md|lg|xl|2k|4k)\b/i;
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";
+
+export const Theme = createTheme({
+  styles: {
+    container: {
+      padding: 5,
+      margin: 5,
+      '@2k': {
+        margin: 5,
+        padding: 5
+      }
+    },
+    center: {
+      alignItems: 'center',
+      justifyContent: 'center'
+    }
+  }
+});
+
+export const Card = createStyled(View, {
+  theme: Theme,
+  parentStyles: ['container', 'center']
+});
+
+export const Banner = createStyled(View, {
+  theme: Theme,
+  backgroundColor: 'yellow.400',
+  parentStyles: ['container']
+});
