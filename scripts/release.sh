@@ -56,4 +56,4 @@ else
 fi
 
 echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public repository"
-yarn version --minor
+yarn version --patch
