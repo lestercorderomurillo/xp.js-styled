@@ -1,5 +1,4 @@
 # bash
-
 # colors
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -16,14 +15,14 @@ if [ -f "$ENV_FILE" ]; then
     echo -e "${YELLOW}File \"$ENV_FILE\" loaded. Make sure it's up to date!${NO_COLOR}"
 else
     echo -e "${RED}Fatal: File \"$ENV_FILE\" not found.${NO_COLOR}"
-    exit 0
+    exit 1
 fi
 
 # Check if NPM_AUTH_TOKEN is set and not empty
 echo -e "${YELLOW}Step 1: ${NO_COLOR}Setting NPM package token for publish${NO_COLOR}"
 
 if [ -z "$NPM_AUTH_TOKEN" ]; then
-    echo "${RED}Fatal: NPM_AUTH_TOKEN is not set or empty${NO_COLOR}"
+    echo -e "${RED}Fatal: NPM_AUTH_TOKEN is not set or empty${NO_COLOR}"
     exit 1
 else
     echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
@@ -31,6 +30,7 @@ else
         echo -e "${GREEN}Authentication token in ~/.npmrc matches.${NO_COLOR}"
     else
         echo -e "${RED}Fatal: Authentication token in ~/.npmrc does not match.${NO_COLOR}"
+        exit 1
     fi
 fi
 
@@ -39,7 +39,7 @@ echo -e "${YELLOW}Step 2: ${NO_COLOR}Checking if the git repository is clean.${N
 
 if ! git diff-index --quiet HEAD --; then
     echo -e "${RED}Fatal: Git repository is not clean. Please commit or stash your changes.${NO_COLOR}"
-    exit 0
+    exit 1
 else
     echo -e "${GREEN}Git repository is prepared for the release.${NO_COLOR}"
 fi
@@ -51,10 +51,22 @@ if yarn build; then
     echo -e "${GREEN}Build successful.${NO_COLOR}"
 else
     echo -e "${RED}Fatal: Build failed.${NO_COLOR}"
-    exit 0
+    exit 1
 fi
 
-echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public repository"
+# Bump the version
+echo -e "${YELLOW}Step 4: ${NO_COLOR}Bumping the version${NO_COLOR}"
 yarn version --patch
 
-yarn publish
+# Capture the new version
+NEW_VERSION=$(jq -r .version < package.json)
+
+echo -e "${YELLOW}Step 5: ${NO_COLOR}Publishing the package to the public repository${NO_COLOR}"
+
+# Publish the package with the new version
+if yarn publish --new-version "$NEW_VERSION"; then
+    echo -e "${GREEN}Package published successfully.${NO_COLOR}"
+else
+    echo -e "${RED}Fatal: Failed to publish the package.${NO_COLOR}"
+    exit 1
+fi
