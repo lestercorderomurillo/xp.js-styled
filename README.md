@@ -54,12 +54,10 @@ Notice we pass backgroundColor, fontSize and fontWeight as plain props.
 export default function Page() {
   return (
     <StyledView backgroundColor="nature.900" fontSize={18} fontWeight="bold">
-       ...
+      ...
     </StyledView>
   );
 }
-
-
 ```
 
 ## Media Queries
@@ -147,27 +145,27 @@ export const Theme = createTheme({
     container: {
       padding: 5,
       margin: 5,
-      '@2k': {
+      "@2k": {
         margin: 5,
-        padding: 5
-      }
+        padding: 5,
+      },
     },
     center: {
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
-  }
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  },
 });
 
 export const Card = createStyled(View, {
   theme: Theme,
-  parentStyles: ['container', 'center']
+  parentStyles: ["container", "center"],
 });
 
 export const Banner = createStyled(View, {
   theme: Theme,
-  backgroundColor: 'yellow.400',
-  parentStyles: ['container']
+  backgroundColor: "yellow.400",
+  parentStyles: ["container"],
 });
 ```
 

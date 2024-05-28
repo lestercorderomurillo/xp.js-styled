@@ -6,11 +6,10 @@ export { createTheme } from "./lib/functions/createTheme";
 export { color, deepColor, deepMap, deepSize, deepTransform, media, shade, size } from "./lib/functions/transformers";
 
 export const StyledView = createStyled(View, {
-    backgroundColor: "blueViolet.800",
-    padding: 20,
-    "@md": {
-      backgroundColor: "blueViolet.700",
-      padding: 25,
-    },
-    
-  });
+  backgroundColor: "blueViolet.800",
+  padding: 20,
+  "@md": {
+    backgroundColor: "blueViolet.700",
+    padding: 25,
+  },
+});

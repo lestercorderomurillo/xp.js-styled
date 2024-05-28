@@ -1,7 +1,3 @@
-import { View } from "react-native";
-import { createStyled } from "./functions/createStyled";
-import { createTheme } from "./functions/createTheme";
-
 export const StyleProps = [
   "alignContent",
   "alignItems",
