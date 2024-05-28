@@ -97,7 +97,7 @@ For more details regarding the media queries, this table contains the full list:
 The library comes with a set of built-in colors, with shade values ranging from 100 to 900 in increments of 50.
 Any color can use this behaviour, even custom colors.
 
-<img src="colors.png" alt="xspectrum" width="300"/>
+<img src="docs/colors.png" alt="xspectrum" width="300"/>
 
 **List of Built-in Colors**
 
