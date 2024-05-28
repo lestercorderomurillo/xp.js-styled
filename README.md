@@ -8,7 +8,7 @@
 
 The goal of this package is to build complex styled components with an easy-to-use schema definition.
 
-**Disclamer:** Still in development, expects bugs as we get to stable 1.0.0
+Disclamer: Still in development, expects bugs as we get to stable 1.0.0
 
 # Key Features
 
