@@ -54,3 +54,6 @@ else
     echo -e "${RED}Fatal: Build failed.${NO_COLOR}"
     exit 0
 fi
+
+echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public repository"
+yarn publish --access public
