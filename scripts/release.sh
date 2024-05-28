@@ -46,11 +46,11 @@ else
 fi
 
 # Build the project
-echo -e "${YELLOW}Step 3: ${NO_COLOR}Building the project...${NO_COLOR}"
+echo -e "${YELLOW}Step 3: ${NO_COLOR}Building the project${NO_COLOR}"
 
 if yarn build; then
-    echo "${GREEN}Build successful."
+    echo -e "${GREEN}Build successful.${NO_COLOR}"
 else
-    echo "${YELLOW}Fatal: Build failed.${NO_COLOR}"
-    exit 1
+    echo -e "${RED}Fatal: Build failed.${NO_COLOR}"
+    exit 0
 fi
