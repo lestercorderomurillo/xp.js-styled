@@ -58,4 +58,4 @@ fi
 echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public repository"
 yarn version --patch
 
-npm publish
+yarn publish
