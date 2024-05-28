@@ -1,5 +1,5 @@
 {
-  "name": "xp-styled",
+  "name": "xp.js-styled",
   "version": "0.1.0",
   "description": "Create and iterate performant easy-to-use styled components for Web, iOS and Android.",
   "license": "MIT",
@@ -42,13 +42,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lestercorderomurillo/xpertjs-styled.git"
+    "url": "git+https://github.com/lestercorderomurillo/xp.js-styled.git"
   },
   "author": "Lester Cordero Murillo",
   "bugs": {
-    "url": "https://github.com/lestercorderomurillo/xpertjs-styled/issues"
+    "url": "https://github.com/lestercorderomurillo/xp.js-styled/issues"
   },
-  "homepage": "https://github.com/lestercorderomurillo/xpertjs-styled#readme",
+  "homepage": "https://github.com/lestercorderomurillo/xp.js-styled#readme",
   "dependencies": {
     "@types/react": "^18.3.3",
     "react": "^18.3.1",
