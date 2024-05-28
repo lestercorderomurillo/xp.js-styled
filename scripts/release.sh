@@ -59,7 +59,7 @@ echo -e "${YELLOW}Step 4: ${NO_COLOR}Bumping the version${NO_COLOR}"
 yarn version --patch
 
 # Capture the new version
-NEW_VERSION=$(jq -r .version < package.json)
+NEW_VERSION=$(grep -oP '"version": "\K[0-9]+\.[0-9]+\.[0-9]+' package.json)
 
 # Check if new version is empty
 if [ -z "$NEW_VERSION" ]; then
