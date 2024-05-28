@@ -27,7 +27,6 @@ if [ -z "$NPM_AUTH_TOKEN" ]; then
     exit 1
 else
     echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
-    npm set "//<registry>/:_authToken=$NPM_AUTH_TOKEN"
     if [ "$NPM_AUTH_TOKEN" == "$(awk -F'=' '/_authToken/{print $2}' ~/.npmrc)" ]; then
         echo -e "${GREEN}Authentication token in ~/.npmrc matches.${NO_COLOR}"
     else
