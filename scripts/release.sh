@@ -61,6 +61,12 @@ yarn version --patch
 # Capture the new version
 NEW_VERSION=$(jq -r .version < package.json)
 
+# Check if new version is empty
+if [ -z "$NEW_VERSION" ]; then
+    echo -e "${RED}Fatal: New version is empty.${NO_COLOR}"
+    exit 1
+fi
+
 echo -e "${YELLOW}Step 5: ${NO_COLOR}Publishing the package to the public repository${NO_COLOR}"
 
 # Publish the package with the new version
