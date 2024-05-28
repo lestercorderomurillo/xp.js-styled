@@ -1,0 +1,28 @@
+
+# Ensure ~/.npmrc file exists and contains the authentication token
+echo -e "${YELLOW}Step 1: ${NO_COLOR}Setting NPM package token for publish"
+echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
+
+# Confirm ~/.npmrc file contents
+echo -e "${YELLOW}Step 2: ${NO_COLOR}Verifying token in ~/.npmrc"
+
+
+echo -e "${YELLOW}Step 3: ${NO_COLOR}Building the project"
+yarn build
+
+echo -e "${YELLOW}Step 4: ${NO_COLOR}Adding all changes to the current git commit"
+git add .
+
+echo -e "${YELLOW}Step 5: ${NO_COLOR}Committing changes"
+git commit -m "Update: Committing changes before publish"
+
+echo -e "${YELLOW}Step 6: ${NO_COLOR}Pushing the changes to the remote repository"
+git push
+
+echo -e "${YELLOW}Step 7: ${NO_COLOR}Publishing the package"
+yarn publish --access public
+
+echo -e "${YELLOW}Step 8: ${NO_COLOR}Resetting braNO_COLORh to the current commit"
+git reset --hard HEAD
+
+echo -e "${GREEN}Script execution completed successfully!${NO_COLOR}"
