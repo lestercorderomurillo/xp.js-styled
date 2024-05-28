@@ -44,3 +44,7 @@ if ! git diff-index --quiet HEAD --; then
 else
     echo -e "${GREEN}Git repository is prepared for the release.${NO_COLOR}"
 fi
+
+# build the proyect
+echo -e "${YELLOW}Step 3: ${NO_COLOR}Building the project${NO_COLOR}"
+yarn build
