@@ -27,7 +27,7 @@ if [ -z "$NPM_AUTH_TOKEN" ]; then
     exit 1
 else
     echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ~/.npmrc
-    NPM_TOKEN=$NPM_AUTH_TOKEN
+    npm set "//<registry>/:_authToken=$NPM_AUTH_TOKEN"
     if [ "$NPM_AUTH_TOKEN" == "$(awk -F'=' '/_authToken/{print $2}' ~/.npmrc)" ]; then
         echo -e "${GREEN}Authentication token in ~/.npmrc matches.${NO_COLOR}"
     else
@@ -59,5 +59,3 @@ echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public reposi
 yarn version --patch
 
 npm publish
-
-echo "Package published successfully to https://www.npmjs.com/package/xp.js-styled"
