@@ -3,11 +3,12 @@
 </p>
 
 **xp.js(alpha)** is a framework for cross-platform React applications.
+
 **xp.js-styled** is an single package from that framework.
 
 The goal of this package is to build complex styled components with an easy-to-use schema definition.
 
-Library is still in development, expects bugs as we react stable 1.0.0
+Disclamer: Still in development, expects bugs as we get to stable 1.0.0
 
 # Key Features
 
