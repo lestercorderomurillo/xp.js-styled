@@ -57,3 +57,7 @@ fi
 
 echo -e "${YELLOW}Step 4: ${NO_COLOR}Publishing the package to the public repository"
 yarn version --patch
+
+npm publish
+
+echo "Package published successfully to https://www.npmjs.com/package/xp.js-styled"
