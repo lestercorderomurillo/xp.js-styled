@@ -15,13 +15,10 @@ export declare const splitProps: (props: any) => {
 };
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.
- * @param input - The input object to be transformed.
- * @param context - Optional context data for transformation.
- * @param match - Function to determine if a value should be transformed.
- * @param map - Function to transform individual values within the input object.
+ * @param props - See DeepMapProps items.
  * @returns Transformed object.
  */
-export declare const deepMap: ({ input, context, match, map }: DeepMapProps) => any;
+export declare const deepMap: ({ input, context, match, map, skipKeys }: DeepMapProps) => any;
 /**
  * Utility function to recursively transform size strings within an object.
  * @param props - The input object containing size strings to be transformed.
@@ -43,6 +40,13 @@ export declare const deepColor: (props: object, colorsSchema?: ColorsSchema) => 
  * @returns Object with values transformed.
  */
 export declare const deepTransform: (object: any, theme?: ThemeSchema) => any;
+/**
+ * Merges an array of objects deeply.
+ * @param {object[]} objects - The array of objects to merge.
+ * @param {string[]} [skipKeys=[]] - The array of keys to skip during the merge.
+ * @returns {object} The merged object.
+ */
+export declare const deepMerge: (objects: any, skipKeys?: any[]) => any;
 /**
  * Function to consume media queries based on breakpoints and the device color scheme.
  * @param values - Media query values.

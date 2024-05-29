@@ -47,10 +47,3 @@ export declare const isNullish: (value: any) => boolean;
  * @throws {Error} If the hex string is not valid.
  */
 export declare const hexToRGB: (hex: string) => number[];
-/**
- * Merges an array of objects deeply.
- * @param {object[]} objects - The array of objects to merge.
- * @param {string[]} [skipKeys=[]] - The array of keys to skip during the merge.
- * @returns {object} The merged object.
- */
-export declare const deepMerge: (objects: any, skipKeys?: any[]) => any;

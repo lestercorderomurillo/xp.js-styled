@@ -160,6 +160,7 @@ export type DeepMapProps = {
     }) => any;
     /** Function to determine if a value should be transformed. */
     match: (value: any) => boolean;
+    skipKeys?: string[];
 };
 /**
  * Extracts the properties of a React component type.
