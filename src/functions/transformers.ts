@@ -1,7 +1,7 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
 import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
-import { deepMerge, hexToRGB, isObject, isString, isStyleProp } from "../utils";
+import { deepMerge, hexToRGB, isNullish, isObject, isString, isStyleProp } from "../utils";
 
 /**
  * Splits the input props object into separate props and style objects.
@@ -15,7 +15,7 @@ export const splitProps = (
   elementProps: { [key: string]: any };
   styleProps: { [key: string]: any };
 } => {
-  if (!isObject(props)) {
+  if (isNullish(props) || !isObject(props) || Array.isArray(props)) {
     return {
       elementProps: {},
       styleProps: {},
@@ -60,8 +60,6 @@ export const splitProps = (
  * @returns Transformed object.
  */
 export const deepMap = ({ input, context, match, map }: DeepMapProps) => {
-  console.log(`Visiting input: ${JSON.stringify(input)}`);
-
   if (match(input)) {
     return map({ value: input, context });
   } else if (isObject(input)) {

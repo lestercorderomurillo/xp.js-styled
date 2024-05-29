@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-function useDebouncedState(initialValue, delay = 150) {
+/**
+ * useDebouncedState Hook allows to defer a state update by a timelapse, to rate limit state updates
+ */
+export const useDebouncedState = (initialValue, delay = 150) => {
   const [value, setValue] = useState(initialValue);
   const [debouncedValue, setDebouncedValue] = useState(initialValue);
 

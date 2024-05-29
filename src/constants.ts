@@ -310,4 +310,5 @@ export const DefaultBreakpoints = {
 };
 
 export const SizeRegex = /\b(?:[2-9])?(us|xs|sm|md|lg|xl|2k|4k)\b/i;
+
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";

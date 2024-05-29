@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { useColorScheme, useWindowDimensions } from "react-native";
+import { FlatList, Image, ListRenderItemInfo, Pressable, ScrollView, Text, useColorScheme, useWindowDimensions, View } from "react-native";
 import { ComponentStyleProps, StyledProps, StyledSchema } from "../types";
 import { deepMerge } from "../utils";
 import { deepTransform, media, splitProps } from "./transformers";
@@ -46,8 +46,39 @@ export const createStyled = <
       <Component
         {...(children ? { children } : {})}
         {...(memoized.elementProps as any)}
-        style={deepMerge([memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle]) as any}
+        style={deepMerge([memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle], ['children', 'style']) as any}
       />
     );
   };
 };
+
+/*
+const StyledView = createStyled(View);
+<StyledView />
+
+const StyledFlatList = createStyled(FlatList);
+<StyledFlatList data={[]} renderItem={(info: ListRenderItemInfo<unknown>) => <></> } />
+
+const StyledScrollView = createStyled(ScrollView);
+<StyledScrollView color="red.400"/>
+
+const StyledImage = createStyled(Image);
+<StyledImage color="red.400" />
+
+const StyledText = createStyled(Text);
+<StyledText color="red.400" />
+
+const StyledPressable = createStyled(Pressable, {
+  theme: {
+
+  },
+  backgroundColor: 'red.200',
+  variants: {
+    one: {
+
+    }
+  },
+});
+
+<StyledPressable color="red.400" backgroundColor={'indigo.450'} variant="one" />
+*/
