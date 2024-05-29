@@ -33,7 +33,7 @@ export const createStyled = <
       const variantStyle = variant && schema?.variants && schema.variants[variant as any] ? schema.variants[variant as any] : {};
 
       return {
-        elementProps: compile(elementProps),
+        elementProps: elementProps,
         inlineStyle: compile(style),
         schemaStyle: compile(schema),
         variantStyle: compile(variantStyle),
