@@ -68,30 +68,3 @@ export const hexToRGB = (hex: string): number[] => {
   }
   return hex.replace(/^#/, '').match(/\w\w/g).map((hex: string) => parseInt(hex, 16));
 };
-
-/**
- * Merges an array of objects deeply.
- * @param {object[]} objects - The array of objects to merge.
- * @param {string[]} [skipKeys=[]] - The array of keys to skip during the merge.
- * @returns {object} The merged object.
- */
-export const deepMerge = (objects, skipKeys = []) => {
-  return objects.reduce((output: any, value: any) => {
-    if (isNullish(output)) {
-      output = {};
-    }
-    if (!isNullish(value)) {
-      Object.keys(value).forEach((key) => {
-        if (skipKeys.includes(key)) {
-          return;
-        }
-        if (isObject(value[key])) {
-          output[key] = deepMerge([output[key], value[key]], skipKeys);
-        } else if (!isNullish(value[key])) {
-          output[key] = value[key];
-        }
-      });
-    }
-    return output;
-  }, {});
-};

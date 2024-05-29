@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
 import { FlatList, Image, ListRenderItemInfo, Pressable, ScrollView, Text, useColorScheme, useWindowDimensions, View } from "react-native";
 import { ComponentStyleProps, StyledProps, StyledSchema } from "../types";
-import { deepMerge } from "../utils";
-import { deepTransform, media, splitProps } from "./transformers";
+import { deepMerge, deepTransform, media, splitProps } from "./transformers";
 
 /**
  * Create a Styled Component given a style schema and a base theme (both optional).

@@ -173,6 +173,8 @@ export type DeepMapProps = {
   map: ({ value, key, context }: { value: any; key?: string; context?: any }) => any;
   /** Function to determine if a value should be transformed. */
   match: (value: any) => boolean;
+
+  skipKeys?: string[]; 
 };
 
 /**

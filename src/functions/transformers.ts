@@ -1,7 +1,7 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { ColorIntensity, ColorPallete, DefaultBreakpoints, DefaultSizes, SizeRegex } from "../constants";
 import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
-import { deepMerge, hexToRGB, isNullish, isObject, isString, isStyleProp } from "../utils";
+import { hexToRGB, isNullish, isObject, isString, isStyleProp } from "../utils";
 
 /**
  * Splits the input props object into separate props and style objects.
@@ -53,24 +53,25 @@ export const splitProps = (
 
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.
- * @param input - The input object to be transformed.
- * @param context - Optional context data for transformation.
- * @param match - Function to determine if a value should be transformed.
- * @param map - Function to transform individual values within the input object.
+ * @param props - See DeepMapProps items.
  * @returns Transformed object.
  */
-export const deepMap = ({ input, context, match, map }: DeepMapProps) => {
+export const deepMap = ({ input, context, match, map, skipKeys }: DeepMapProps) => {
+  const shouldSkip = (key: string) => skipKeys.includes(key);
+
   if (match(input)) {
     return map({ value: input, context });
   } else if (isObject(input)) {
     let output = {};
     for (const key in input) {
-      const value = input[key];
-      output[key] = value;
-      if (match(value)) {
-        output[key] = map({ value, context });
-      } else if (isObject(value)) {
-        output[key] = deepMap({ input: value, context, match, map });
+      if(!shouldSkip(key)){
+        const value = input[key];
+        output[key] = value;
+        if (match(value)) {
+          output[key] = map({ value, context });
+        } else if (isObject(value)) {
+          output[key] = deepMap({ input: value, context, match, map, skipKeys });
+        }
       }
     }
     return output;
@@ -89,6 +90,7 @@ export const deepSize = (props: object, sizeSchema?: ResponsiveSchema<number>) =
     input: props,
     match: (value) => isString(value) && (value == "2k" || value == "4k" || SizeRegex.test(value)),
     map: ({ value }) => size(value, sizeSchema),
+    skipKeys: ['children']
   });
 };
 
@@ -104,6 +106,7 @@ export const deepColor = (props: object, colorsSchema?: ColorsSchema) => {
     input: props,
     match: (value) => isString(value) && colorRegex.test(value),
     map: ({ value }) => color(value, colorsSchema),
+    skipKeys: ['children']
   });
 };
 
@@ -115,6 +118,33 @@ export const deepColor = (props: object, colorsSchema?: ColorsSchema) => {
  */
 export const deepTransform = (object, theme?: ThemeSchema) => {
   return deepSize(deepColor(object, theme?.colors), theme?.sizes);
+};
+
+/**
+ * Merges an array of objects deeply.
+ * @param {object[]} objects - The array of objects to merge.
+ * @param {string[]} [skipKeys=[]] - The array of keys to skip during the merge.
+ * @returns {object} The merged object.
+ */
+export const deepMerge = (objects, skipKeys = []) => {
+  return objects.reduce((output: any, value: any) => {
+    if (isNullish(output)) {
+      output = {};
+    }
+    if (!isNullish(value)) {
+      Object.keys(value).forEach((key) => {
+        if (skipKeys.includes(key)) {
+          return;
+        }
+        if (isObject(value[key])) {
+          output[key] = deepMerge([output[key], value[key]], skipKeys);
+        } else if (!isNullish(value[key])) {
+          output[key] = value[key];
+        }
+      });
+    }
+    return output;
+  }, {});
 };
 
 /**
