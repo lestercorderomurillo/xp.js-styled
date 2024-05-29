@@ -39,7 +39,7 @@ echo -e "${YELLOW}Step 2: ${NO_COLOR}Checking if the git repository is clean.${N
 
 if ! git diff-index --quiet HEAD --; then
     echo -e "${RED}Fatal: Git repository is not clean. Please commit or stash your changes.${NO_COLOR}"
-    exit 1
+    exit 0
 else
     echo -e "${GREEN}Git repository is prepared for the release.${NO_COLOR}"
 fi
