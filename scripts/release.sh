@@ -54,6 +54,10 @@ else
     exit 1
 fi
 
+git add .
+
+git push
+
 # Bump the version
 echo -e "${YELLOW}Step 4: ${NO_COLOR}Bumping the version${NO_COLOR}"
 yarn version --patch
