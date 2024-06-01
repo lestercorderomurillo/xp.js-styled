@@ -1,27 +1,28 @@
-<p align="center">
-  <img src="docs/logo.png" alt="logo" width="300">
-</p>
+> <p align="center">
+>   <img src="docs/logo.png" alt="logo" width="300">
+> </p>
 
-**xp.js(alpha)** is a framework for cross-platform React applications.
+**xp.js(alpha)** is a framework for modern cross-platform React applications.
 
 **xp.js-styled** is an single package from that framework.
 
-The goal of this package is to build complex styled components with an easy-to-use schema definition.
+The goal of this package is to build enterprise scalalable styled components with an easy-to-use minimal schema definition.
 
 # Key Features
 
-- **CSS-in-JSX**: Automatically generate CSS-in-JSX props for your components, making easy to inline style without having to use the prop directly.
-- **Media Queries**: Encourages developers to easily design and write responsive components by default, with their extremely simple media queries API.
-- **Color Shade**: Create re-shades of your colors in realtime with a simple lumen range syntax.
-- **Faster Iteration**: Thanks to its nested nature, it's easy to change, allowing for faster rebranding among other styling solutions.
+- **CSS-in-JSX**: Automatically generate CSS-in-JSX props for your components, making easy to style inline them without having to use the style prop directly.
+- **Media Queries**: Encourages devs to easily code responsive components by default, with a plain simple media queries API.
+- **Deep Schema:** All schemas can hold more schemas recursively, allowing to consider specific cases faster when using queries.
+- **Color Shading**: Create reshades of your colors with a simple lumen range syntax.
+- **Variants Support:** Included support for variants in the component schema.
 
 # Quick Start
 
-The following guide will teach you how to get this library working rather fast:
+The following guide will teach you how to get this working in your project rather fast:
 
 ## Installation
 
-To get ready fast, here you can copy/paste to install from yarn or npm.
+Here you can copy/paste to install from usual package managers.
 
 ```sh
 yarn add xp.js-state
@@ -31,19 +32,28 @@ yarn add xp.js-state
 npm install xp.js-state
 ```
 
+```sh
+pnpm add xp.js-state
+```
+
+```sh
+jspm install npm:xp.js-state
+```
+
 ## CSS-in-JSX
 
-The `createStyled` function returns a high order wrapper around your component that applies the given style schema.
-Then the styled component subscribes to changes from your device, to apply any media queries, variants and stylesheets automatically for you.
+The `createStyled` function returns a optimized high order wrapper around your component that applies the given style schema.
+Then the styled component subscribes the schema media queries to their specific device change listener, to optimally perform a style update.
 
-Let's start creating a plain StyledView.
+This includes variants, prop changes and device changes.
+
+For now, let's start creating a simple Styled View.
 
 ```jsx
 export const StyledView = createStyled(View);
 ```
 
-Then, this StyledView now can be inline styled with ease.
-Notice we pass backgroundColor, fontSize and fontWeight as plain props.
+`StyledView` now can be inline styled. Notice we pass backgroundColor, fontSize and fontWeight as plain props, and not as part of the `style` prop.
 
 ```jsx
 export default function Page() {
@@ -57,10 +67,11 @@ export default function Page() {
 
 ## Media Queries
 
-Exploring further into, of course you can create your styled components with a base schema, that will be applied
-as the global style for that component, but with the option to iterate the styles more with the inline styled.
+Exploring further into, of course you can create your styled components with a base style, using a schema
+that will be applied as the "global style" for that component, but with the option to iterate the styles using inline props.
 
-Now, in this case, we conditionally apply a style override when the device is "medium-size".
+For example, we conditionally apply a style override when the device is "medium-size".
+All devices that meet the query condition will apply the style.
 
 ```jsx
 export const StyledView = createStyled(View, {
@@ -73,31 +84,63 @@ export const StyledView = createStyled(View, {
 });
 ```
 
-For more details regarding the media queries, this table contains the full list:
+For more details regarding the media queries included, the following tables contains the full list:
 
-| Media Query | Description                                                                               |
-| ----------- | ----------------------------------------------------------------------------------------- |
-| @light      | Targets devices or user settings that prefer a light color scheme.                        |
-| @dark       | Targets devices or user settings that prefer a dark color scheme.                         |
-| @ios        | Targets devices running the iOS operating system, such as iPhones and iPads.              |
-| @android    | Targets devices running the Android operating system, such as Android phones and tablets. |
-| @macos      | Targets devices running the macOS operating system, such as MacBooks and iMacs.           |
-| @windows    | Targets devices running the Windows operating system, such as PCs and laptops.            |
-| @web        | Targets web-based platforms and browsers.                                                 |
-| @us         | Targets devices with very small screens, typically less than 320px in width.              |
-| @sm         | Targets devices with small screens, typically between 320px and 600px in width.           |
-| @md         | Targets devices with medium screens, typically between 601px and 1024px in width.         |
-| @lg         | Targets devices with large screens, typically between 1025px and 1440px in width.         |
-| @xl         | Targets devices with extra-large screens, typically between 1441px and 1920px in width.   |
-| @2k         | Targets devices with 2K resolution screens, typically between 1921px and 2560px in width. |
-| @4k         | Targets devices with 4K resolution screens, typically between 2561px and 3840px in width. |
+| Color Scheme Query | Description                                                        |
+| ------------------ | ------------------------------------------------------------------ |
+| @light             | Targets devices or user settings that prefer a light color scheme. |
+| @dark              | Targets devices or user settings that prefer a dark color scheme.  |
+
+| Platform Query | Description                                                                               |
+| -------------- | ----------------------------------------------------------------------------------------- |
+| @ios           | Targets devices running the iOS operating system, such as iPhones and iPads.              |
+| @android       | Targets devices running the Android operating system, such as Android phones and tablets. |
+| @macos         | Targets devices running the macOS operating system, such as MacBooks and iMacs.           |
+| @windows       | Targets devices running the Windows operating system, such as PCs and laptops.            |
+| @web           | Targets web-based platforms and browsers.                                                 |
+
+| Size Query | Description                                                                        |
+| ---------- | ---------------------------------------------------------------------------------- |
+| @xxs       | Targets devices with very extra small screens, typically less than z in width.     |
+| @xs        | Targets devices with extra small screens, typically between z and z in width.      |
+| @sm        | Targets devices with small screens, typically between z and z in width.            |
+| @md        | Targets devices with medium screens, typically between z and z in width.           |
+| @lg        | Targets devices with large screens, typically between z and z in width.            |
+| @xl        | Targets devices with extra large screens, typically between z and z in width.      |
+| @xxl       | Targets devices with very extra large screens, typically between z and z in width. |
+
+## Deep Nesting
+
+When developing a style schema, you can implement any required media queries. However, for more precise control, especially when multiple conditions are involved, it's necessary to deep-nest your queries appropriately. This ensures styles are applied based on multiple conditions.
+
+For example, in this code, the background color is "gray.500", but only is the device is larger, then we check if the device is an Android device, in which case the background color should be "blue.300." If the previous condition was met, but at the same time the color scheme is dark mode, then the background color should be "purple.200.", for iOS devices the sample logic will be used.
+
+```jsx
+export const Box = createStyled(View, {
+  backgroundColor: "gray.500",
+  "@xl": {
+    backgroundColor: "yellow.450",
+    "@android": {
+      backgroundColor: "blue.300",
+      "@dark": {
+        backgroundColor: "purple.200",
+      },
+    },
+    "@ios": {
+      backgroundColor: "green.300",
+      "@dark": {
+        backgroundColor: "yellow.200",
+      },
+    },
+  },
+});
+```
 
 ## Color System
 
-The library comes with a set of built-in colors, with shade values ranging from 100 to 900 in increments of 50.
-Any color can use this behaviour, even custom colors.
+The package comes with a set of built-in colors, to make easy prototyping
 
-<img src="docs/colors.png" alt="xspectrum" width="300"/>
+<img src="docs/colors.png" alt="colors" width="350"/>
 
 **List of Built-in Colors**
 
@@ -130,9 +173,10 @@ Any color can use this behaviour, even custom colors.
 | Gray        | gray       | #808080     |
 | White       | white      | #FFFFFF     |
 
-## Themes
+## Theme Styling
 
-Now, in case you need to share styles across multiple styled components, even with their responsiveness, then you can use a theme.
+Now, in case you need to share styles across multiple styled components, even with their responsiveness, then you can use a theme,
+and import the styles using the `parentStyle` prop.
 
 ```jsx
 export const Theme = createTheme({
@@ -164,39 +208,35 @@ export const Banner = createStyled(View, {
 });
 ```
 
-## Sizing and Breakpoints
+## Breakpoints
 
 Define consistent spacing and sizing across your application using the built-in metrics system.
 
-By default, if you don't provide sizing values, recommended values will be used.
+We provide for you common constants to maintain a consistent and responsive design system across your application, however you can customize those values in a theme.
 
 **The default breakpoints are:**
 
 | Breakpoint | Width  |
 | ---------- | ------ |
-| us         | 360px  |
+| xxs        | 360px  |
 | xs         | 576px  |
 | sm         | 768px  |
 | md         | 992px  |
 | lg         | 1200px |
 | xl         | 1600px |
-| 2k         | 2048px |
-| 4k         | 3840px |
+| xxl        | 2048px |
 
 **The default sizes are:**
 
 | Breakpoint | Size |
 | ---------- | ---- |
-| us         | 8    |
+| xxs        | 8    |
 | xs         | 12   |
 | sm         | 16   |
 | md         | 20   |
 | lg         | 24   |
 | xl         | 32   |
-| 2k         | 48   |
-| 4k         | 72   |
-
-Use these constants to maintain a consistent and responsive design system across your application, however you can customize those values in a theme.
+| xxl        | 48   |
 
 # Quick Demo
 

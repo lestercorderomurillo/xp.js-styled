@@ -18,6 +18,6 @@ export const useDebouncedState = (initialValue, delay = 150) => {
   }, [value, delay]);
 
   return [debouncedValue, setValue];
-}
+};
 
 export default useDebouncedState;

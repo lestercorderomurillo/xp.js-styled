@@ -1,17 +1,16 @@
 import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
 /**
  * Splits the input props object into separate props and style objects.
- *
  * @param props - The input props object containing both regular props and style props.
  * @returns An object containing the separated props and style objects.
  */
 export declare const splitProps: (props: any) => {
-    elementProps: {
-        [key: string]: any;
-    };
-    styleProps: {
-        [key: string]: any;
-    };
+  elementProps: {
+    [key: string]: any;
+  };
+  styleProps: {
+    [key: string]: any;
+  };
 };
 /**
  * Recursively transforms nested objects based on the provided match and localTransform functions.
@@ -76,3 +75,10 @@ export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoi
  * @returns Resolved size value.
  */
 export declare const size: (value: string | number, sizesSchema?: ResponsiveSchema<number>) => number;
+/**
+ * Converts a hex color string to an RGB array.
+ * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").
+ * @returns {number[]} An array of three numbers representing the RGB values.
+ * @throws {Error} If the hex string is not valid.
+ */
+export declare const hexToRGB: (hex: string) => number[];

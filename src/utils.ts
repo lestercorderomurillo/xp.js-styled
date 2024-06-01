@@ -55,16 +55,3 @@ export const isJSON = (value: any): boolean => {
  * @returns {boolean} True if the value is undefined or null, otherwise false.
  */
 export const isNullish = (value: any): boolean => value === undefined || value === null;
-
-/**
- * Converts a hex color string to an RGB array.
- * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").
- * @returns {number[]} An array of three numbers representing the RGB values.
- * @throws {Error} If the hex string is not valid.
- */
-export const hexToRGB = (hex: string): number[] => {
-  if (!/^#?[0-9A-Fa-f]{6}$/.test(hex)) {
-    throw new Error("Invalid hex color string");
-  }
-  return hex.replace(/^#/, '').match(/\w\w/g).map((hex: string) => parseInt(hex, 16));
-};

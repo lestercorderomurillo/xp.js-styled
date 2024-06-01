@@ -40,10 +40,3 @@ export declare const isJSON: (value: any) => boolean;
  * @returns {boolean} True if the value is undefined or null, otherwise false.
  */
 export declare const isNullish: (value: any) => boolean;
-/**
- * Converts a hex color string to an RGB array.
- * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").
- * @returns {number[]} An array of three numbers representing the RGB values.
- * @throws {Error} If the hex string is not valid.
- */
-export declare const hexToRGB: (hex: string) => number[];

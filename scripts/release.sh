@@ -54,13 +54,18 @@ else
     exit 1
 fi
 
-git add .
 
-git push
+# Parameterize the version bump type
+VERSION_TYPE=$1
+
+if [[ "$VERSION_TYPE" != "patch" && "$VERSION_TYPE" != "minor" && "$VERSION_TYPE" != "major" ]]; then
+    echo -e "${RED}Fatal: Invalid version type. Use \"patch\", \"minor\", or \"major\".${NO_COLOR}"
+    exit 1
+fi
 
 # Bump the version
-echo -e "${YELLOW}Step 4: ${NO_COLOR}Bumping the version${NO_COLOR}"
-yarn version --patch
+echo -e "${YELLOW}Step 4: ${NO_COLOR}Bumping the version ($VERSION_TYPE)${NO_COLOR}"
+yarn version --$VERSION_TYPE
 
 # Capture the new version
 NEW_VERSION=$(grep -oP '"version": "\K[0-9]+\.[0-9]+\.[0-9]+' package.json)
@@ -70,6 +75,10 @@ if [ -z "$NEW_VERSION" ]; then
     echo -e "${RED}Fatal: New version is empty.${NO_COLOR}"
     exit 1
 fi
+
+git add .
+
+git push
 
 echo -e "${YELLOW}Step 5: ${NO_COLOR}Publishing the package to the public repository${NO_COLOR}"
 

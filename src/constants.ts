@@ -285,30 +285,26 @@ export const ColorPallete = {
   white: "#FFFFFF",
 };
 
-export type ReducedRangeSizes = Omit<Omit<typeof DefaultSizes, "2k">, "4k">;
-
-export const DefaultSizes = {
-  us: 8,
+export const Sizes = {
+  xxs: 8,
   xs: 12,
-  sm: 16,
-  md: 20,
-  lg: 24,
-  xl: 32,
-  "2k": 48,
-  "4k": 72,
+  sm: 18,
+  md: 24,
+  lg: 32,
+  xl: 48,
+  xxl: 64,
 };
 
-export const DefaultBreakpoints = {
-  us: 360,
-  xs: 576,
+export const Breakpoints = {
+  xxs: 0,
+  xs: 360,
   sm: 768,
-  md: 992,
-  lg: 1200,
+  md: 1024,
+  lg: 1200, 
   xl: 1600,
-  "2k": 2048,
-  "4k": 3840,
+  xxl: 2048,
 };
 
-export const SizeRegex = /\b(?:[2-9])?(us|xs|sm|md|lg|xl|2k|4k)\b/i;
+export const SizeRegex = /\b(?:[2-9])?(xxs|xs|sm|md|lg|xl|xxl)\b/i;
 
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";

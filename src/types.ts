@@ -1,6 +1,6 @@
 import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
-import { ColorPallete, DefaultSizes, ReducedRangeSizes } from "./constants";
+import { ColorPallete, Sizes, ReducedRangeSizes } from "./constants";
 
 /**
  * Type representing a color in RGB format.
@@ -135,7 +135,7 @@ export type ColorPalleteKeys = keyof typeof ColorPallete;
 /**
  * Union type representing the keys of the default sizes.
  */
-export type SizeNameKeys = KeysOfUnion<typeof DefaultSizes>;
+export type SizeNameKeys = KeysOfUnion<typeof Sizes>;
 
 /**
  * Type representing styled components with support for theming, parent styles, and variants.
@@ -151,30 +151,69 @@ export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string =
  * Type to remove keys from type definitions.
  */
 export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
-
 /**
- * Type representing props for styled components, including props for component-specific, style-specific, and variant-specific properties.
+ * Type representing props for styled components, combining component-specific, style-specific, 
+ * and variant-specific properties.
+ * 
+ * @template TProps - Component-specific properties.
+ * @template TStyleProps - Style-specific properties.
+ * @template TVariants - Variant-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = Omit<TProps & TStyleProps, keyof OverrideTypedProps> & {
+export type StyledProps<TProps, TStyleProps, TVariants> = 
+  Omit<TProps & TStyleProps, keyof OverrideTypedProps> & {
+  /** Optional variant property for component styling. */
   variant?: TVariants;
+  
+  /** Children nodes to be rendered within the component. */
   children?: React.ReactNode;
+  
+  /** Style properties including possible overrides. */
   style?: TStyleProps & OverrideTypedProps;
 } & Omit<TStyleProps, keyof OverrideTypedProps> & OverrideTypedProps;
 
 /**
- * Type defining the properties required by the deepTransform function.
+ * Type representing parameters for a transformation function.
+ * 
+ * @template TContext - Context type used during transformation.
  */
-export type DeepMapProps = {
-  /** The input object to be transformed. */
-  input: any;
+export type TransformParams<TContext> = { 
+  /** The value to be transformed. */
+  value: any; 
+  
+  /** The key associated with the value. */
+  key: string; 
+  
   /** Optional context data for transformation. */
-  context?: any;
-  /** Function to transform individual values within the input object. */
-  map: ({ value, key, context }: { value: any; key?: string; context?: any }) => any;
-  /** Function to determine if a value should be transformed. */
-  match: (value: any) => boolean;
+  ctx?: TContext 
+};
 
-  skipKeys?: string[]; 
+/**
+ * Type defining the properties required by the deepTransform function.
+ * 
+ * @template TCollection - The type of the input object to be transformed.
+ * @template TContext - Context type used during transformation, which includes a readonly 'deep' property.
+ */
+export type DeepMapProps<
+  TCollection extends object = {}, 
+  TContext extends object & { deep: Readonly<number> } = { deep: number }
+> = {
+  /** The input object to be transformed. */
+  values: TCollection;
+  
+  /** Function to determine if a value should be transformed. */
+  match: (props: TransformParams<TContext>) => boolean;
+  
+  /** Function to transform individual values within the input object. */
+  map: (props: TransformParams<TContext>) => any;
+  
+  /** Function to handle nested objects within the input object. */
+  onNesting?: (props: Omit<TransformParams<TContext> & { values: TCollection }, "value">) => TContext;
+  
+  /** Optional initial context data for transformation. */
+  initialContext?: TContext;
+  
+  /** Optional keys to skip during transformation. */
+  skipKeys?: string[];
 };
 
 /**
@@ -194,12 +233,20 @@ export type ExtractStyleProps<T> = T extends { style: infer S } ? S : never;
 /**
  * Maps a React component type to its corresponding style properties.
  */
-export type ComponentStyleProps<T> = 
-
-  T extends typeof View ? ViewStyle :
-  T extends typeof Pressable ? ViewStyle :
-  T extends typeof Text ? TextStyle : 
-  T extends typeof Image ? ImageStyle : 
-  T extends typeof ScrollView ? ViewStyle : 
-  T extends typeof FlatList ? ViewStyle : 
-  T extends React.ComponentType<infer P> ? P extends { style?: infer S }? S: {} : {};
+export type ComponentStyleProps<T> = T extends typeof View
+  ? ViewStyle
+  : T extends typeof Pressable
+    ? ViewStyle
+    : T extends typeof Text
+      ? TextStyle
+      : T extends typeof Image
+        ? ImageStyle
+        : T extends typeof ScrollView
+          ? ViewStyle
+          : T extends typeof FlatList
+            ? ViewStyle
+            : T extends React.ComponentType<infer P>
+              ? P extends { style?: infer S }
+                ? S
+                : {}
+              : {};
