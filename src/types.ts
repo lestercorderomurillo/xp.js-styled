@@ -1,6 +1,6 @@
 import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
-import { ColorPallete, Sizes, ReducedRangeSizes } from "./constants";
+import { ColorPallete, Sizes } from "./constants";
 
 /**
  * Type representing a color in RGB format.
@@ -72,10 +72,8 @@ export type Style<TStyleProps = ViewStyle> = TStyleProps & OverrideTypedProps;
  */
 type TypedDimension =
   | DimensionValue
-  | keyof ReducedRangeSizes
-  | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${keyof ReducedRangeSizes}`
-  | "2k"
-  | "4k";
+  | SizeNameKeys
+  | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${SizeNameKeys}`
 
 /**
  * Type representing override props for the base style type.

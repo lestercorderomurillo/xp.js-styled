@@ -5,40 +5,38 @@ import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQue
  * @returns An object containing the separated props and style objects.
  */
 export declare const splitProps: (props: any) => {
-  elementProps: {
-    [key: string]: any;
-  };
-  styleProps: {
-    [key: string]: any;
-  };
+    elementProps: {
+        [key: string]: any;
+    };
+    styleProps: {
+        [key: string]: any;
+    };
 };
 /**
- * Recursively transforms nested objects based on the provided match and localTransform functions.
+ * Recursively maps nested objects.
  * @param props - See DeepMapProps items.
  * @returns Transformed object.
  */
-export declare const deepMap: ({ input, context, match, map, skipKeys }: DeepMapProps) => any;
+export declare const deepMap: ({ values, match, map, skipKeys, onNesting, initialContext }: DeepMapProps) => {};
 /**
  * Utility function to recursively transform size strings within an object.
  * @param props - The input object containing size strings to be transformed.
  * @param sizeSchema - Optional schema for size transformation.
  * @returns Object with size strings transformed.
  */
-export declare const deepSize: (props: object, sizeSchema?: ResponsiveSchema<number>) => any;
+export declare const deepSize: (props: object, sizeSchema?: ResponsiveSchema<number>) => {};
 /**
  * Utility function to recursively transform color strings within an object.
  * @param props - The input object containing color strings to be transformed.
  * @param colorsSchema - Optional schema for color transformation.
  * @returns Object with color strings transformed.
  */
-export declare const deepColor: (props: object, colorsSchema?: ColorsSchema) => any;
+export declare const deepColor: (props: object, colorsSchema?: ColorsSchema) => {};
 /**
  * Utility function to perform transformations given a theme schema on a object recursively.
- * @param props - The input object containing values to be transformed.
- * @param colorsSchema - Optional schema for transformation.
  * @returns Object with values transformed.
  */
-export declare const deepTransform: (object: any, theme?: ThemeSchema) => any;
+export declare const deepStyling: (object: any, theme?: ThemeSchema) => {};
 /**
  * Merges an array of objects deeply.
  * @param {object[]} objects - The array of objects to merge.
@@ -52,7 +50,7 @@ export declare const deepMerge: (objects: any, skipKeys?: any[]) => any;
  * @param breakpoints - Breakpoint sizes.
  * @returns Generated style with media queries applied on.
  */
-export declare const media: <T = any>(values?: WithMediaQuery<T>, breakpoints?: ResponsiveSchema<number>) => any;
+export declare const normalizeMediaQueries: <T = any>(values?: WithMediaQuery<T>, breakpoints?: ResponsiveSchema<number>) => any;
 /**
  * Function to generate shades of a color.
  * @param hex - Base color in hexadecimal format.
