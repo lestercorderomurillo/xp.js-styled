@@ -71,6 +71,8 @@ For more details regarding the media queries included, the following tables cont
 | @light             | Targets devices or user settings that prefer a light color scheme. |
 | @dark              | Targets devices or user settings that prefer a dark color scheme.  |
 
+---
+
 | Platform Query | Description                                                                               |
 | -------------- | ----------------------------------------------------------------------------------------- |
 | @ios           | Targets devices running the iOS operating system, such as iPhones and iPads.              |
@@ -78,6 +80,8 @@ For more details regarding the media queries included, the following tables cont
 | @macos         | Targets devices running the macOS operating system, such as MacBooks and iMacs.           |
 | @windows       | Targets devices running the Windows operating system, such as PCs and laptops.            |
 | @web           | Targets web-based platforms and browsers.                                                 |
+
+---
 
 | Size Query | Description                                                                            |
 | ---------- | -------------------------------------------------------------------------------------- |
