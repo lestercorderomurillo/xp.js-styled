@@ -89,7 +89,7 @@ export const deepSize = (props: object, sizeSchema?: ResponsiveSchema<number>) =
   return deepMap({
     values: props,
     skipKeys: ["children"],
-    match: (value) => isString(value) && (value == "2k" || value == "4k" || SizeRegex.test(value)),
+    match: (value) => isString(value) && SizeRegex.test(value),
     map: ({ value }) => size(value, sizeSchema),
   });
 };
@@ -250,15 +250,13 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
  */
 export const size = (value: string | number, sizesSchema?: ResponsiveSchema<number>) => {
   if (typeof value == "string") {
-    if (value != "2k" && value != "4k") {
-      const match = SizeRegex.exec(value);
-      if (match && match.length > 0) {
-        const multiplier = typeof match[0] == "string" ? parseInt(match[0]) : 1;
-        const breakpointSize = match[1] ?? "md";
-        const sizes = { ...Sizes, ...sizesSchema };
-        const value = sizes[breakpointSize];
-        return multiplier * value;
-      }
+    const match = SizeRegex.exec(value);
+    if (match && match.length > 0) {
+      const multiplier = typeof match[0] == "string" ? parseInt(match[0]) : 1;
+      const breakpointSize = match[1] ?? "md";
+      const sizes = { ...Sizes, ...sizesSchema };
+      const value = sizes[breakpointSize];
+      return multiplier * value;
     }
 
     return { ...Sizes, ...sizesSchema }[value];

@@ -18,27 +18,7 @@ The goal of this package is to build enterprise scalalable styled components wit
 
 # Quick Start
 
-The following guide will teach you how to get this working in your project rather fast:
-
-## Installation
-
-Here you can copy/paste to install from usual package managers.
-
-```sh
-yarn add xp.js-state
-```
-
-```sh
-npm install xp.js-state
-```
-
-```sh
-pnpm add xp.js-state
-```
-
-```sh
-jspm install npm:xp.js-state
-```
+The following guide will teach you how to get this working in your project rather fast!
 
 ## CSS-in-JSX
 
@@ -99,15 +79,15 @@ For more details regarding the media queries included, the following tables cont
 | @windows       | Targets devices running the Windows operating system, such as PCs and laptops.            |
 | @web           | Targets web-based platforms and browsers.                                                 |
 
-| Size Query | Description                                                                        |
-| ---------- | ---------------------------------------------------------------------------------- |
-| @xxs       | Targets devices with very extra small screens, typically less than z in width.     |
-| @xs        | Targets devices with extra small screens, typically between z and z in width.      |
-| @sm        | Targets devices with small screens, typically between z and z in width.            |
-| @md        | Targets devices with medium screens, typically between z and z in width.           |
-| @lg        | Targets devices with large screens, typically between z and z in width.            |
-| @xl        | Targets devices with extra large screens, typically between z and z in width.      |
-| @xxl       | Targets devices with very extra large screens, typically between z and z in width. |
+| Size Query | Description                                                                            |
+| ---------- | -------------------------------------------------------------------------------------- |
+| @xxs       | Targets devices with very extra small screens, typically less than 360px in width.     |
+| @xs        | Targets devices with extra small screens, typically between 360px and 576px in width.  |
+| @sm        | Targets devices with small screens, typically between 576px and 768px in width.        |
+| @md        | Targets devices with medium screens, typically between 768px and 992px in width.       |
+| @lg        | Targets devices with large screens, typically between 992px and 1200px in width.       |
+| @xl        | Targets devices with extra large screens, typically between 1200px and 1600px in width.|
+| @xxl       | Targets devices with very extra large screens, typically greater than 1600px in width. |
 
 ## Deep Nesting
 
@@ -140,7 +120,7 @@ export const Box = createStyled(View, {
 
 The package comes with a set of built-in colors, to make easy prototyping
 
-<img src="docs/colors.png" alt="colors" width="350"/>
+<img src="docs/colors.png" alt="colors" width="250"/>
 
 **List of Built-in Colors**
 
@@ -184,7 +164,7 @@ export const Theme = createTheme({
     container: {
       padding: 5,
       margin: 5,
-      "@2k": {
+      "@md": {
         margin: 5,
         padding: 5,
       },
@@ -210,44 +190,52 @@ export const Banner = createStyled(View, {
 
 ## Breakpoints
 
-Define consistent spacing and sizing across your application using the built-in metrics system.
+Define consistent spacing and sizing across your application using the built-in breakpoint system.
 
-We provide for you common constants to maintain a consistent and responsive design system across your application, however you can customize those values in a theme.
+We provide for you common default to maintain a consistent and responsive design on your application, however you can customize those values in a theme. (see `createTheme` hook)
 
-**The default breakpoints are:**
+**The default breakpoints that change to device sizes and viewport are:**
 
-| Breakpoint | Width  |
-| ---------- | ------ |
-| xxs        | 360px  |
-| xs         | 576px  |
-| sm         | 768px  |
-| md         | 992px  |
-| lg         | 1200px |
-| xl         | 1600px |
-| xxl        | 2048px |
+| Breakpoint | Width   |
+| ---------- | ------- |
+| xxs        | >0px    |
+| xs         | >360px  |
+| sm         | >576px  |
+| md         | >768px  |
+| lg         | >992px  |
+| xl         | >1200px |
+| xxl        | >1600px |
 
-**The default sizes are:**
+## Installation
 
-| Breakpoint | Size |
-| ---------- | ---- |
-| xxs        | 8    |
-| xs         | 12   |
-| sm         | 16   |
-| md         | 20   |
-| lg         | 24   |
-| xl         | 32   |
-| xxl        | 48   |
+Here you can copy/paste to install from usual package managers.
+
+```sh
+yarn add xp.js-state
+```
+
+```sh
+npm install xp.js-state
+```
+
+```sh
+pnpm add xp.js-state
+```
+
+```sh
+jspm install npm:xp.js-state
+```
 
 # Quick Demo
 
-Here is a full example of how to use most of the library.
+Here is a full example of how to use most of the package.
 
 ```jsx
 export const Card = createStyled(View, {
-  backgroundColor: "blueViolet.800",
+  backgroundColor: "gold.100",
   padding: 20,
   borderRadius: 10,
-  shadowColor: "darkBlue.800",
+  shadowColor: "gray.850",
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.8,
   shadowRadius: 2,
@@ -258,7 +246,7 @@ export const Card = createStyled(View, {
 export const StyledText = createStyled(Text);
 
 export const StyledPressable = createStyled(Pressable, {
-  backgroundColor: "lightGreen.500",
+  backgroundColor: "indigo.600",
   padding: 10,
   borderRadius: 5,
   alignItems: "center",
@@ -269,10 +257,10 @@ export const StyledPressable = createStyled(Pressable, {
 export default function Page(props) {
   return (
     <Card>
-      <StyledText color="white.900" fontSize={18} fontWeight="bold">
+      <StyledText color="black" fontSize={18} fontWeight="bold">
         Card Title
       </StyledText>
-      <StyledText color="gray.300" marginTop={10}>
+      <StyledText color="black" marginTop={10}>
         This card component demonstrates how to use styled components with a color palette for consistent theming.
       </StyledText>
       <StyledPressable>

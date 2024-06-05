@@ -285,7 +285,7 @@ export const ColorPallete = {
   white: "#FFFFFF",
 };
 
-export const Sizes = {
+export const FontSizes = {
   xxs: 8,
   xs: 12,
   sm: 18,
@@ -295,14 +295,24 @@ export const Sizes = {
   xxl: 64,
 };
 
+export const Sizes = {
+  xxs: 2,
+  xs: 4,
+  sm: 12,
+  md: 16,
+  lg: 24,
+  xl: 32,
+  xxl: 48,
+};
+
 export const Breakpoints = {
   xxs: 0,
   xs: 360,
-  sm: 768,
-  md: 1024,
-  lg: 1200, 
-  xl: 1600,
-  xxl: 2048,
+  sm: 576,
+  md: 768,
+  lg: 992, 
+  xl: 1200,
+  xxl: 1600,
 };
 
 export const SizeRegex = /\b(?:[2-9])?(xxs|xs|sm|md|lg|xl|xxl)\b/i;

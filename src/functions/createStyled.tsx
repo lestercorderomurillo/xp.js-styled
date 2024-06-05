@@ -30,10 +30,16 @@ export const createStyled = <
       const { style, variant, ...restProps } = props;
       const { elementProps, styleProps } = splitProps(restProps ?? {});
 
+      let parentStyle = {};
+      schema.parentStyles.forEach(styleName => {
+        parentStyle = deepMerge([parentStyle, schema?.theme?.styles[styleName] ?? {}]); 
+      });
+
       const variantStyle = variant && schema?.variants && schema.variants[variant as any] ? schema.variants[variant as any] : {};
 
       return {
-        elementProps: elementProps,
+        elementProps,
+        parentStyle: compile(parentStyle),
         inlineStyle: compile(style),
         schemaStyle: compile(schema),
         variantStyle: compile(variantStyle),
@@ -47,7 +53,7 @@ export const createStyled = <
         {...(memoized.elementProps as any)}
         style={
           deepMerge(
-            [memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle],
+            [memoized.parentStyle, memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle],
             ["children", "style"],
           ) as any
         }
