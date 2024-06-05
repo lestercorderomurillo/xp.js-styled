@@ -27,6 +27,15 @@ export declare const ColorPallete: {
     gray: string;
     white: string;
 };
+export declare const FontSizes: {
+    xxs: number;
+    xs: number;
+    sm: number;
+    md: number;
+    lg: number;
+    xl: number;
+    xxl: number;
+};
 export declare const Sizes: {
     xxs: number;
     xs: number;
