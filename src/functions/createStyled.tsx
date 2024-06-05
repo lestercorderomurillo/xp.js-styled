@@ -31,7 +31,8 @@ export const createStyled = <
       const { elementProps, styleProps } = splitProps(restProps ?? {});
 
       let parentStyle = {};
-      schema.parentStyles.forEach(styleName => {
+
+      schema?.parentStyles?.forEach(styleName => {
         parentStyle = deepMerge([parentStyle, schema?.theme?.styles[styleName] ?? {}]); 
       });
 

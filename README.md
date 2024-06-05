@@ -1,8 +1,8 @@
 > <p align="center">
->   <img src="docs/logo.png" alt="logo" width="400">
+>   <img src="docs/logo.png" alt="logo" width="300">
 > </p>
 
-**xp.js(alpha)** is a framework for modern cross-platform React applications.
+**xp.js(beta)** is a framework for modern cross-platform React applications.
 
 **xp.js-styled** is an single package from that framework.
 
