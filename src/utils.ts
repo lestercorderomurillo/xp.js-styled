@@ -1,4 +1,4 @@
-import { StyleProps } from "./constants";
+import { StyleProps, TypographyProps } from "./constants";
 
 /**
  * Checks if the given prop is a event prop.
@@ -6,6 +6,13 @@ import { StyleProps } from "./constants";
  * @returns {boolean} True if it's a event or false otherwise.
  */
 export const isEventProp = (key: string) => key.startsWith("on") && key.length > 2;
+
+/**
+ * Checks if the given prop is a event prop.
+ * @param {string} key The key to check.
+ * @returns {boolean} True if it's a event or false otherwise.
+ */
+export const isTypographyProp = (key: string) => TypographyProps.some((prop) => key.includes(prop));
 
 /**
  * Checks if the given prop is a style prop.

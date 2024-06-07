@@ -83,15 +83,15 @@ For more details regarding the media queries included, the following tables cont
 
 ---
 
-| Size Query | Description                                                                            |
-| ---------- | -------------------------------------------------------------------------------------- |
-| @xxs       | Targets devices with very extra small screens, typically less than 360px in width.     |
-| @xs        | Targets devices with extra small screens, typically between 360px and 576px in width.  |
-| @sm        | Targets devices with small screens, typically between 576px and 768px in width.        |
-| @md        | Targets devices with medium screens, typically between 768px and 992px in width.       |
-| @lg        | Targets devices with large screens, typically between 992px and 1200px in width.       |
-| @xl        | Targets devices with extra large screens, typically between 1200px and 1600px in width.|
-| @xxl       | Targets devices with very extra large screens, typically greater than 1600px in width. |
+| Size Query | Description                                                                             |
+| ---------- | --------------------------------------------------------------------------------------- |
+| @xxs       | Targets devices with very extra small screens, typically less than 360px in width.      |
+| @xs        | Targets devices with extra small screens, typically between 360px and 576px in width.   |
+| @sm        | Targets devices with small screens, typically between 576px and 768px in width.         |
+| @md        | Targets devices with medium screens, typically between 768px and 992px in width.        |
+| @lg        | Targets devices with large screens, typically between 992px and 1200px in width.        |
+| @xl        | Targets devices with extra large screens, typically between 1200px and 1600px in width. |
+| @xxl       | Targets devices with very extra large screens, typically greater than 1600px in width.  |
 
 ## Deep Nesting
 

@@ -1,4 +1,5 @@
 export declare const StyleProps: string[];
+export declare const TypographyProps: string[];
 export declare const ColorPallete: {
     red: string;
     coral: string;
@@ -36,7 +37,15 @@ export declare const FontSizes: {
     xl: number;
     xxl: number;
 };
-export declare const Sizes: {
+export declare const FontWeights: {
+    thinest: number;
+    thin: number;
+    normal: number;
+    medium: number;
+    bold: number;
+    boldest: number;
+};
+export declare const Spacing: {
     xxs: number;
     xs: number;
     sm: number;

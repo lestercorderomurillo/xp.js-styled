@@ -1,6 +1,6 @@
 import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
-import { ColorPallete, Sizes } from "./constants";
+import { Breakpoints, ColorPallete, FontWeights } from "./constants";
 
 /**
  * Type representing a color in RGB format.
@@ -42,7 +42,7 @@ type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 60
  * Can be in RGB, RGBA, HEX, HSL, or HSLA format,
  * or reference a color from a predefined palette.
  */
-type DeclarativeColor = `${string}.${ColorRange}` | `${ColorPalleteKeys}`;
+type DeclarativeColor = `${string}.${ColorRange}` | `${ColorPalleteKey}`;
 
 /**
  * Union type representing various types of colors.
@@ -60,39 +60,96 @@ export type WithMediaQuery<T = any> = T & {
   "@web"?: T;
   "@light"?: T;
   "@dark"?: T;
-} & { [key in `@${SizeNameKeys}`]?: T };
+} & { [key in `@${BreakpointsKey}`]?: T };
 
 /**
  * Type representing styles with typed properties for common attributes.
  */
-export type Style<TStyleProps = ViewStyle> = TStyleProps & OverrideTypedProps;
+export type Style<TFields = ViewStyle> = TFields & ColorProps;
+
+/**
+ * Typography properties type.
+ */
+export type TypographyProps = {
+  fontSize?: TypedDimension;
+  fontWeight?: 100 | 200 | 300 | 400;
+};
+
+/**
+ * Spacing properties type.
+ */
+export type SpacingProps = {
+  padding?: TypedDimension;
+  paddingTop?: TypedDimension;
+  paddingBottom?: TypedDimension;
+  paddingLeft?: TypedDimension;
+  paddingRight?: TypedDimension;
+  margin?: TypedDimension;
+  marginTop?: TypedDimension;
+  marginBottom?: TypedDimension;
+  marginLeft?: TypedDimension;
+  marginRight?: TypedDimension;
+  gap?: TypedDimension;
+  rowGap?: TypedDimension;
+  columnGap?: TypedDimension;
+};
+
+/**
+ * Layout properties type.
+ */
+export type LayoutProps = {
+  flex?: number;
+  size?: TypedDimension;
+  width?: TypedDimension;
+  height?: TypedDimension;
+  minWidth?: TypedDimension;
+  minHeight?: TypedDimension;
+  maxWidth?: TypedDimension;
+  maxHeight?: TypedDimension;
+};
+
+/**
+ * Border properties type.
+ */
+export type BorderProps = {
+  borderRadius?: TypedDimension;
+  borderBottomLeftRadius?: TypedDimension;
+  borderBottomRightRadius?: TypedDimension;
+  borderBottomStartRadius?: TypedDimension;
+  borderBottomEndRadius?: TypedDimension;
+  borderTopLeftRadius?: TypedDimension;
+  borderTopRightRadius?: TypedDimension;
+  borderTopStartRadius?: TypedDimension;
+  borderTopEndRadius?: TypedDimension;
+};
+
+/**
+ * Color properties type.
+ */
+export type ColorProps = {
+  color?: TypedColor;
+  shadowColor?: TypedColor;
+  backgroundColor?: TypedColor;
+} & {
+  [key in `${string}Color`]?: TypedColor;
+};
+
+/**
+ * Patch a type prop if present.
+ */
+export type PatchType<TBase, TOverride> = {
+  [K in keyof TBase]: K extends keyof TOverride ? TOverride[K] : TBase[K];
+};
+
+/**
+ * All properties type.
+ */
+export type PatchProps<TProps = {}> = PatchType<TProps, TypographyProps & SpacingProps & LayoutProps & ColorProps & BorderProps>;
 
 /**
  * Type representing a dimension.
  */
-type TypedDimension =
-  | DimensionValue
-  | SizeNameKeys
-  | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${SizeNameKeys}`
-
-/**
- * Type representing override props for the base style type.
- */
-type OverrideTypedProps = {
-  flex?: number;
-  color?: TypedColor;
-  padding?: TypedDimension;
-  margin?: TypedDimension;
-  size?: TypedDimension;
-  width?: TypedDimension;
-  height?: TypedDimension;
-} & {
-  [key in `padding${string}`]?: TypedDimension;
-} & {
-  [key in `margin${string}`]?: TypedDimension;
-} & {
-  [key in `${string}Color`]?: TypedColor;
-};
+type TypedDimension = DimensionValue | BreakpointsKey | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${BreakpointsKey}`;
 
 /**
  * Schema defining stylesheets with optional media queries.
@@ -112,7 +169,7 @@ export type ColorsSchema = {
 /**
  * Responsive schema for defining layout at diferent breakpoints.
  */
-export type ResponsiveSchema<T = any> = { [key in SizeNameKeys]: T };
+export type ResponsiveSchema<T = any> = { [key in BreakpointsKey]: T };
 
 /**
  * Schema combining color palettes, stylesheets, sizes, font sizes, and breakpoints to form a complete theme.
@@ -120,20 +177,26 @@ export type ResponsiveSchema<T = any> = { [key in SizeNameKeys]: T };
 export type ThemeSchema = {
   colors?: ColorsSchema;
   styles?: StylesheetSchema;
-  sizes?: ResponsiveSchema<number>;
+  spacing?: ResponsiveSchema<number>;
+  fontWeights?: ResponsiveSchema<number>;
   fontSizes?: ResponsiveSchema<number>;
   breakpoints?: ResponsiveSchema<number>;
 };
 
 /**
+ * Union type representing the keys of the font weight.
+ */
+export type FontWeightKey = keyof typeof FontWeights;
+
+/**
  * Union type representing the keys of the color palette.
  */
-export type ColorPalleteKeys = keyof typeof ColorPallete;
+export type ColorPalleteKey = keyof typeof ColorPallete;
 
 /**
  * Union type representing the keys of the default sizes.
  */
-export type SizeNameKeys = KeysOfUnion<typeof Sizes>;
+export type BreakpointsKey = KeysOfUnion<typeof Breakpoints>;
 
 /**
  * Type representing styled components with support for theming, parent styles, and variants.
@@ -149,67 +212,64 @@ export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string =
  * Type to remove keys from type definitions.
  */
 export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
+
 /**
- * Type representing props for styled components, combining component-specific, style-specific, 
+ * Type representing props for styled components, combining component-specific, style-specific,
  * and variant-specific properties.
- * 
+ *
  * @template TProps - Component-specific properties.
  * @template TStyleProps - Style-specific properties.
  * @template TVariants - Variant-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = 
-  Omit<TProps & TStyleProps, keyof OverrideTypedProps> & {
+export type StyledProps<TProps, TStyleProps, TVariants> = {
   /** Optional variant property for component styling. */
   variant?: TVariants;
-  
+
   /** Children nodes to be rendered within the component. */
   children?: React.ReactNode;
-  
+
   /** Style properties including possible overrides. */
-  style?: TStyleProps & OverrideTypedProps;
-} & Omit<TStyleProps, keyof OverrideTypedProps> & OverrideTypedProps;
+  style?: TStyleProps & PatchProps<TStyleProps>;
+} & PatchProps<TProps & TStyleProps>;
 
 /**
  * Type representing parameters for a transformation function.
- * 
+ *
  * @template TContext - Context type used during transformation.
  */
-export type TransformParams<TContext> = { 
+export type TransformParams<TContext = {}> = {
   /** The value to be transformed. */
-  value: any; 
-  
+  value: any;
+
   /** The key associated with the value. */
-  key: string; 
-  
+  key: string;
+
   /** Optional context data for transformation. */
-  ctx?: TContext 
+  ctx?: TContext;
 };
 
 /**
  * Type defining the properties required by the deepTransform function.
- * 
+ *
  * @template TCollection - The type of the input object to be transformed.
  * @template TContext - Context type used during transformation, which includes a readonly 'deep' property.
  */
-export type DeepMapProps<
-  TCollection extends object = {}, 
-  TContext extends object & { deep: Readonly<number> } = { deep: number }
-> = {
+export type DeepMapProps<TCollection extends object = {}, TContext extends object & { deep: Readonly<number> } = { deep: number }> = {
   /** The input object to be transformed. */
   values: TCollection;
-  
+
   /** Function to determine if a value should be transformed. */
   match: (props: TransformParams<TContext>) => boolean;
-  
+
   /** Function to transform individual values within the input object. */
   map: (props: TransformParams<TContext>) => any;
-  
+
   /** Function to handle nested objects within the input object. */
   onNesting?: (props: Omit<TransformParams<TContext> & { values: TCollection }, "value">) => TContext;
-  
+
   /** Optional initial context data for transformation. */
   initialContext?: TContext;
-  
+
   /** Optional keys to skip during transformation. */
   skipKeys?: string[];
 };

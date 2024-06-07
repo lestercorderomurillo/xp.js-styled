@@ -1,6 +1,6 @@
 import { Appearance, Dimensions, Platform } from "react-native";
-import { ColorIntensity, ColorPallete, Breakpoints, Sizes, SizeRegex } from "../constants";
-import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
+import { Breakpoints, ColorIntensity, ColorPallete, FontSizes, FontWeights, SizeRegex, Spacing } from "../constants";
+import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, WithMediaQuery } from "../types";
 import { isNullish, isObject, isString, isStyleProp } from "../utils";
 
 /**
@@ -77,45 +77,6 @@ export const deepMap = ({ values, match, map, skipKeys, onNesting, initialContex
   }
 
   return values;
-};
-
-/**
- * Utility function to recursively transform size strings within an object.
- * @param props - The input object containing size strings to be transformed.
- * @param sizeSchema - Optional schema for size transformation.
- * @returns Object with size strings transformed.
- */
-export const deepSize = (props: object, sizeSchema?: ResponsiveSchema<number>) => {
-  return deepMap({
-    values: props,
-    skipKeys: ["children"],
-    match: (value) => isString(value) && SizeRegex.test(value),
-    map: ({ value }) => size(value, sizeSchema),
-  });
-};
-
-/**
- * Utility function to recursively transform color strings within an object.
- * @param props - The input object containing color strings to be transformed.
- * @param colorsSchema - Optional schema for color transformation.
- * @returns Object with color strings transformed.
- */
-export const deepColor = (props: object, colorsSchema?: ColorsSchema) => {
-  const colorRegex = new RegExp(`\\b(?:${Object.keys({ ...ColorPallete, ...colorsSchema }).join("|")})\\.${ColorIntensity}\\b`);
-  return deepMap({
-    values: props,
-    skipKeys: ["children"],
-    match: (value) => isString(value) && colorRegex.test(value),
-    map: ({ value }) => color(value, colorsSchema),
-  });
-};
-
-/**
- * Utility function to perform transformations given a theme schema on a object recursively.
- * @returns Object with values transformed.
- */
-export const deepStyling = (object, theme?: ThemeSchema) => {
-  return deepSize(deepColor(object, theme?.colors), theme?.sizes);
 };
 
 /**
@@ -245,24 +206,31 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
 /**
  * Function to resolve size values.
  * @param value - Size value to resolve.
- * @param sizesSchema - Size schema.
+ * @param theme - Theme schema.
  * @returns Resolved size value.
  */
-export const size = (value: string | number, sizesSchema?: ResponsiveSchema<number>) => {
-  if (typeof value == "string") {
-    const match = SizeRegex.exec(value);
-    if (match && match.length > 0) {
-      const multiplier = typeof match[0] == "string" ? parseInt(match[0]) : 1;
-      const breakpointSize = match[1] ?? "md";
-      const sizes = { ...Sizes, ...sizesSchema };
-      const value = sizes[breakpointSize];
-      return multiplier * value;
-    }
+export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
+  if (!isString(value)) return value;
 
-    return { ...Sizes, ...sizesSchema }[value];
+  const match = SizeRegex.exec(value);
+  if (!match) return value;
+
+  const multiplier = parseInt(match[1] ?? "1", 10);
+  const sizeKey = match[2] ?? "md";
+
+  let resolvedSize;
+  switch (key) {
+    case "fontSize":
+      resolvedSize = theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey];
+      break;
+    case "fontWeight":
+      resolvedSize = theme?.fontWeights?.[sizeKey] ?? FontWeights[sizeKey];
+      break;
+    default:
+      resolvedSize = theme?.spacing?.[sizeKey] ?? Spacing[sizeKey];
   }
 
-  return value;
+  return typeof resolvedSize === "number" ? multiplier * resolvedSize : value;
 };
 
 /**

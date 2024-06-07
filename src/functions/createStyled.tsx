@@ -1,13 +1,15 @@
 import React, { useMemo } from "react";
 import { useColorScheme, useWindowDimensions } from "react-native";
+import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
 import { ComponentStyleProps, StyledProps, StyledSchema } from "../types";
-import { deepMerge, deepStyling, normalizeMediaQueries, splitProps } from "./transformers";
+import { isString } from "../utils";
+import { color, deepMap, deepMerge, normalizeMediaQueries as flatMediaQueries, size, splitProps } from "./transformers";
 
 /**
  * Create a Styled Component given a style schema and a base theme (both optional).
  * @param {React.ComponentType<any>} Component The component to render.
  * @param {StyledSchema} schema The style schema.
- * @returns A HOC wrapper around your component with extended features.
+ * @returns A wrapper around your component with extended features.
  */
 export const createStyled = <
   TComponent extends React.ComponentType<{}>,
@@ -24,7 +26,25 @@ export const createStyled = <
     const deviceColorScheme = useColorScheme();
     const deviceDimensions = useWindowDimensions();
 
-    const compile = (object: any) => (object ? deepStyling(normalizeMediaQueries(object, schema?.theme?.breakpoints), schema?.theme) : {});
+    const transpile = (values: unknown) => {
+      const colorRegex = new RegExp(
+        `\\b(?:${Object.keys({ ...ColorPallete, ...schema?.theme?.colors }).join("|")})\\.${ColorIntensity}\\b`,
+      );
+
+      return deepMap({
+        values: flatMediaQueries(values, schema?.theme.breakpoints),
+        skipKeys: ["children"],
+        match: (value) => isString(value),
+        map: ({ key, value }) => {
+          if (colorRegex.test(value)) {
+            return color(value, schema?.theme?.colors, schema?.theme.breakpoints);
+          } else if (SizeRegex.test(value)) {
+            return size({ key, value }, schema?.theme);
+          }
+          return value;
+        },
+      });
+    };
 
     const memoized = useMemo(() => {
       const { style, variant, ...restProps } = props;
@@ -32,19 +52,19 @@ export const createStyled = <
 
       let parentStyle = {};
 
-      schema?.parentStyles?.forEach(styleName => {
-        parentStyle = deepMerge([parentStyle, schema?.theme?.styles[styleName] ?? {}]); 
+      schema?.parentStyles?.forEach((styleName) => {
+        parentStyle = deepMerge([parentStyle, schema?.theme?.styles[styleName] ?? {}]);
       });
 
       const variantStyle = variant && schema?.variants && schema.variants[variant as any] ? schema.variants[variant as any] : {};
 
       return {
         elementProps,
-        parentStyle: compile(parentStyle),
-        inlineStyle: compile(style),
-        schemaStyle: compile(schema),
-        variantStyle: compile(variantStyle),
-        overrideStyle: compile(styleProps),
+        parentStyle: transpile(parentStyle),
+        inlineStyle: transpile(style),
+        schemaStyle: transpile(schema),
+        variantStyle: transpile(variantStyle),
+        overrideStyle: transpile(styleProps),
       };
     }, [props, deviceColorScheme, deviceDimensions]);
 

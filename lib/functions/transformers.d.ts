@@ -1,4 +1,4 @@
-import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, WithMediaQuery } from "../types";
+import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, WithMediaQuery } from "../types";
 /**
  * Splits the input props object into separate props and style objects.
  * @param props - The input props object containing both regular props and style props.
@@ -18,25 +18,6 @@ export declare const splitProps: (props: any) => {
  * @returns Transformed object.
  */
 export declare const deepMap: ({ values, match, map, skipKeys, onNesting, initialContext }: DeepMapProps) => {};
-/**
- * Utility function to recursively transform size strings within an object.
- * @param props - The input object containing size strings to be transformed.
- * @param sizeSchema - Optional schema for size transformation.
- * @returns Object with size strings transformed.
- */
-export declare const deepSize: (props: object, sizeSchema?: ResponsiveSchema<number>) => {};
-/**
- * Utility function to recursively transform color strings within an object.
- * @param props - The input object containing color strings to be transformed.
- * @param colorsSchema - Optional schema for color transformation.
- * @returns Object with color strings transformed.
- */
-export declare const deepColor: (props: object, colorsSchema?: ColorsSchema) => {};
-/**
- * Utility function to perform transformations given a theme schema on a object recursively.
- * @returns Object with values transformed.
- */
-export declare const deepStyling: (object: any, theme?: ThemeSchema) => {};
 /**
  * Merges an array of objects deeply.
  * @param {object[]} objects - The array of objects to merge.
@@ -69,10 +50,10 @@ export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoi
 /**
  * Function to resolve size values.
  * @param value - Size value to resolve.
- * @param sizesSchema - Size schema.
+ * @param theme - Theme schema.
  * @returns Resolved size value.
  */
-export declare const size: (value: string | number, sizesSchema?: ResponsiveSchema<number>) => number;
+export declare const size: ({ key, value }: TransformParams, theme?: ThemeSchema) => any;
 /**
  * Converts a hex color string to an RGB array.
  * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").

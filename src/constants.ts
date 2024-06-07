@@ -256,6 +256,33 @@ export const StyleProps = [
   "zoom",
 ];
 
+export const TypographyProps = [
+  "color",
+  "fontFamily",
+  "fontSize",
+  "fontStyle",
+  "fontWeight",
+  "letterSpacing",
+  "lineHeight",
+  "textAlign",
+  "textAlignVertical",
+  "textDecorationLine",
+  "textDecorationStyle",
+  "textDecorationColor",
+  "textShadowColor",
+  "textShadowOffset",
+  "textShadowRadius",
+  "textTransform",
+  "writingDirection",
+  "includeFontPadding",
+  "textOverflow",
+  "textRendering",
+  "direction",
+  "wordSpacing",
+  "textIndent",
+  "whiteSpace",
+];
+
 export const ColorPallete = {
   red: "#FF0000",
   coral: "#FF7F50",
@@ -295,7 +322,16 @@ export const FontSizes = {
   xxl: 64,
 };
 
-export const Sizes = {
+export const FontWeights = {
+  thinest: 100,
+  thin: 200,
+  normal: 300,
+  medium: 400,
+  bold: 500,
+  boldest: 600,
+};
+
+export const Spacing = {
   xxs: 2,
   xs: 4,
   sm: 12,
@@ -310,11 +346,11 @@ export const Breakpoints = {
   xs: 360,
   sm: 576,
   md: 768,
-  lg: 992, 
+  lg: 992,
   xl: 1200,
   xxl: 1600,
 };
 
-export const SizeRegex = /\b(?:[2-9])?(xxs|xs|sm|md|lg|xl|xxl)\b/i;
+export const SizeRegex = /\b([1-9])?(xxs|xs|sm|md|lg|xl|xxl)\b/i;
 
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";

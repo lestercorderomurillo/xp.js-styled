@@ -5,6 +5,12 @@
  */
 export declare const isEventProp: (key: string) => boolean;
 /**
+ * Checks if the given prop is a event prop.
+ * @param {string} key The key to check.
+ * @returns {boolean} True if it's a event or false otherwise.
+ */
+export declare const isTypographyProp: (key: string) => boolean;
+/**
  * Checks if the given prop is a style prop.
  * @param {string} key The key to check.
  * @returns {boolean} True if it's a style or false otherwise.
