@@ -5,12 +5,12 @@ import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformPar
  * @returns An object containing the separated props and style objects.
  */
 export declare const splitProps: (props: any) => {
-  elementProps: {
-    [key: string]: any;
-  };
-  styleProps: {
-    [key: string]: any;
-  };
+    elementProps: {
+        [key: string]: any;
+    };
+    styleProps: {
+        [key: string]: any;
+    };
 };
 /**
  * Recursively maps nested objects.
