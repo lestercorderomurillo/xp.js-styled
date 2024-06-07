@@ -1,21 +1,21 @@
 /**
- * Checks if the given prop is a event prop.
+ * Checks if the given prop is an event prop.
  * @param {string} key The key to check.
- * @returns {boolean} True if it's a event or false otherwise.
+ * @returns {boolean} True if it's an event prop, false otherwise.
  */
-export declare const isEventProp: (key: string) => boolean;
+export declare const isEventProp: (key: string | null | undefined) => boolean;
 /**
- * Checks if the given prop is a event prop.
+ * Checks if the given prop is a typography prop.
  * @param {string} key The key to check.
- * @returns {boolean} True if it's a event or false otherwise.
+ * @returns {boolean} True if it's a typography prop, false otherwise.
  */
-export declare const isTypographyProp: (key: string) => boolean;
+export declare const isTypographyProp: (key: string | null | undefined) => boolean;
 /**
  * Checks if the given prop is a style prop.
  * @param {string} key The key to check.
- * @returns {boolean} True if it's a style or false otherwise.
+ * @returns {boolean} True if it's a style prop, false otherwise.
  */
-export declare const isStyleProp: (key: string) => boolean;
+export declare const isStyleProp: (key: string | null | undefined) => boolean;
 /**
  * Checks if the given value is a function.
  * @param {any} value The value to check.
