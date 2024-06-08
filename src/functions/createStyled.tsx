@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useDeferredValue, useMemo } from "react";
 import { useColorScheme, useWindowDimensions } from "react-native";
 import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
 import { ComponentStyleProps, StyledProps, StyledSchema } from "../types";
@@ -21,12 +21,15 @@ export const createStyled = <
 ) => {
   return ({
     children,
-    ...props
+    ...componentProps
   }: StyledProps<React.ComponentProps<TComponent>, ComponentStyleProps<TComponent>, keyof (typeof schema)["variants"]>) => {
+
     const deviceColorScheme = useColorScheme();
     const deviceDimensions = useWindowDimensions();
+    const devicePixels = useDeferredValue(deviceDimensions.width * deviceDimensions.height);
 
-    const transpile = (values: unknown) => {
+    const transpile = useCallback((values: unknown) => {
+
       const colorRegex = new RegExp(
         `\\b(?:${Object.keys({ ...ColorPallete, ...schema?.theme?.colors }).join("|")})\\.${ColorIntensity}\\b`,
       );
@@ -44,10 +47,11 @@ export const createStyled = <
           return value;
         },
       });
-    };
 
-    const memoized = useMemo(() => {
-      const { style, variant, ...restProps } = props;
+    }, [Component, schema]);
+
+    const props = useMemo(() => {
+      const { style, variant, ...restProps } = componentProps;
       const { elementProps, styleProps } = splitProps(restProps ?? {});
 
       let parentStyle = {};
@@ -59,24 +63,25 @@ export const createStyled = <
       const variantStyle = variant && schema?.variants && schema.variants[variant as any] ? schema.variants[variant as any] : {};
 
       return {
-        elementProps,
+        elementProps: elementProps as any,
         parentStyle: transpile(parentStyle),
         inlineStyle: transpile(style),
         schemaStyle: transpile(schema),
         variantStyle: transpile(variantStyle),
         overrideStyle: transpile(styleProps),
       };
-    }, [props, deviceColorScheme, deviceDimensions]);
+
+    }, [componentProps, deviceColorScheme, devicePixels]);
 
     return (
       <Component
-        {...(children ? { children } : {})}
-        {...(memoized.elementProps as any)}
+        {...props.elementProps}
+        children={children}
         style={
           deepMerge(
-            [memoized.parentStyle, memoized.schemaStyle, memoized.variantStyle, memoized.inlineStyle, memoized.overrideStyle],
+            [props.parentStyle, props.schemaStyle, props.variantStyle, props.inlineStyle, props.overrideStyle],
             ["children", "style"],
-          ) as any
+          )
         }
       />
     );
