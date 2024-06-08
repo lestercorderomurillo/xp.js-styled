@@ -1,8 +1,26 @@
-import { View, Text, Button, Pressable, TextInput, ActivityIndicator, FlatList, KeyboardAvoidingView, Modal, SafeAreaView, ScrollView, SectionList, Switch, TouchableHighlight, TouchableOpacity, TouchableWithoutFeedback, Image,  } from "react-native";
+import {
+  ActivityIndicator,
+  Button,
+  FlatList,
+  Image,
+  KeyboardAvoidingView,
+  Modal,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  SectionList,
+  Switch,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import { createStyled } from "./functions/createStyled";
 
 export const StyledFlex = createStyled(View, {
-    flex: 1
+  flex: 1,
 });
 
 export const StyledView = createStyled(View);
@@ -24,11 +42,11 @@ export const StyledTouchableWithoutFeedback = createStyled(TouchableWithoutFeedb
 export const StyledPressable = createStyled(Pressable);
 
 export const XStack = createStyled(View, {
-    flex: 1,
-    flexDirection: 'row'
+  flex: 1,
+  flexDirection: "row",
 });
 
 export const YStack = createStyled(View, {
-    flex: 1,
-    flexDirection: 'column'
+  flex: 1,
+  flexDirection: "column",
 });
