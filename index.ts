@@ -1,5 +1,3 @@
-// Function exports
-// Base components exports
 export {
   StyledActivityIndicator as ActivityIndicator,
   StyledButton as Button,
@@ -24,5 +22,4 @@ export {
 } from "./lib/components";
 export { createStyled } from "./lib/functions/createStyled";
 export { createTheme } from "./lib/functions/createTheme";
-// Utility exports
 export { color, hexToRGB, shade, size } from "./lib/functions/transformers";

@@ -47,32 +47,32 @@ type DeclarativeColor = `${string}.${ColorRange}` | `${ColorPalleteKey}`;
 /**
  * Union type representing various types of colors.
  */
-type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
+export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
 
 /**
  * Type defining all the optional media queries you can apply to a given component.
  */
 export type WithMediaQuery<T = any> = T & {
-  "@ios"?: T;
-  "@android"?: T;
-  "@windows"?: T;
-  "@macos"?: T;
-  "@web"?: T;
-  "@light"?: T;
-  "@dark"?: T;
-} & { [key in `@${BreakpointsKey}`]?: T };
+  "@ios"?: T & WithMediaQuery<T>;
+  "@android"?: T & WithMediaQuery<T>;
+  "@windows"?: T & WithMediaQuery<T>;
+  "@macos"?: T & WithMediaQuery<T>;
+  "@web"?: T & WithMediaQuery<T>;
+  "@light"?: T & WithMediaQuery<T>;
+  "@dark"?: T & WithMediaQuery<T>;
+} & { [key in `@${BreakpointsKey}`]?: T & WithMediaQuery<T>; };
 
 /**
  * Type representing styles with typed properties for common attributes.
  */
-export type Style<TFields = ViewStyle> = TFields & ColorProps;
+export type Style<TFields = ViewStyle> = PatchProps<TFields>;
 
 /**
  * Typography properties type.
  */
 export type TypographyProps = {
   fontSize?: TypedDimension;
-  fontWeight?: 100 | 200 | 300 | 400;
+  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
 };
 
 /**
@@ -144,12 +144,12 @@ export type PatchType<TBase, TOverride> = {
 /**
  * All properties type.
  */
-export type PatchProps<TProps = {}> = PatchType<TProps, TypographyProps & SpacingProps & LayoutProps & ColorProps & BorderProps>;
+export type PatchProps<TProps = {}> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps & BorderProps> & LayoutProps;
 
 /**
  * Type representing a dimension.
  */
-type TypedDimension = DimensionValue | BreakpointsKey | `${"2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"}${BreakpointsKey}`;
+type TypedDimension = DimensionValue | BreakpointsKey | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
 
 /**
  * Schema defining stylesheets with optional media queries.
@@ -205,8 +205,7 @@ export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string =
   theme?: ThemeSchema;
   parentStyles?: string[];
   variants?: Record<TVariantNames, Partial<WithMediaQuery<Style<TStyleProps>>>>;
-} & WithMediaQuery<Style<TStyleProps>> &
-  object;
+} & WithMediaQuery<Style<TStyleProps>> & object;
 
 /**
  * Type to remove keys from type definitions.
@@ -229,8 +228,8 @@ export type StyledProps<TProps, TStyleProps, TVariants> = {
   children?: React.ReactNode;
 
   /** Style properties including possible overrides. */
-  style?: TStyleProps & PatchProps<TStyleProps>;
-} & PatchProps<TProps & TStyleProps>;
+  style?: WithMediaQuery<PatchProps<TStyleProps>>;
+} & WithMediaQuery<PatchProps<TProps & TStyleProps>>;
 
 /**
  * Type representing parameters for a transformation function.

@@ -1,6 +1,6 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { Breakpoints, ColorIntensity, ColorPallete, FontSizes, FontWeights, SizeRegex, Spacing } from "../constants";
-import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, WithMediaQuery } from "../types";
+import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, TypedColor, WithMediaQuery } from "../types";
 import { isNullish, isObject, isString, isStyleProp } from "../utils";
 
 /**
@@ -176,9 +176,9 @@ export const shade = (hex: string, lumen: number): string => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>): string => {
+export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>): TypedColor => {
   if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")) {
-    return value;
+    return value as TypedColor;
   }
 
   if (ColorPallete[value]) {
@@ -196,11 +196,11 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
     const [colorName, lumen] = value.split(".");
     const baseColor = ColorPallete[colorName];
     if (baseColor) {
-      return shade(baseColor, parseInt(lumen));
+      return shade(baseColor, parseInt(lumen)) as TypedColor;
     }
   }
 
-  return value;
+  return value as TypedColor;
 };
 
 /**

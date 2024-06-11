@@ -1,6 +1,9 @@
 import { FlatList, View } from "react-native";
 import { ColorPallete } from "./constants";
 import { color } from "./functions/transformers";
+import { createStyled } from "./functions/createStyled";
+
+const StyledView = createStyled(View);
 
 export const ColorSample = () => {
   const lumens = [];
@@ -37,11 +40,11 @@ export const ColorSample = () => {
       data={colorLumens}
       keyExtractor={(item) => `${item.colorName}-${item.lumen}`}
       renderItem={({ item, index }) => (
-        <View
+        <StyledView
+          height={25}
+          width={25}
+          backgroundColor={color(`${item.colorName}.${item.lumen}`)}
           style={{
-            backgroundColor: color(`${item.colorName}.${item.lumen}`),
-            height: 25,
-            width: 25,
             ...getBorderRadius(index, 17, Math.ceil(colorLumens.length / 17)),
           }}
         />
