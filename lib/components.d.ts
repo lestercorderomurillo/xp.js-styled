@@ -3,92 +3,4062 @@ import { ActivityIndicator, Button, FlatList, Image, KeyboardAvoidingView, Modal
 export declare const StyledFlex: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("react-native").ViewStyle & import("./types").PatchType<import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
+} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof View>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof View>>;
 export declare const StyledView: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("react-native").ViewStyle & import("./types").PatchType<import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
+} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof View>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof View>>;
 export declare const StyledText: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").TextProps, import("react-native").StyleProp<import("react-native").TextStyle>, never> & import("react").RefAttributes<typeof Text>>;
 export declare const StyledImage: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").ImageProps, import("react-native").StyleProp<import("react-native").ImageStyle>, never> & import("react").RefAttributes<typeof Image>>;
 export declare const StyledScrollView: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("react-native").ViewStyle & import("./types").PatchType<import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
+} & import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof ScrollView>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ScrollViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof ScrollView>>;
 export declare const StyledTextInput: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").TextInputProps, import("react-native").StyleProp<import("react-native").TextStyle>, never> & import("react").RefAttributes<typeof TextInput>>;
 export declare const StyledButton: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("./types").PatchType<{}, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<{}>>;
+} & import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof Button>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ButtonProps, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof Button>>;
 export declare const StyledTouchableOpacity: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").TouchableOpacityProps, import("react-native").StyleProp<import("react-native").ViewStyle>, never> & import("react").RefAttributes<typeof TouchableOpacity>>;
 export declare const StyledFlatList: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("react-native").ViewStyle & import("./types").PatchType<import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
+} & import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof FlatList>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").FlatListProps<unknown> & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof FlatList>>;
 export declare const StyledSectionList: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").SectionListProps<unknown, unknown>, import("react-native").StyleProp<import("react-native").ViewStyle>, never> & import("react").RefAttributes<typeof SectionList>>;
 export declare const StyledSafeAreaView: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").ViewProps, import("react-native").StyleProp<import("react-native").ViewStyle>, never> & import("react").RefAttributes<typeof SafeAreaView>>;
 export declare const StyledKeyboardAvoidingView: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").KeyboardAvoidingViewProps, import("react-native").StyleProp<import("react-native").ViewStyle>, never> & import("react").RefAttributes<typeof KeyboardAvoidingView>>;
@@ -101,34 +4071,1622 @@ export declare const StyledPressable: import("react").ForwardRefExoticComponent<
 export declare const XStack: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("react-native").ViewStyle & import("./types").PatchType<import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
+} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof View>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof View>>;
 export declare const YStack: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
-    style?: import("react-native").ViewStyle & import("./types").PatchType<import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-        color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-        backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & {
-        [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    } & import("./types").BorderProps>;
-} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & import("./types").LayoutProps & {
-    color?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    shadowColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-    backgroundColor?: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
+    style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
+} & import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+    color?: import("./types").TypedColor;
+    shadowColor?: import("./types").TypedColor;
+    backgroundColor?: import("./types").TypedColor;
 } & {
-    [x: `${string}Color`]: (`rgb(${number}, ${number}, ${number})` | `rgb(${number},${number},${number})`) | (`rgba(${number}, ${number}, ${number}, ${number})` | `rgba(${number},${number},${number},${number})`) | `#${string}` | `hsl(${number}, ${number}, ${number})` | `hsla(${number}, ${number}, ${number}, ${number})` | (`${string}.100` | `${string}.200` | `${string}.300` | `${string}.400` | `${string}.500` | `${string}.600` | `${string}.150` | `${string}.250` | `${string}.350` | `${string}.450` | `${string}.550` | `${string}.650` | `${string}.700` | `${string}.750` | `${string}.800` | `${string}.850` | `${string}.900` | "red" | "coral" | "orange" | "gold" | "yellow" | "lime" | "lightGreen" | "green" | "darkGreen" | "nature" | "teal" | "aqua" | "sky" | "lightBlue" | "blue" | "darkBlue" | "blueViolet" | "violet" | "indigo" | "purple" | "magenta" | "pink" | "hotPink" | "black" | "gray" | "white");
-} & import("./types").BorderProps> & import("react").RefAttributes<typeof View>>;
+    [x: `${string}Color`]: import("./types").TypedColor;
+} & import("./types").BorderProps> & import("./types").LayoutProps & {
+    "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+    "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & any & {
+        "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    };
+} & {
+    "@xxs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xs"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@sm"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@md"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@lg"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+    "@xxl"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+        color?: import("./types").TypedColor;
+        shadowColor?: import("./types").TypedColor;
+        backgroundColor?: import("./types").TypedColor;
+    } & {
+        [x: `${string}Color`]: import("./types").TypedColor;
+    } & import("./types").BorderProps> & import("./types").LayoutProps & {
+        "@ios"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@android"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@windows"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@macos"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@web"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@light"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+        "@dark"?: import("./types").PatchType<import("react-native").ViewProps & import("react-native").ViewStyle, import("./types").TypographyProps & import("./types").SpacingProps & {
+            color?: import("./types").TypedColor;
+            shadowColor?: import("./types").TypedColor;
+            backgroundColor?: import("./types").TypedColor;
+        } & {
+            [x: `${string}Color`]: import("./types").TypedColor;
+        } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
+    } & any;
+} & import("react").RefAttributes<typeof View>>;

@@ -1,7 +1,7 @@
 import { FlatList, View } from "react-native";
 import { ColorPallete } from "./constants";
-import { color } from "./functions/transformers";
 import { createStyled } from "./functions/createStyled";
+import { color } from "./functions/transformers";
 
 const StyledView = createStyled(View);
 

@@ -112,7 +112,7 @@ export const deepMerge = (objects, skipKeys = []) => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Generated style with media queries applied on.
  */
-export const normalizeMediaQueries = <T = any>(values?: WithMediaQuery<T>, breakpoints?: ResponsiveSchema<number>) => {
+export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: ResponsiveSchema<number>) => {
   if (isObject(values) && Object.keys(values).length > 0) {
     const colorScheme = Appearance.getColorScheme();
     const width = Dimensions.get("window").width;

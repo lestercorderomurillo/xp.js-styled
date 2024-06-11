@@ -1,4 +1,4 @@
-import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, WithMediaQuery } from "../types";
+import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, TypedColor } from "../types";
 /**
  * Splits the input props object into separate props and style objects.
  * @param props - The input props object containing both regular props and style props.
@@ -31,7 +31,7 @@ export declare const deepMerge: (objects: any, skipKeys?: any[]) => any;
  * @param breakpoints - Breakpoint sizes.
  * @returns Generated style with media queries applied on.
  */
-export declare const normalizeMediaQueries: <T = any>(values?: WithMediaQuery<T>, breakpoints?: ResponsiveSchema<number>) => any;
+export declare const normalizeMediaQueries: <T = any>(values?: any, breakpoints?: ResponsiveSchema<number>) => any;
 /**
  * Function to generate shades of a color.
  * @param hex - Base color in hexadecimal format.
@@ -46,7 +46,7 @@ export declare const shade: (hex: string, lumen: number) => string;
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>) => string;
+export declare const color: (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>) => TypedColor;
 /**
  * Function to resolve size values.
  * @param value - Size value to resolve.

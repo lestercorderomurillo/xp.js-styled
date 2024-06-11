@@ -60,7 +60,7 @@ export type WithMediaQuery<T = any> = T & {
   "@web"?: T & WithMediaQuery<T>;
   "@light"?: T & WithMediaQuery<T>;
   "@dark"?: T & WithMediaQuery<T>;
-} & { [key in `@${BreakpointsKey}`]?: T & WithMediaQuery<T>; };
+} & { [key in `@${BreakpointsKey}`]?: T & WithMediaQuery<T> };
 
 /**
  * Type representing styles with typed properties for common attributes.
@@ -205,7 +205,8 @@ export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string =
   theme?: ThemeSchema;
   parentStyles?: string[];
   variants?: Record<TVariantNames, Partial<WithMediaQuery<Style<TStyleProps>>>>;
-} & WithMediaQuery<Style<TStyleProps>> & object;
+} & WithMediaQuery<Style<TStyleProps>> &
+  object;
 
 /**
  * Type to remove keys from type definitions.
