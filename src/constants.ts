@@ -116,6 +116,8 @@ export const StyleProps = [
   "listStylePosition",
   "listStyleType",
   "margin",
+  "marginHorizontal",
+  "marginVertical",
   "marginBottom",
   "marginLeft",
   "marginRight",
@@ -163,6 +165,8 @@ export const StyleProps = [
   "overscrollBehaviorX",
   "overscrollBehaviorY",
   "padding",
+  "paddingVertical",
+  "paddingHorizontal",
   "paddingBottom",
   "paddingLeft",
   "paddingRight",
@@ -314,31 +318,33 @@ export const ColorPallete = {
 
 export const FontSizes = {
   xxs: 8,
-  xs: 12,
-  sm: 18,
-  md: 24,
-  lg: 32,
-  xl: 48,
-  xxl: 64,
-};
-
-export const FontWeights = {
-  thinest: 100,
-  thin: 200,
-  normal: 300,
-  medium: 400,
-  bold: 500,
-  boldest: 600,
-};
-
-export const Spacing = {
-  xxs: 2,
-  xs: 4,
-  sm: 12,
-  md: 16,
+  xs: 10,
+  sm: 14,
+  md: 18,
   lg: 24,
   xl: 32,
   xxl: 48,
+};
+
+export const FontWeights = {
+  thinnest: 100,
+  thin: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  boldest: 800
+};
+
+export const Spacing = {
+  xxs: 1,
+  xs: 2,
+  sm: 4,
+  md: 8,
+  lg: 12,
+  xl: 20,
+  xxl: 32,
 };
 
 export const Breakpoints = {
@@ -351,6 +357,6 @@ export const Breakpoints = {
   xxl: 1600,
 };
 
-export const SizeRegex = /\b([1-9])?(xxs|xs|sm|md|lg|xl|xxl)\b/i;
+export const SizeRegex = /\b(xxs|xs|sm|md|lg|xl|xxl(?:\/[2-8]xxl)?)\b/i;
 
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";

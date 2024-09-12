@@ -73,6 +73,7 @@ export const createStyled = <
           variantStyle: transpile(variantStyle),
           overrideStyle: transpile(styleProps),
         };
+        
       }, [componentProps, deviceColorScheme, devicePixels]);
 
       return (

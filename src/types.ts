@@ -80,10 +80,14 @@ export type TypographyProps = {
  */
 export type SpacingProps = {
   padding?: TypedDimension;
+  paddingVertical?: TypedDimension;
+  paddingHorizontal?: TypedDimension;
   paddingTop?: TypedDimension;
   paddingBottom?: TypedDimension;
   paddingLeft?: TypedDimension;
   paddingRight?: TypedDimension;
+  marginVertical?: TypedDimension;
+  marginHorizontal?: TypedDimension;
   margin?: TypedDimension;
   marginTop?: TypedDimension;
   marginBottom?: TypedDimension;
