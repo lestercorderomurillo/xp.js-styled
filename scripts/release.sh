@@ -36,12 +36,23 @@ fi
 # Check git status
 echo -e "${YELLOW}Step 2: ${NO_COLOR}Checking if the git repository is clean.${NO_COLOR}"
 
+echo "Current working directory: $(pwd)"
+echo "Git status:"
+git status
+
 if ! git diff-index --quiet HEAD --; then
-    echo -e "${RED}Fatal: Git repository is not clean. Please commit or stash your changes.${NO_COLOR}"
+    echo -e "${RED}Warning: Git repository is not clean. Here are the uncommitted changes:${NO_COLOR}"
     git diff-index HEAD --
-    exit 0
+    echo -e "${YELLOW}Do you want to proceed anyway? (y/n)${NO_COLOR}"
+    read -r response
+    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        echo -e "${YELLOW}Proceeding with release despite uncommitted changes.${NO_COLOR}"
+    else
+        echo -e "${RED}Release aborted. Please commit or stash your changes.${NO_COLOR}"
+        exit 0
+    fi
 else
-    echo -e "${GREEN}Git repository is prepared for the release.${NO_COLOR}"
+    echo -e "${GREEN}Git repository is clean and prepared for the release.${NO_COLOR}"
 fi
 
 # Build the project
