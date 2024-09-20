@@ -38,10 +38,12 @@ export declare const FontSizes: {
     xxl: number;
 };
 export declare const FontWeights: {
-    thinest: number;
+    thinnest: number;
     thin: number;
+    light: number;
     normal: number;
     medium: number;
+    semibold: number;
     bold: number;
     boldest: number;
 };
