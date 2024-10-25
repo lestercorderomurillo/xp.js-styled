@@ -9,7 +9,8 @@
     "removeComments": false,
     "sourceMap": true,
     "skipLibCheck": true,
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "types": ["jest", "node"] 
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "tests/tests.tsx", "tests"]
 }

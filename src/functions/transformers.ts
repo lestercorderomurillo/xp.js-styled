@@ -28,10 +28,12 @@ export const splitProps = (
     style: {},
   };
 
-  for (const key in _props) {
+  for (const key in _props) {if (isStyleProp(key)) {
+      output.style[key] = _props[key];
+    }
     if (isStyleProp(key)) {
       output.style[key] = _props[key];
-    } else {
+    } else if (key != 'style'){
       output.props[key] = _props[key];
     }
   }
@@ -46,31 +48,47 @@ export const splitProps = (
 
   return {
     elementProps: output.props,
-    styleProps: output.style,
+    styleProps: {...props['style'], ...output.style},
   };
 };
-
 /**
- * Recursively maps nested objects.
- * @param props - See DeepMapProps items.
- * @returns Transformed object.
+ * Recursively maps nested objects, omitting specified keys.
+ * @param props - Deep map configuration properties.
+ * @param props.values - The object to transform.
+ * @param props.match - Function to determine if a value should be transformed.
+ * @param props.map - Function to transform matching values.
+ * @param props.skipKeys - Array of keys to omit from the output.
+ * @param props.onNesting - Optional callback for nested objects.
+ * @param props.initialContext - Initial context object.
+ * @returns Transformed object with skipped keys removed.
  */
-export const deepMap = ({ values, match, map, skipKeys, onNesting, initialContext }: DeepMapProps) => {
+export const deepMap = ({ values, match, map, skipKeys = [], onNesting, initialContext }: DeepMapProps) => {
   if (isObject(values)) {
     let output = {};
     for (const key in values) {
-      if (!skipKeys.includes(key)) {
-        let ctx = { ...initialContext, deep: initialContext?.deep ?? 0 };
-        if (isObject(values[key])) {
-          if (onNesting) {
-            ctx = onNesting({ values: values[key], key, ctx });
-          }
-          output[key] = deepMap({ values: values[key], match, map, skipKeys, onNesting, initialContext: { ...ctx, deep: ctx.deep + 1 } });
-        } else if (match(values[key])) {
-          output[key] = map({ key, value: values[key], ctx });
-        } else {
-          output[key] = values[key];
+      if (skipKeys.includes(key)) {
+        // Skip this key entirely - don't add it to output
+        continue;
+      }
+
+      let ctx = { ...initialContext, deep: initialContext?.deep ?? 0 };
+      
+      if (isObject(values[key])) {
+        if (onNesting) {
+          ctx = onNesting({ values: values[key], key, ctx });
         }
+        output[key] = deepMap({ 
+          values: values[key], 
+          match, 
+          map, 
+          skipKeys, 
+          onNesting, 
+          initialContext: { ...ctx, deep: ctx.deep + 1 } 
+        });
+      } else if (match(values[key])) {
+        output[key] = map({ key, value: values[key], ctx });
+      } else {
+        output[key] = values[key];
       }
     }
     return output;
@@ -78,32 +96,51 @@ export const deepMap = ({ values, match, map, skipKeys, onNesting, initialContex
 
   return values;
 };
-
 /**
- * Merges an array of objects deeply.
- * @param {object[]} objects - The array of objects to merge.
+ * Merges an array of objects deeply, with support for arrays and objects.
+ * Arrays are concatenated, objects are merged recursively.
+ * 
+ * @param {(object|array)[]} objects - The array of objects or arrays to merge.
  * @param {string[]} [skipKeys=[]] - The array of keys to skip during the merge.
- * @returns {object} The merged object.
+ * @returns {object|array} The merged result.
  */
 export const deepMerge = (objects, skipKeys = []) => {
   return objects.reduce((output: any, value: any) => {
     if (isNullish(output)) {
-      output = {};
+      output = Array.isArray(value) ? [] : {};
     }
-    if (!isNullish(value)) {
-      Object.keys(value).forEach((key) => {
-        if (skipKeys.includes(key)) {
-          return;
-        }
-        if (isObject(value[key])) {
-          output[key] = deepMerge([output[key], value[key]], skipKeys);
-        } else if (!isNullish(value[key])) {
-          output[key] = value[key];
-        }
-      });
+
+    if (isNullish(value)) return output;
+
+    if (Array.isArray(value)) {
+      return Array.isArray(output) 
+        ? [...output, ...value]
+        : value;
     }
+
+    if (Array.isArray(output)) {
+      return value;
+    }
+
+    Object.keys(value).forEach((key) => {
+      if (skipKeys.includes(key)) {
+        return;
+      }
+
+      const currentValue = value[key];
+      const existingValue = output[key];
+
+      if (Array.isArray(currentValue) || Array.isArray(existingValue)) {
+        output[key] = deepMerge([existingValue, currentValue], skipKeys);
+      } else if (isObject(currentValue)) {
+        output[key] = deepMerge([existingValue, currentValue], skipKeys);
+      } else if (!isNullish(currentValue)) {
+        output[key] = currentValue;
+      }
+    });
+
     return output;
-  }, {});
+  }, undefined);
 };
 
 /**
@@ -124,7 +161,7 @@ export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: Respo
     if (values[`@${Platform.OS}`]) {
       out = deepMerge([out, normalizeMediaQueries(values[`@${Platform.OS}`])]);
     }
-
+    
     for (const breakpointKey of breakpointKeys) {
       const breakpointStyle = values["@" + breakpointKey];
 
@@ -133,7 +170,15 @@ export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: Respo
       }
     }
 
-    return deepMerge([out, normalizeMediaQueries(values[`@${colorScheme}`] ?? {})]);
+    out = deepMerge([out, normalizeMediaQueries(values[`@${colorScheme}`] ?? {})]);  
+    
+    for (const key in out) {
+      if (key.startsWith("@")) {
+        delete out[key];
+      }
+    }
+
+    return out;
   }
 
   return values;
@@ -212,11 +257,17 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
 export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
   if (!isString(value)) return value;
 
-  const match = SizeRegex.exec(value);
+  // Check for pixel values first
+  const pxMatch = value.match(/^(\d+)px$/);
+  if (pxMatch) {
+    return parseInt(pxMatch[1], 10);
+  }
+
+  // Then check for theme size values
+  const match = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl(?:\/[2-8]xxl)?)\b/i);
   if (!match) return value;
 
-  const multiplier = parseInt(match[1] ?? "1", 10);
-  const sizeKey = match[2] ?? "md";
+  const sizeKey = match[1].toLowerCase();
 
   let resolvedSize;
   switch (key) {
@@ -230,9 +281,8 @@ export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
       resolvedSize = theme?.spacing?.[sizeKey] ?? Spacing[sizeKey];
   }
 
-  return typeof resolvedSize === "number" ? multiplier * resolvedSize : value;
+  return typeof resolvedSize === "number" ? resolvedSize : value;
 };
-
 /**
  * Converts a hex color string to an RGB array.
  * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").
