@@ -39,7 +39,7 @@ export const createStyled = <
           return deepMap({
             values: flatMediaQueries(values, schema?.theme?.breakpoints),
             skipKeys: ["children"],
-            match: (value) => isString(value),
+            match: (value) => isString(value) || typeof value == 'number',
             map: ({ key, value }) => {
               if (colorRegex.test(value)) {
                 return color(value, schema?.theme?.colors, schema?.theme?.breakpoints);
@@ -86,8 +86,8 @@ export const createStyled = <
               mergedProps.parentStyle,
               mergedProps.schemaStyle,
               mergedProps.variantStyle,
-              mergedProps.inlineStyle,
               mergedProps.overrideStyle,
+              mergedProps.inlineStyle,
             ],
             ["children", "style"],
           )}
