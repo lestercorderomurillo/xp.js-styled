@@ -28,12 +28,13 @@ export const splitProps = (
     style: {},
   };
 
-  for (const key in _props) {if (isStyleProp(key)) {
+  for (const key in _props) {
+    if (isStyleProp(key)) {
       output.style[key] = _props[key];
     }
     if (isStyleProp(key)) {
       output.style[key] = _props[key];
-    } else if (key != 'style'){
+    } else if (key != 'style') {
       output.props[key] = _props[key];
     }
   }
@@ -48,7 +49,7 @@ export const splitProps = (
 
   return {
     elementProps: output.props,
-    styleProps: {...props['style'], ...output.style},
+    styleProps: { ...props['style'], ...output.style },
   };
 };
 /**
@@ -72,18 +73,18 @@ export const deepMap = ({ values, match, map, skipKeys = [], onNesting, initialC
       }
 
       let ctx = { ...initialContext, deep: initialContext?.deep ?? 0 };
-      
+
       if (isObject(values[key])) {
         if (onNesting) {
           ctx = onNesting({ values: values[key], key, ctx });
         }
-        output[key] = deepMap({ 
-          values: values[key], 
-          match, 
-          map, 
-          skipKeys, 
-          onNesting, 
-          initialContext: { ...ctx, deep: ctx.deep + 1 } 
+        output[key] = deepMap({
+          values: values[key],
+          match,
+          map,
+          skipKeys,
+          onNesting,
+          initialContext: { ...ctx, deep: ctx.deep + 1 }
         });
       } else if (match(values[key])) {
         output[key] = map({ key, value: values[key], ctx });
@@ -113,7 +114,7 @@ export const deepMerge = (objects, skipKeys = []) => {
     if (isNullish(value)) return output;
 
     if (Array.isArray(value)) {
-      return Array.isArray(output) 
+      return Array.isArray(output)
         ? [...output, ...value]
         : value;
     }
@@ -161,7 +162,7 @@ export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: Respo
     if (values[`@${Platform.OS}`]) {
       out = deepMerge([out, normalizeMediaQueries(values[`@${Platform.OS}`])]);
     }
-    
+
     for (const breakpointKey of breakpointKeys) {
       const breakpointStyle = values["@" + breakpointKey];
 
@@ -170,8 +171,8 @@ export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: Respo
       }
     }
 
-    out = deepMerge([out, normalizeMediaQueries(values[`@${colorScheme}`] ?? {})]);  
-    
+    out = deepMerge([out, normalizeMediaQueries(values[`@${colorScheme}`] ?? {})]);
+
     for (const key in out) {
       if (key.startsWith("@")) {
         delete out[key];
@@ -255,39 +256,41 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
  * @returns Resolved size value.
  */
 export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
-  if (!isString(value)) return value;
 
-  if (key === "fontWeight") {
-    const weightValue = FontWeights[value as keyof typeof FontWeights];
-    if (weightValue !== undefined) {
-      return weightValue;
-    }
+  // Return numeric value directly
+  if (typeof value === 'number') {
     return value;
   }
 
-  // Check for pixel values
-  const pxMatch = value.match(/^(\d+)px$/);
-  if (pxMatch) {
-    return parseInt(pxMatch[1], 10);
+  // Handle pixel values (e.g., "16px")
+  if (typeof value === 'string' && value.match(/^(\d+)px$/)) {
+    const pixelValue = parseInt(value, 10);
+    return !isNaN(pixelValue) ? pixelValue : value;
   }
 
-  // Check for theme size values
-  const match = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl(?:\/[2-8]xxl)?)\b/i);
-  if (!match) return value;
-
-  const sizeKey = match[1].toLowerCase();
-
-  let resolvedSize;
-  switch (key) {
-    case "fontSize":
-      resolvedSize = theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey];
-      break;
-    default:
-      resolvedSize = theme?.spacing?.[sizeKey] ?? Spacing[sizeKey];
+  // Handle font weight resolution if the key is "fontWeight"
+  if (typeof value === 'string' && key === "fontWeight") {
+    const weightValue = theme?.fontWeights?.[value] ?? FontWeights[value as keyof typeof FontWeights];
+    return weightValue !== undefined ? weightValue : value;
   }
 
-  return typeof resolvedSize === "number" ? resolvedSize : value;
-};
+  // Handle font size resolution if the key is "fontSize"
+  if (typeof value === 'string' && key === "fontSize") {
+    const sizeKey = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl)\b/i)?.[0]?.toLowerCase();
+    const fontSize = sizeKey ? theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey as keyof typeof FontSizes] : undefined;
+    return fontSize !== undefined ? fontSize : value;
+  }
+
+  // Handle spacing resolution as default if size key is valid
+  if (typeof value === 'string') {
+    const sizeKey = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl)\b/i)?.[0]?.toLowerCase();
+    const spacing = sizeKey ? theme?.spacing?.[sizeKey] ?? Spacing[sizeKey as keyof typeof Spacing] : undefined;
+    return spacing !== undefined ? spacing : value;
+  }
+
+  // Return original value if no match was found
+  return value;
+}
 
 /**
  * Converts a hex color string to an RGB array.

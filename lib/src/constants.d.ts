@@ -65,12 +65,5 @@ export declare const Breakpoints: {
     xl: number;
     xxl: number;
 };
-/**
- * Regular expression for matching both theme sizes and pixel values
- * Matches patterns like:
- * - xxs, xs, sm, md, lg, xl, xxl
- * - xxl/2xxl through xxl/8xxl
- * - 200px, 10px, etc.
- */
 export declare const SizeRegex: RegExp;
 export declare const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";

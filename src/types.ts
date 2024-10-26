@@ -1,5 +1,5 @@
-import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
+import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
 import { Breakpoints, ColorPallete, FontWeights } from "./constants";
 
 /**
@@ -72,7 +72,7 @@ export type Style<TFields = ViewStyle> = PatchProps<TFields>;
  */
 export type TypographyProps = {
   fontSize?: TypedDimension;
-  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
+  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | FontWeightKey;
 };
 
 /**
@@ -153,7 +153,7 @@ export type PatchProps<TProps = {}> = PatchType<TProps, TypographyProps & Spacin
 /**
  * Type representing a dimension.
  */
-type TypedDimension = DimensionValue | BreakpointsKey | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
+type TypedDimension = `${number}px` | DimensionValue | BreakpointsKey | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
 
 /**
  * Schema defining stylesheets with optional media queries.
