@@ -257,13 +257,21 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
 export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
   if (!isString(value)) return value;
 
-  // Check for pixel values first
+  if (key === "fontWeight") {
+    const weightValue = FontWeights[value as keyof typeof FontWeights];
+    if (weightValue !== undefined) {
+      return weightValue;
+    }
+    return value;
+  }
+
+  // Check for pixel values
   const pxMatch = value.match(/^(\d+)px$/);
   if (pxMatch) {
     return parseInt(pxMatch[1], 10);
   }
 
-  // Then check for theme size values
+  // Check for theme size values
   const match = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl(?:\/[2-8]xxl)?)\b/i);
   if (!match) return value;
 
@@ -274,15 +282,13 @@ export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
     case "fontSize":
       resolvedSize = theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey];
       break;
-    case "fontWeight":
-      resolvedSize = theme?.fontWeights?.[sizeKey] ?? FontWeights[sizeKey];
-      break;
     default:
       resolvedSize = theme?.spacing?.[sizeKey] ?? Spacing[sizeKey];
   }
 
   return typeof resolvedSize === "number" ? resolvedSize : value;
 };
+
 /**
  * Converts a hex color string to an RGB array.
  * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").

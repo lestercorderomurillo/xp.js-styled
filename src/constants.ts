@@ -364,6 +364,6 @@ export const Breakpoints = {
  * - xxl/2xxl through xxl/8xxl
  * - 200px, 10px, etc.
  */
-export const SizeRegex = /\b(xxs|xs|sm|md|lg|xl|xxl(?:\/[2-8]xxl)?)\b|^(\d+)px$/i;
+export const SizeRegex = /^(xxs|xs|sm|md|lg|xl|xxl(?!\/)|[2-8]xxl|(?:\d+)(px|%))$/;
 
 export const ColorIntensity = "(100|150|200|250|300|350|400|450|500|550|600|650|700|750|800|850|900)";

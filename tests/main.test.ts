@@ -1,19 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { Appearance, Dimensions, Platform } from 'react-native';
+import { Appearance, Dimensions } from 'react-native';
 import { color, deepMap, deepMerge, hexToRGB, normalizeMediaQueries, shade, size, splitProps } from '../src/functions/transformers';
-
-// Mock React Native modules
-vi.mock('react-native', () => ({
-  Appearance: {
-    getColorScheme: vi.fn(),
-  },
-  Dimensions: {
-    get: vi.fn(),
-  },
-  Platform: {
-    OS: 'ios',
-  },
-}));
+import { SizeRegex } from '../src/constants';
 
 // Mock React Native modules
 vi.mock('react-native', () => ({
@@ -30,7 +18,145 @@ vi.mock('react-native', () => ({
 
 describe('xp.js-styled testing suite: ', () => {
 
-  describe('splitProps tests:', () => {
+  describe('font sizes', () => {
+    it('should match exact FontSizes values', () => {
+      const expectedSizes = {
+        xxs: 8,
+        xs: 10,
+        sm: 14,
+        md: 18,
+        lg: 24,
+        xl: 32,
+        xxl: 48
+      };
+
+      Object.entries(expectedSizes).forEach(([key, expected]) => {
+        const result = size({ key: 'fontSize', value: key });
+        expect(result).toBe(expected);
+      });
+    });
+  });
+
+  describe('font weights', () => {
+    it('should match exact FontWeights values', () => {
+      const expectedWeights = {
+        thinnest: 100,
+        thin: 200,
+        light: 300,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
+        boldest: 800
+      };
+
+      Object.entries(expectedWeights).forEach(([key, expected]) => {
+        const result = size({ key: 'fontWeight', value: key });
+        expect(result).toBe(expected);
+      });
+    });
+  });
+
+  describe('spacing values', () => {
+    it('should match exact Spacing values', () => {
+      const expectedSpacing = {
+        xxs: 1,
+        xs: 2,
+        sm: 4,
+        md: 8,
+        lg: 12,
+        xl: 20,
+        xxl: 32
+      };
+
+      const spacingProps = ['margin', 'padding', 'gap'];
+      
+      spacingProps.forEach(prop => {
+        Object.entries(expectedSpacing).forEach(([key, expected]) => {
+          const result = size({ key: prop, value: key });
+          expect(result).toBe(expected);
+        });
+      });
+    });
+  });
+
+  describe('size key pattern validation', () => {
+    it('should match the exact regex pattern', () => {
+
+      const pattern = SizeRegex;
+      
+      // Basic size keys
+      const basicKeys = ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'];
+      
+      // XXL variations
+      const xxlVariations = ['2xxl', '3xxl', '4xxl', '5xxl', '6xxl', '7xxl', '8xxl'];
+      
+      const invalidKeys = [
+        'xxxs',              // invalid prefix
+        'S',                 // wrong format
+        'medium',            // wrong key
+        'large',            // wrong key
+        'xxl/2xxl',         // old fraction format not valid
+        'xl/2xl',           // fraction format not valid
+        'sm/2sm',           // fraction format not valid
+        'xxl/',             // invalid format
+        '/2xxl',            // invalid format
+        'xxl2',             // wrong format
+      ];
+  
+      // Test valid basic keys
+      basicKeys.forEach(key => {
+        expect(pattern.test(key)).toBe(true);
+      });
+  
+      // Test valid xxl variations
+      xxlVariations.forEach(key => {
+        expect(pattern.test(key)).toBe(true);
+      });
+  
+      // Test invalid keys
+      invalidKeys.forEach(key => {
+        expect(pattern.test(key)).toBe(false);
+      });
+    });
+  });
+
+  describe('pixel and percentage values', () => {
+    it('should handle pixel values with px suffix', () => {
+      const pixelValues = ['100px', '50px', '25px', '12px', '0px'];
+      pixelValues.forEach(value => {
+        const result = size({ key: 'width', value });
+        expect(result).toBe(parseInt(value));
+      });
+    });
+
+    it('should preserve percentage values', () => {
+      const percentageValues = ['100%', '50%', '25%', '12.5%', '0%'];
+      percentageValues.forEach(value => {
+        const result = size({ key: 'width', value });
+        expect(result).toBe(value);
+      });
+    });
+  });
+
+  describe('error handling', () => {
+    it('should handle undefined values', () => {
+      const result = size({ key: 'width', value: undefined });
+      expect(result).toBeUndefined();
+    });
+
+    it('should handle invalid theme keys', () => {
+      const result = size({ key: 'width', value: 'invalidSize' });
+      expect(result).toBe('invalidSize');
+    });
+
+    it('should handle null values', () => {
+      const result = size({ key: 'width', value: null });
+      expect(result).toBeNull();
+    });
+  });
+
+  describe('splitProps', () => {
     it('should split props into element props and style props', () => {
       const input = {
         testProp: 'test',
@@ -74,7 +200,7 @@ describe('xp.js-styled testing suite: ', () => {
 
   });
 
-  describe('deepMap skip keys tests:', () => {
+  describe('deepMap skip keys', () => {
     it('should remove skipKeys from output', () => {
       const input = {
         transform: 1,
@@ -215,7 +341,7 @@ describe('xp.js-styled testing suite: ', () => {
     });
   });
 
-  describe('deepMerge tests:', () => {
+  describe('deepMerge', () => {
     it('should merge objects deeply', () => {
       const obj1 = { a: 1, b: { c: 2 } };
       const obj2 = { b: { d: 3 }, e: 4 };
@@ -249,7 +375,7 @@ describe('xp.js-styled testing suite: ', () => {
     });
   });
 
-  describe('normalizeMediaQueries tests:', () => {
+  describe('normalizeMediaQueries', () => {
     beforeEach(() => {
       vi.mocked(Appearance.getColorScheme).mockReturnValue('light');
       vi.mocked(Dimensions.get).mockReturnValue({ width: 100, fontScale: 1.0, height: 100, scale: 1 });
@@ -296,7 +422,7 @@ describe('xp.js-styled testing suite: ', () => {
     });
   });
 
-  describe('shade tests:', () => {
+  describe('shade', () => {
     it('should generate shades of a color', () => {
       const result = shade('#FF0000', 700);
       expect(result).toMatch(/^#[0-9A-F]{6}$/i);
@@ -322,7 +448,7 @@ describe('xp.js-styled testing suite: ', () => {
     });
   });
 
-  describe('color tests:', () => {
+  describe('color', () => {
     it('should resolve color values', () => {
       const result = color('red.500');
       expect(result).toMatch(/^#[0-9A-F]{6}$/i);
@@ -344,7 +470,7 @@ describe('xp.js-styled testing suite: ', () => {
     });
   });
 
-  describe('size tests:', () => {
+  describe('size', () => {
     it('should resolve size values', () => {
       const result = size({ key: 'fontSize', value: 'md' });
       expect(typeof result).toBe('number');
@@ -362,7 +488,7 @@ describe('xp.js-styled testing suite: ', () => {
     });
   });
 
-  describe('hexToRGB tests:', () => {
+  describe('hexToRGB', () => {
     it('should convert hex to RGB', () => {
       const result = hexToRGB('#FF0000');
       expect(result).toEqual([255, 0, 0]);
