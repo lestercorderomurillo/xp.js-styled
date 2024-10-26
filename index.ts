@@ -19,7 +19,7 @@ export {
   StyledView as View,
   XStack,
   YStack,
-} from "./lib/components";
-export { createStyled } from "./lib/functions/createStyled";
-export { createTheme } from "./lib/functions/createTheme";
-export { color, hexToRGB, shade, size } from "./lib/functions/transformers";
+} from "./lib/src/components";
+export { createStyled } from "./lib/src/functions/createStyled";
+export { createTheme } from "./lib/src/functions/createTheme";
+export { color, hexToRGB, shade, size } from "./lib/src/functions/transformers";
