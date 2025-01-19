@@ -80,7 +80,7 @@ export const createStyled = <
         
       }, [componentProps, deviceColorScheme, devicePixels]);
 
-      console.log('mergedProps');
+      console.log('deepMerge');
       console.log(deepMerge(
         [
           mergedProps.parentStyle,
