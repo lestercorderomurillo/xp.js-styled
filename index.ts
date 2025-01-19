@@ -17,9 +17,10 @@ export {
   StyledTouchableOpacity as TouchableOpacity,
   StyledTouchableWithoutFeedback as TouchableWithoutFeedback,
   StyledView as View,
-  XStack,
-  YStack,
+  StyledXStack as XStack,
+  StyledYStack as YStack,
 } from "./lib/src/components";
+
 export { createStyled } from "./lib/src/functions/createStyled";
 export { createTheme } from "./lib/src/functions/createTheme";
 export { color, hexToRGB, shade, size } from "./lib/src/functions/transformers";

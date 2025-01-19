@@ -4067,7 +4067,7 @@ export declare const StyledSwitch: import("react").ForwardRefExoticComponent<imp
 export declare const StyledTouchableHighlight: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").TouchableHighlightProps, import("react-native").StyleProp<import("react-native").ViewStyle>, never> & import("react").RefAttributes<typeof TouchableHighlight>>;
 export declare const StyledTouchableWithoutFeedback: import("react").ForwardRefExoticComponent<import("./types").StyledProps<import("react-native").TouchableWithoutFeedbackProps, import("react-native").StyleProp<import("react-native").ViewStyle>, never> & import("react").RefAttributes<typeof TouchableWithoutFeedback>>;
 export declare const StyledPressable: import("react").ForwardRefExoticComponent<Omit<import("./types").StyledProps<import("react-native").PressableProps & import("react").RefAttributes<View>, import("react-native").ViewStyle, never>, "ref"> & import("react").RefAttributes<import("react").ForwardRefExoticComponent<import("react-native").PressableProps & import("react").RefAttributes<View>>>>;
-export declare const XStack: import("react").ForwardRefExoticComponent<{
+export declare const StyledXStack: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
     style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;
@@ -4878,7 +4878,7 @@ export declare const XStack: import("react").ForwardRefExoticComponent<{
         } & import("./types").BorderProps> & import("./types").LayoutProps & any & any;
     } & any;
 } & import("react").RefAttributes<typeof View>>;
-export declare const YStack: import("react").ForwardRefExoticComponent<{
+export declare const StyledYStack: import("react").ForwardRefExoticComponent<{
     variant?: never;
     children?: import("react").ReactNode;
     style?: import("./types").WithMediaQuery<import("./types").PatchProps<import("react-native").ViewStyle>>;

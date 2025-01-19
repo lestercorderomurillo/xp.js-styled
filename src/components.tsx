@@ -41,12 +41,12 @@ export const StyledTouchableHighlight = createStyled(TouchableHighlight);
 export const StyledTouchableWithoutFeedback = createStyled(TouchableWithoutFeedback);
 export const StyledPressable = createStyled(Pressable);
 
-export const XStack = createStyled(View, {
+export const StyledXStack = createStyled(View, {
   flex: 1,
   flexDirection: "row",
 });
 
-export const YStack = createStyled(View, {
+export const StyledYStack = createStyled(View, {
   flex: 1,
   flexDirection: "column",
 });

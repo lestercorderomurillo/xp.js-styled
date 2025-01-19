@@ -42,7 +42,7 @@ type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 60
  * Can be in RGB, RGBA, HEX, HSL, or HSLA format,
  * or reference a color from a predefined palette.
  */
-type DeclarativeColor = `${string}.${ColorRange}` | `${ColorPalleteKey}`;
+type DeclarativeColor = `${ColorPalleteKey}.${ColorRange}` | `${ColorPalleteKey}`;
 
 /**
  * Union type representing various types of colors.

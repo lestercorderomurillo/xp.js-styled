@@ -52,6 +52,7 @@ export const splitProps = (
     styleProps: { ...props['style'], ...output.style },
   };
 };
+
 /**
  * Recursively maps nested objects, omitting specified keys.
  * @param props - Deep map configuration properties.
@@ -97,6 +98,7 @@ export const deepMap = ({ values, match, map, skipKeys = [], onNesting, initialC
 
   return values;
 };
+
 /**
  * Merges an array of objects deeply, with support for arrays and objects.
  * Arrays are concatenated, objects are merged recursively.
