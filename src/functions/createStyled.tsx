@@ -56,11 +56,7 @@ export const createStyled = <
       const mergedProps = useMemo(() => {
         const { style, variant, ...restProps } = componentProps;
         const { elementProps, styleProps } = splitProps(restProps ?? {});
-
-        console.log('debug');
-        console.log(elementProps);
-        console.log(styleProps);
-
+        
         let parentStyle = {};
 
         schema?.parentStyles?.forEach((styleName) => {
@@ -79,18 +75,6 @@ export const createStyled = <
         };
         
       }, [componentProps, deviceColorScheme, devicePixels]);
-
-      console.log('deepMerge');
-      console.log(deepMerge(
-        [
-          mergedProps.parentStyle,
-          mergedProps.schemaStyle,
-          mergedProps.variantStyle,
-          mergedProps.overrideStyle,
-          mergedProps.inlineStyle,
-        ],
-        ["children", "style"],
-      ));
 
       return (
         <Component

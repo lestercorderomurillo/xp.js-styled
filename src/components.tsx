@@ -28,7 +28,6 @@ export const StyledText = createStyled(Text);
 export const StyledImage = createStyled(Image);
 export const StyledScrollView = createStyled(ScrollView);
 export const StyledTextInput = createStyled(TextInput);
-export const StyledButton = createStyled(Button);
 export const StyledTouchableOpacity = createStyled(TouchableOpacity);
 export const StyledFlatList = createStyled(FlatList);
 export const StyledSectionList = createStyled(SectionList);
@@ -42,11 +41,11 @@ export const StyledTouchableWithoutFeedback = createStyled(TouchableWithoutFeedb
 export const StyledPressable = createStyled(Pressable);
 
 export const StyledXStack = createStyled(View, {
-  flex: 1,
+  //flex: 1,
   flexDirection: "row",
 });
 
 export const StyledYStack = createStyled(View, {
-  flex: 1,
+  //flex: 1,
   flexDirection: "column",
 });
