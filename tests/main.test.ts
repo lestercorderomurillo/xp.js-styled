@@ -486,6 +486,12 @@ describe('xp.js-styled testing suite: ', () => {
       expect(typeof result).toBe('string');
       expect(result).toBe('50%');
     });
+
+    it('should handle very larger values', () => {
+      const result = size({ key: 'width', value: '2xxl' });
+      expect(typeof result).toBe('number');
+      expect(result).toBe(64);
+    });
   });
 
   describe('hexToRGB', () => {

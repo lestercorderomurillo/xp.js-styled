@@ -258,7 +258,6 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
  * @returns Resolved size value.
  */
 export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
-
   // Return numeric value directly
   if (typeof value === 'number') {
     return value;
@@ -278,16 +277,30 @@ export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
 
   // Handle font size resolution if the key is "fontSize"
   if (typeof value === 'string' && key === "fontSize") {
-    const sizeKey = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl)\b/i)?.[0]?.toLowerCase();
-    const fontSize = sizeKey ? theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey as keyof typeof FontSizes] : undefined;
-    return fontSize !== undefined ? fontSize : value;
+    const match = value.match(/\b(?:([2-9])xxl|xxs|xs|sm|md|lg|xl|xxl)\b/i);
+    if (match) {
+      const [fullMatch, multiplierStr] = match;
+      const sizeKey = multiplierStr ? 'xxl' : fullMatch.toLowerCase();
+      const multiplier = multiplierStr ? parseInt(multiplierStr) : 1;
+      
+      const fontSize = theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey as keyof typeof FontSizes];
+      return fontSize !== undefined ? fontSize * multiplier : value;
+    }
+    return value;
   }
 
   // Handle spacing resolution as default if size key is valid
   if (typeof value === 'string') {
-    const sizeKey = value.match(/\b(xxs|xs|sm|md|lg|xl|xxl)\b/i)?.[0]?.toLowerCase();
-    const spacing = sizeKey ? theme?.spacing?.[sizeKey] ?? Spacing[sizeKey as keyof typeof Spacing] : undefined;
-    return spacing !== undefined ? spacing : value;
+    const match = value.match(/\b(?:([2-9])xxl|xxs|xs|sm|md|lg|xl|xxl)\b/i);
+    if (match) {
+      const [fullMatch, multiplierStr] = match;
+      const sizeKey = multiplierStr ? 'xxl' : fullMatch.toLowerCase();
+      const multiplier = multiplierStr ? parseInt(multiplierStr) : 1;
+      
+      const spacing = theme?.spacing?.[sizeKey] ?? Spacing[sizeKey as keyof typeof Spacing];
+      return spacing !== undefined ? spacing * multiplier : value;
+    }
+    return value;
   }
 
   // Return original value if no match was found

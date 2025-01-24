@@ -4,6 +4,7 @@ import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
 import { ComponentStyleProps, StyledProps, StyledSchema } from "../types";
 import { isString } from "../utils";
 import { color, deepMap, deepMerge, normalizeMediaQueries as flatMediaQueries, size, splitProps } from "./transformers";
+import { usePropHash } from "../hooks/usePropHash";
 
 /**
  * Create a Styled Component given a style schema and a base theme (both optional).
@@ -29,6 +30,9 @@ export const createStyled = <
       const deviceColorScheme = useColorScheme();
       const deviceDimensions = useWindowDimensions();
       const devicePixels = useDeferredValue(deviceDimensions.width * deviceDimensions.height);
+
+      // Generate a stable hash for componentProps
+      const propsHash = usePropHash(componentProps, [deviceColorScheme, devicePixels]);
 
       const transpile = useCallback(
         (values: unknown) => {
@@ -73,8 +77,7 @@ export const createStyled = <
           inlineStyle: transpile(style),
           overrideStyle: transpile(styleProps),
         };
-        
-      }, [componentProps, deviceColorScheme, devicePixels]);
+      }, [propsHash]); // Only depend on the props hash instead of all componentProps
 
       return (
         <Component
