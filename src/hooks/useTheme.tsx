@@ -25,7 +25,7 @@ type ObservableTheme<TTheme extends Theme> = {
  */
 const THEME_PROPERTY_HANDLERS = {
     'colors': {
-        transformer: color, defaultValue: 'black'
+        transformer: color, defaultValue: undefined
     },
     'fontSizes': {
         transformer: size, defaultValue: 'sm'
