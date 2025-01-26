@@ -4,4 +4,4 @@ import { Theme } from "../types";
  * @param schema - Schema with media query values.
  * @returns The compiled schema for use into styled components.
  */
-export declare const createTheme: (schema: Theme) => Theme;
+export declare const createTheme: <T extends Theme>(schema: T) => T;
