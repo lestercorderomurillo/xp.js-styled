@@ -1,6 +1,6 @@
 {
   "name": "xp.js-styled",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "description": "Build performant styled components for Web, iOS and Android platforms.",
   "license": "MIT",
   "main": "index.ts",
