@@ -44,26 +44,10 @@ type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 60
  */
 type DeclarativeColor = `${ColorPalleteKey}.${ColorRange}` | `${ColorPalleteKey}`;
 
-type PalletedColor<T> = {
-  [K in keyof T]: T[K] extends object ? `${K & string}.${keyof T[K] & string}` : K;
-}[keyof T];
-
 /**
  * Union type representing various types of colors.
  */
 export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
-
-/**
- * Union type representing a type Color that is aware of the theme.
- */
-export type ThemeAwareTypedColor<ThemeType extends Theme> =
-  | RGBColor
-  | RGBAColor
-  | HEXColor
-  | HSLColor
-  | HSLAColor
-  | DeclarativeColor
-  | PalletedColor<ThemeType["colors"]>;
 
 /**
  * Type defining all the optional media queries you can apply to a given component.
@@ -153,13 +137,13 @@ export type ShortcutProps = {
   s?: TypedDimension; // size
   w?: TypedDimension; // width
   h?: TypedDimension; // height
-  x?: TypedDimension; // width
-  y?: TypedDimension; // height
   minW?: TypedDimension; // minWidth
   minH?: TypedDimension; // minHeight
   maxW?: TypedDimension; // maxWidth
   maxH?: TypedDimension; // maxHeight
+  bW?: TypedDimension; // borderWidth
   br?: TypedDimension; // borderRadius
+  bColor?: TypedColor; // borderColor
   p?: TypedDimension; // padding
   pX?: TypedDimension; // padding Horizontal
   pY?: TypedDimension; // padding Vertical
@@ -168,10 +152,18 @@ export type ShortcutProps = {
   mY?: TypedDimension; // padding Vertical
   bgColor?: TypedColor; // backgroundColor
   font?: string; // fontFamily
+  g?: TypedDimension; // gap
   t?: TypedDimension; // top
   b?: TypedDimension; // bottom
   r?: TypedDimension; // right
   l?: TypedDimension; // left
+  z?: ViewStyle['zIndex']; 
+  align?: ViewStyle['alignItems']; 
+  justify?: ViewStyle['justifyContent'];
+  grow?: ViewStyle['flexGrow'];
+  shrink?: ViewStyle['flexShrink'];
+  wrap?: ViewStyle['flexWrap'];
+  center?: boolean;
 }
 
 /**
@@ -192,12 +184,12 @@ export type BorderProps = {
 /**
  * Color properties type.
  */
-export type ColorProps<ThemeType extends Theme> = {
-  color?: ThemeAwareTypedColor<ThemeType>;
-  shadowColor?: ThemeAwareTypedColor<ThemeType>;
-  backgroundColor?: ThemeAwareTypedColor<ThemeType>;
+export type ColorProps = {
+  color?: TypedColor;
+  shadowColor?: TypedColor;
+  backgroundColor?: TypedColor;
 } & {
-  [key in `${string}Color`]?: ThemeAwareTypedColor<ThemeType>;
+  [key in `${string}Color`]?: TypedColor;
 };
 
 /**
@@ -210,9 +202,9 @@ export type PatchType<TBase, TOverride> = {
 /**
  * All properties type.
  */
-export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<
+export type PatchProps<TProps = {}> = PatchType<
   TProps,
-  TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps
+  TypographyProps & SpacingProps & ColorProps & BorderProps
 > & LayoutProps & ShortcutProps;
 
 /**
@@ -294,7 +286,7 @@ export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
  * @template TVariants - Variant-specific properties.
  * @template ThemeType - Theme-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants, ThemeType extends Theme = Theme> = {
+export type StyledProps<TProps, TStyleProps, TVariants> = {
   /** Optional variant property for component styling. */
   variant?: TVariants;
 
@@ -302,7 +294,7 @@ export type StyledProps<TProps, TStyleProps, TVariants, ThemeType extends Theme 
   children?: React.ReactNode;
 
   /** Style properties including possible overrides. */
-  style?: WithMediaQuery<PatchProps<TStyleProps, ThemeType>>;
+  style?: WithMediaQuery<PatchProps<TStyleProps>>;
 } & WithMediaQuery<PatchProps<TProps & TStyleProps>>;
 
 /**

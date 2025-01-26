@@ -29,7 +29,10 @@ export const splitProps = (
   };
 
   for (const key in _props) {
-    if(key in ShortcutStyleProps){
+    if(key == "center" && _props[key] == "center"){
+      output.style["alignItems"] = "center";
+      output.style["justifyContent"] = "center";
+    }else if(key in ShortcutStyleProps){
       output.style[ShortcutStyleProps[key]] = _props[key];
     }else if (isStyleProp(key)) {
       output.style[key] = _props[key];
