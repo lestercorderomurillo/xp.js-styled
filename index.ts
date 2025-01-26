@@ -19,8 +19,7 @@ export {
   StyledXStack as XStack,
   StyledYStack as YStack,
 } from "./lib/src/components";
-
-export { useTheme, ThemeProvider } from "./lib/src/hooks/useTheme";
-export { color, shade, size, hexToRGB } from "./lib/src/functions/transformers";
-export { createTheme } from "./lib/src/functions/createTheme";
 export { createStyledComponent } from "./lib/src/functions/createStyledComponent";
+export { createTheme } from "./lib/src/functions/createTheme";
+export { color, hexToRGB, shade, size } from "./lib/src/functions/transformers";
+export { ThemeProvider, useTheme } from "./lib/src/hooks/useTheme";

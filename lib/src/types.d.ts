@@ -1,5 +1,5 @@
-import { KeysOfUnion } from "type-fest";
 import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
+import { KeysOfUnion } from "type-fest";
 import { Breakpoints, ColorPallete, FontWeights } from "./constants";
 /**
  * Type representing a color in RGB format.
@@ -46,7 +46,7 @@ export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor 
 /**
  * Union type representing a type Color that is aware of the theme.
  */
-export type ThemeAwareTypedColor<ThemeType extends Theme> = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor | PalletedColor<ThemeType['colors']>;
+export type ThemeAwareTypedColor<ThemeType extends Theme> = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor | PalletedColor<ThemeType["colors"]>;
 /**
  * Type defining all the optional media queries you can apply to a given component.
  */

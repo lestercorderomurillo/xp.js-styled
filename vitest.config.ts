@@ -1,27 +1,27 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
     // Enable JavaScript/TypeScript compilation
-    include: ['./tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    
+    include: ["./tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
+
     // Environment configuration
-    environment: 'node',
-    
+    environment: "node",
+
     // Transform configuration for TypeScript and React Native
     transform: {
-      '^.+\\.(t|j)sx?$': [
-        '@swc/jest',
+      "^.+\\.(t|j)sx?$": [
+        "@swc/jest",
         {
           jsc: {
             parser: {
-              syntax: 'typescript',
+              syntax: "typescript",
               tsx: true,
               decorators: true,
             },
             transform: {
               react: {
-                runtime: 'automatic',
+                runtime: "automatic",
               },
             },
           },
@@ -31,23 +31,20 @@ export default defineConfig({
 
     // Setup global test environment
     globals: true,
-    
+
     // Configure coverage reporting
     coverage: {
-      provider: 'v8',
-      reporter: ['text', 'json', 'html'],
-      exclude: [
-        'node_modules/',
-        'test/',
-      ],
+      provider: "v8",
+      reporter: ["text", "json", "html"],
+      exclude: ["node_modules/", "test/"],
     },
   },
-  
+
   // Resolve configuration for proper module importing
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
     alias: {
-      '@': './src',
+      "@": "./src",
     },
   },
 });

@@ -10,7 +10,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "outDir": "./lib",
-    "types": ["jest", "node"] 
+    "types": ["jest", "node"]
   },
   "include": ["src/**/*", "tests/tests.tsx", "tests"]
 }

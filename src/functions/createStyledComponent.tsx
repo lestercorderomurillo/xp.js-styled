@@ -1,32 +1,29 @@
-import React, { forwardRef, useCallback, useDeferredValue, useMemo } from "react";
-import { useColorScheme, useWindowDimensions, View } from "react-native";
+import React, { forwardRef, useDeferredValue, useMemo } from "react";
+import { useColorScheme, useWindowDimensions } from "react-native";
 import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
+import { usePropHash } from "../hooks/usePropHash";
+import { useTheme } from "../hooks/useTheme";
 import { ComponentStyleProps, StyledProps, StyledStyle, Theme } from "../types";
 import { isString } from "../utils";
 import { color, deepMap, deepMerge, normalizeMediaQueries as flatMediaQueries, size, splitProps } from "./transformers";
-import { usePropHash } from "../hooks/usePropHash";
-import { useTheme } from "../hooks/useTheme";
 
 const transpile = (values: unknown, theme?: Theme) => {
-    const colorRegex = new RegExp(
-      `\\b(?:${Object.keys({ ...ColorPallete, ...theme?.colors }).join("|")})\\.${ColorIntensity}\\b`,
-    );
+  const colorRegex = new RegExp(`\\b(?:${Object.keys({ ...ColorPallete, ...theme?.colors }).join("|")})\\.${ColorIntensity}\\b`);
 
-    return deepMap({
-      values: flatMediaQueries(values, theme?.breakpoints),
-      skipKeys: ["children"],
-      match: (value) => isString(value) || typeof value == 'number',
-      map: ({ key, value }) => {
-        if (colorRegex.test(value)) {
-          return color(value, theme?.colors, theme?.breakpoints);
-        } else if (SizeRegex.test(value)) {
-          return size({ key, value }, theme);
-        }
-        return value;
-      },
-    });
-  };
-
+  return deepMap({
+    values: flatMediaQueries(values, theme?.breakpoints),
+    skipKeys: ["children"],
+    match: (value) => isString(value) || typeof value == "number",
+    map: ({ key, value }) => {
+      if (colorRegex.test(value)) {
+        return color(value, theme?.colors, theme?.breakpoints);
+      } else if (SizeRegex.test(value)) {
+        return size({ key, value }, theme);
+      }
+      return value;
+    },
+  });
+};
 
 /**
  * Create a Styled Component given a style schema and a base theme (both optional).
@@ -59,7 +56,7 @@ export const createStyledComponent = <
       const mergedProps = useMemo(() => {
         const { style, variant, ...restProps } = componentProps;
         const { elementProps, styleProps } = splitProps(restProps ?? {});
-        
+
         let parentStyle = {};
 
         schema?.parentStyles?.forEach((styleName) => {
@@ -87,18 +84,11 @@ export const createStyledComponent = <
               transpiledStyles.inlineStyle,
             ],
             ["children", "style"],
-          )
+          ),
         };
       }, [hash]); // Only depend on the props hash instead of all componentProps
 
-      return (
-        <Component
-          ref={ref}
-          {...mergedProps.elementProps}
-          children={children}
-          style={mergedProps.styleProps}
-        />
-      );
+      return <Component ref={ref} {...mergedProps.elementProps} children={children} style={mergedProps.styleProps} />;
     },
   );
 };

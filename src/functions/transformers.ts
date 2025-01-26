@@ -1,7 +1,7 @@
 import { Appearance, Dimensions, Platform } from "react-native";
-import { Breakpoints, ColorIntensity, ColorPallete, FontSizes, FontWeights, SizeRegex, Spacing } from "../constants";
-import { Colors, DeepMapProps, Responsive, Theme, TransformParams, TypedColor, WithMediaQuery } from "../types";
-import { isNullish, isObject, isString, isStyleProp } from "../utils";
+import { Breakpoints, ColorIntensity, ColorPallete, FontSizes, FontWeights, ShortcutStyleProps, Spacing } from "../constants";
+import { Colors, DeepMapProps, Responsive, Theme, TransformParams, TypedColor } from "../types";
+import { isNullish, isObject, isStyleProp } from "../utils";
 
 /**
  * Splits the input props object into separate props and style objects.
@@ -29,12 +29,11 @@ export const splitProps = (
   };
 
   for (const key in _props) {
-    if (isStyleProp(key)) {
+    if(key in ShortcutStyleProps){
+      output.style[ShortcutStyleProps[key]] = _props[key];
+    }else if (isStyleProp(key)) {
       output.style[key] = _props[key];
-    }
-    if (isStyleProp(key)) {
-      output.style[key] = _props[key];
-    } else if (key != 'style') {
+    } else if (key != "style") {
       output.props[key] = _props[key];
     }
   }
@@ -49,7 +48,7 @@ export const splitProps = (
 
   return {
     elementProps: output.props,
-    styleProps: { ...props['style'], ...output.style },
+    styleProps: { ...props["style"], ...output.style },
   };
 };
 
@@ -85,7 +84,7 @@ export const deepMap = ({ values, match, map, skipKeys = [], onNesting, initialC
           map,
           skipKeys,
           onNesting,
-          initialContext: { ...ctx, deep: ctx.deep + 1 }
+          initialContext: { ...ctx, deep: ctx.deep + 1 },
         });
       } else if (match(values[key])) {
         output[key] = map({ key, value: values[key], ctx });
@@ -102,7 +101,7 @@ export const deepMap = ({ values, match, map, skipKeys = [], onNesting, initialC
 /**
  * Merges an array of objects deeply, with support for arrays and objects.
  * Arrays are concatenated, objects are merged recursively.
- * 
+ *
  * @param {(object|array)[]} objects - The array of objects or arrays to merge.
  * @param {string[]} [skipKeys=[]] - The array of keys to skip during the merge.
  * @returns {object|array} The merged result.
@@ -116,9 +115,7 @@ export const deepMerge = (objects, skipKeys = []) => {
     if (isNullish(value)) return output;
 
     if (Array.isArray(value)) {
-      return Array.isArray(output)
-        ? [...output, ...value]
-        : value;
+      return Array.isArray(output) ? [...output, ...value] : value;
     }
 
     if (Array.isArray(output)) {
@@ -259,30 +256,30 @@ export const color = (value: string, colorScheme?: Colors, breakpoints?: Respons
  */
 export const size = ({ key, value }: TransformParams, theme?: Theme) => {
   // Return numeric value directly
-  if (typeof value === 'number') {
+  if (typeof value === "number") {
     return value;
   }
 
   // Handle pixel values (e.g., "16px")
-  if (typeof value === 'string' && value.match(/^(\d+)px$/)) {
+  if (typeof value === "string" && value.match(/^(\d+)px$/)) {
     const pixelValue = parseInt(value, 10);
     return !isNaN(pixelValue) ? pixelValue : value;
   }
 
   // Handle font weight resolution if the key is "fontWeight"
-  if (typeof value === 'string' && key === "fontWeight") {
+  if (typeof value === "string" && key === "fontWeight") {
     const weightValue = theme?.fontWeights?.[value] ?? FontWeights[value as keyof typeof FontWeights];
     return weightValue !== undefined ? weightValue : value;
   }
 
   // Handle font size resolution if the key is "fontSize"
-  if (typeof value === 'string' && key === "fontSize") {
+  if (typeof value === "string" && key === "fontSize") {
     const match = value.match(/\b(?:([2-9])xxl|xxs|xs|sm|md|lg|xl|xxl)\b/i);
     if (match) {
       const [fullMatch, multiplierStr] = match;
-      const sizeKey = multiplierStr ? 'xxl' : fullMatch.toLowerCase();
+      const sizeKey = multiplierStr ? "xxl" : fullMatch.toLowerCase();
       const multiplier = multiplierStr ? parseInt(multiplierStr) : 1;
-      
+
       const fontSize = theme?.fontSizes?.[sizeKey] ?? FontSizes[sizeKey as keyof typeof FontSizes];
       return fontSize !== undefined ? fontSize * multiplier : value;
     }
@@ -290,13 +287,13 @@ export const size = ({ key, value }: TransformParams, theme?: Theme) => {
   }
 
   // Handle spacing resolution as default if size key is valid
-  if (typeof value === 'string') {
+  if (typeof value === "string") {
     const match = value.match(/\b(?:([2-9])xxl|xxs|xs|sm|md|lg|xl|xxl)\b/i);
     if (match) {
       const [fullMatch, multiplierStr] = match;
-      const sizeKey = multiplierStr ? 'xxl' : fullMatch.toLowerCase();
+      const sizeKey = multiplierStr ? "xxl" : fullMatch.toLowerCase();
       const multiplier = multiplierStr ? parseInt(multiplierStr) : 1;
-      
+
       const spacing = theme?.spacing?.[sizeKey] ?? Spacing[sizeKey as keyof typeof Spacing];
       return spacing !== undefined ? spacing * multiplier : value;
     }
@@ -305,7 +302,7 @@ export const size = ({ key, value }: TransformParams, theme?: Theme) => {
 
   // Return original value if no match was found
   return value;
-}
+};
 
 /**
  * Converts a hex color string to an RGB array.

@@ -1,5 +1,5 @@
-import { KeysOfUnion } from "type-fest";
 import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
+import { KeysOfUnion } from "type-fest";
 import { Breakpoints, ColorPallete, FontWeights } from "./constants";
 
 /**
@@ -44,11 +44,8 @@ type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 60
  */
 type DeclarativeColor = `${ColorPalleteKey}.${ColorRange}` | `${ColorPalleteKey}`;
 
-
 type PalletedColor<T> = {
-  [K in keyof T]: T[K] extends object
-    ? `${K & string}.${keyof T[K] & string}`
-    : K;
+  [K in keyof T]: T[K] extends object ? `${K & string}.${keyof T[K] & string}` : K;
 }[keyof T];
 
 /**
@@ -59,7 +56,14 @@ export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor 
 /**
  * Union type representing a type Color that is aware of the theme.
  */
-export type ThemeAwareTypedColor<ThemeType extends Theme> = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor | PalletedColor<ThemeType['colors']>;
+export type ThemeAwareTypedColor<ThemeType extends Theme> =
+  | RGBColor
+  | RGBAColor
+  | HEXColor
+  | HSLColor
+  | HSLAColor
+  | DeclarativeColor
+  | PalletedColor<ThemeType["colors"]>;
 
 /**
  * Type defining all the optional media queries you can apply to a given component.
@@ -84,7 +88,24 @@ export type Style<TFields = ViewStyle> = PatchProps<TFields>;
  */
 export type TypographyProps = {
   fontSize?: TypedDimension;
-  fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | FontWeightKey;
+  fontWeight?:
+    | 100
+    | 200
+    | 300
+    | 400
+    | 500
+    | 600
+    | 700
+    | 800
+    | "100"
+    | "200"
+    | "300"
+    | "400"
+    | "500"
+    | "600"
+    | "700"
+    | "800"
+    | FontWeightKey;
 };
 
 /**
@@ -131,16 +152,15 @@ export type LayoutProps = {
   maxWidth?: TypedDimension;
   maxHeight?: TypedDimension;
 
-  
   // shortcuts
-  f?: TypedDimension;     // flex
-  s?: TypedDimension;     // size
-  w?: TypedDimension;     // width
-  h?: TypedDimension;     // height
-  minW?: TypedDimension;  // minWidth
-  minH?: TypedDimension;  // minHeight
-  maxW?: TypedDimension;  // maxWidth
-  maxH?: TypedDimension;  // maxHeight
+  f?: TypedDimension; // flex
+  s?: TypedDimension; // size
+  w?: TypedDimension; // width
+  h?: TypedDimension; // height
+  minW?: TypedDimension; // minWidth
+  minH?: TypedDimension; // minHeight
+  maxW?: TypedDimension; // maxWidth
+  maxH?: TypedDimension; // maxHeight
 };
 
 /**
@@ -156,9 +176,9 @@ export type BorderProps = {
   borderTopRightRadius?: TypedDimension;
   borderTopStartRadius?: TypedDimension;
   borderTopEndRadius?: TypedDimension;
-  
+
   // shortcuts
-  br?: TypedDimension;        // borderRadius
+  br?: TypedDimension; // borderRadius
 };
 
 /**
@@ -182,12 +202,20 @@ export type PatchType<TBase, TOverride> = {
 /**
  * All properties type.
  */
-export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps> & LayoutProps;
+export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<
+  TProps,
+  TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps
+> &
+  LayoutProps;
 
 /**
  * Type representing a dimension.
  */
-export type TypedDimension = `${number}px` | DimensionValue | BreakpointsKey | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
+export type TypedDimension =
+  | `${number}px`
+  | DimensionValue
+  | BreakpointsKey
+  | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
 
 /**
  * Schema defining stylesheets with optional media queries.
@@ -242,7 +270,8 @@ export type BreakpointsKey = KeysOfUnion<typeof Breakpoints>;
 export type StyledStyle<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
   parentStyles?: string[];
   variants?: Record<TVariantNames, Partial<WithMediaQuery<Style<TStyleProps>>>>;
-} & WithMediaQuery<Style<TStyleProps>> & object;
+} & WithMediaQuery<Style<TStyleProps>> &
+  object;
 
 /**
  * Type to remove keys from type definitions.
@@ -331,17 +360,17 @@ export type ExtractStyleProps<T> = T extends { style: infer S } ? S : never;
 export type ComponentStyleProps<T> = T extends typeof View
   ? ViewStyle
   : T extends typeof Pressable
-  ? ViewStyle
-  : T extends typeof Text
-  ? TextStyle
-  : T extends typeof Image
-  ? ImageStyle
-  : T extends typeof ScrollView
-  ? ViewStyle
-  : T extends typeof FlatList
-  ? ViewStyle
-  : T extends React.ComponentType<infer P>
-  ? P extends { style?: infer S }
-  ? S
-  : {}
-  : {};
+    ? ViewStyle
+    : T extends typeof Text
+      ? TextStyle
+      : T extends typeof Image
+        ? ImageStyle
+        : T extends typeof ScrollView
+          ? ViewStyle
+          : T extends typeof FlatList
+            ? ViewStyle
+            : T extends React.ComponentType<infer P>
+              ? P extends { style?: infer S }
+                ? S
+                : {}
+              : {};

@@ -1,10 +1,8 @@
-> <p align="center">
->   <img src="docs/logo.png" alt="logo" width="300">
-> </p>
+<img src="docs/logo.png" alt="logo" width="300">
 
-**xp.js(beta)** is a framework for modern cross-platform React applications.
+**xp.js** is a framework for modern cross-platform React applications.
 
-**xp.js-styled** is an single package from that framework.
+**xp.js-styled** is an individual single package from that framework.
 
 The goal of this package is to build enterprise scalalable styled components with an easy-to-use minimal schema definition.
 
@@ -157,7 +155,7 @@ The package comes with a set of built-in colors, to make easy prototyping
 | Gray        | gray       | #808080     |
 | White       | white      | #FFFFFF     |
 
-## Theme Styling
+## Theme Styling (legacy)
 
 Now, in case you need to share styles across multiple styled components, even with their responsiveness, then you can use a theme,
 and import the styles using the `parentStyle` prop.

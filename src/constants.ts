@@ -261,6 +261,24 @@ export const StyleProps = [
   "zoom",
 ];
 
+export const ShortcutStyleProps = {
+  "f": "flex",
+  "s": "size",
+  "w": "width",
+  "h": "height", 
+  "p": "padding",
+  "px": "paddingHorizontal",
+  "py": "paddingVertical",
+  "m": "margin",
+  "mx": "marginHorizontal", 
+  "my": "marginVertical",
+  "minw": "minWidth",
+  "minh": "minHeight",
+  "maxw": "maxWidth",
+  "maxh": "maxHeight",
+  "br": "borderRadius"
+ } as const;
+
 export const TypographyProps = [
   "color",
   "fontFamily",
@@ -336,7 +354,7 @@ export const FontWeights = {
   medium: 500,
   semibold: 600,
   bold: 700,
-  boldest: 800
+  boldest: 800,
 };
 
 export const Spacing = {

@@ -1,4 +1,21 @@
 export declare const StyleProps: string[];
+export declare const ShortcutStyleProps: {
+    readonly f: "flex";
+    readonly s: "size";
+    readonly w: "width";
+    readonly h: "height";
+    readonly p: "padding";
+    readonly px: "paddingHorizontal";
+    readonly py: "paddingVertical";
+    readonly m: "margin";
+    readonly mx: "marginHorizontal";
+    readonly my: "marginVertical";
+    readonly minw: "minWidth";
+    readonly minh: "minHeight";
+    readonly maxw: "maxWidth";
+    readonly maxh: "maxHeight";
+    readonly br: "borderRadius";
+};
 export declare const TypographyProps: string[];
 export declare const ColorPallete: {
     red: string;
