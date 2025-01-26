@@ -153,6 +153,8 @@ export type ShortcutProps = {
   s?: TypedDimension; // size
   w?: TypedDimension; // width
   h?: TypedDimension; // height
+  x?: TypedDimension; // width
+  y?: TypedDimension; // height
   minW?: TypedDimension; // minWidth
   minH?: TypedDimension; // minHeight
   maxW?: TypedDimension; // maxWidth
@@ -164,6 +166,12 @@ export type ShortcutProps = {
   m?: TypedDimension; // margin
   mX?: TypedDimension; // padding Horizontal
   mY?: TypedDimension; // padding Vertical
+  bgColor?: TypedColor; // backgroundColor
+  font?: string; // fontFamily
+  t?: TypedDimension; // top
+  b?: TypedDimension; // bottom
+  r?: TypedDimension; // right
+  l?: TypedDimension; // left
 }
 
 /**

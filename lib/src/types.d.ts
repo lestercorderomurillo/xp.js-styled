@@ -115,6 +115,8 @@ export type ShortcutProps = {
     s?: TypedDimension;
     w?: TypedDimension;
     h?: TypedDimension;
+    x?: TypedDimension;
+    y?: TypedDimension;
     minW?: TypedDimension;
     minH?: TypedDimension;
     maxW?: TypedDimension;
@@ -126,6 +128,12 @@ export type ShortcutProps = {
     m?: TypedDimension;
     mX?: TypedDimension;
     mY?: TypedDimension;
+    bgColor?: TypedColor;
+    font?: string;
+    t?: TypedDimension;
+    b?: TypedDimension;
+    r?: TypedDimension;
+    l?: TypedDimension;
 };
 /**
  * Border properties type.
