@@ -17,35 +17,35 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import { createStyled } from "./functions/createStyled";
+import { createStyledComponent } from "./functions/createStyledComponent";
 
-export const StyledFlex = createStyled(View, {
+export const StyledFlex = createStyledComponent(View, {
   flex: 1,
 });
 
-export const StyledView = createStyled(View);
-export const StyledText = createStyled(Text);
-export const StyledImage = createStyled(Image);
-export const StyledScrollView = createStyled(ScrollView);
-export const StyledTextInput = createStyled(TextInput);
-export const StyledTouchableOpacity = createStyled(TouchableOpacity);
-export const StyledFlatList = createStyled(FlatList);
-export const StyledSectionList = createStyled(SectionList);
-export const StyledSafeAreaView = createStyled(SafeAreaView);
-export const StyledKeyboardAvoidingView = createStyled(KeyboardAvoidingView);
-export const StyledModal = createStyled(Modal);
-export const StyledActivityIndicator = createStyled(ActivityIndicator);
-export const StyledSwitch = createStyled(Switch);
-export const StyledTouchableHighlight = createStyled(TouchableHighlight);
-export const StyledTouchableWithoutFeedback = createStyled(TouchableWithoutFeedback);
-export const StyledPressable = createStyled(Pressable);
+export const StyledView = createStyledComponent(View);
+export const StyledText = createStyledComponent(Text);
+export const StyledImage = createStyledComponent(Image);
+export const StyledScrollView = createStyledComponent(ScrollView);
+export const StyledTextInput = createStyledComponent(TextInput);
+export const StyledTouchableOpacity = createStyledComponent(TouchableOpacity);
+export const StyledFlatList = createStyledComponent(FlatList);
+export const StyledSectionList = createStyledComponent(SectionList);
+export const StyledSafeAreaView = createStyledComponent(SafeAreaView);
+export const StyledKeyboardAvoidingView = createStyledComponent(KeyboardAvoidingView);
+export const StyledModal = createStyledComponent(Modal);
+export const StyledActivityIndicator = createStyledComponent(ActivityIndicator);
+export const StyledSwitch = createStyledComponent(Switch);
+export const StyledTouchableHighlight = createStyledComponent(TouchableHighlight);
+export const StyledTouchableWithoutFeedback = createStyledComponent(TouchableWithoutFeedback);
+export const StyledPressable = createStyledComponent(Pressable);
 
-export const StyledXStack = createStyled(View, {
+export const StyledXStack = createStyledComponent(View, {
   //flex: 1,
   flexDirection: "row",
 });
 
-export const StyledYStack = createStyled(View, {
+export const StyledYStack = createStyledComponent(View, {
   //flex: 1,
   flexDirection: "column",
 });

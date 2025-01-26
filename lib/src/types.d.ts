@@ -36,10 +36,17 @@ type ColorRange = 100 | 150 | 200 | 250 | 300 | 350 | 400 | 450 | 500 | 550 | 60
  * or reference a color from a predefined palette.
  */
 type DeclarativeColor = `${ColorPalleteKey}.${ColorRange}` | `${ColorPalleteKey}`;
+type PalletedColor<T> = {
+    [K in keyof T]: T[K] extends object ? `${K & string}.${keyof T[K] & string}` : K;
+}[keyof T];
 /**
  * Union type representing various types of colors.
  */
 export type TypedColor = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor;
+/**
+ * Union type representing a type Color that is aware of the theme.
+ */
+export type ThemeAwareTypedColor<ThemeType extends Theme> = RGBColor | RGBAColor | HEXColor | HSLColor | HSLAColor | DeclarativeColor | PalletedColor<ThemeType['colors']>;
 /**
  * Type defining all the optional media queries you can apply to a given component.
  */
@@ -86,6 +93,12 @@ export type SpacingProps = {
     gap?: TypedDimension;
     rowGap?: TypedDimension;
     columnGap?: TypedDimension;
+    p?: TypedDimension;
+    pX?: TypedDimension;
+    pY?: TypedDimension;
+    m?: TypedDimension;
+    mX?: TypedDimension;
+    mY?: TypedDimension;
 };
 /**
  * Layout properties type.
@@ -99,6 +112,14 @@ export type LayoutProps = {
     minHeight?: TypedDimension;
     maxWidth?: TypedDimension;
     maxHeight?: TypedDimension;
+    f?: TypedDimension;
+    s?: TypedDimension;
+    w?: TypedDimension;
+    h?: TypedDimension;
+    minW?: TypedDimension;
+    minH?: TypedDimension;
+    maxW?: TypedDimension;
+    maxH?: TypedDimension;
 };
 /**
  * Border properties type.
@@ -113,16 +134,17 @@ export type BorderProps = {
     borderTopRightRadius?: TypedDimension;
     borderTopStartRadius?: TypedDimension;
     borderTopEndRadius?: TypedDimension;
+    br?: TypedDimension;
 };
 /**
  * Color properties type.
  */
-export type ColorProps = {
-    color?: TypedColor;
-    shadowColor?: TypedColor;
-    backgroundColor?: TypedColor;
+export type ColorProps<ThemeType extends Theme> = {
+    color?: ThemeAwareTypedColor<ThemeType>;
+    shadowColor?: ThemeAwareTypedColor<ThemeType>;
+    backgroundColor?: ThemeAwareTypedColor<ThemeType>;
 } & {
-    [key in `${string}Color`]?: TypedColor;
+    [key in `${string}Color`]?: ThemeAwareTypedColor<ThemeType>;
 };
 /**
  * Patch a type prop if present.
@@ -133,21 +155,21 @@ export type PatchType<TBase, TOverride> = {
 /**
  * All properties type.
  */
-export type PatchProps<TProps = {}> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps & BorderProps> & LayoutProps;
+export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps> & LayoutProps;
 /**
  * Type representing a dimension.
  */
-type TypedDimension = `${number}px` | DimensionValue | BreakpointsKey | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
+export type TypedDimension = `${number}px` | DimensionValue | BreakpointsKey | `${"2xxl" | "3xxl" | "4xxl" | "5xxl" | "6xxl" | "7xxl" | "8xxl" | "9xxl"}`;
 /**
  * Schema defining stylesheets with optional media queries.
  */
-export type StylesheetSchema = Partial<{
+export type Stylesheets = Partial<{
     [key: string]: WithMediaQuery<Style>;
 }>;
 /**
  * Schema defining color palettes for light and dark modes, along with platform-specific colors.
  */
-export type ColorsSchema = {
+export type Colors = {
     "@light"?: {
         [key: string]: TypedColor;
     };
@@ -160,19 +182,19 @@ export type ColorsSchema = {
 /**
  * Responsive schema for defining layout at diferent breakpoints.
  */
-export type ResponsiveSchema<T = any> = {
+export type Responsive<T = any> = {
     [key in BreakpointsKey]: T;
 };
 /**
  * Schema combining color palettes, stylesheets, sizes, font sizes, and breakpoints to form a complete theme.
  */
-export type ThemeSchema = {
-    colors?: ColorsSchema;
-    styles?: StylesheetSchema;
-    spacing?: ResponsiveSchema<number>;
-    fontWeights?: ResponsiveSchema<number>;
-    fontSizes?: ResponsiveSchema<number>;
-    breakpoints?: ResponsiveSchema<number>;
+export type Theme = {
+    colors?: Colors;
+    styles?: Stylesheets;
+    spacing?: Responsive<number | undefined>;
+    fontWeights?: Responsive<number | undefined>;
+    fontSizes?: Responsive<number | undefined>;
+    breakpoints?: Responsive<number | undefined>;
 };
 /**
  * Union type representing the keys of the font weight.
@@ -189,8 +211,7 @@ export type BreakpointsKey = KeysOfUnion<typeof Breakpoints>;
 /**
  * Type representing styled components with support for theming, parent styles, and variants.
  */
-export type StyledSchema<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
-    theme?: ThemeSchema;
+export type StyledStyle<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
     parentStyles?: string[];
     variants?: Record<TVariantNames, Partial<WithMediaQuery<Style<TStyleProps>>>>;
 } & WithMediaQuery<Style<TStyleProps>> & object;
@@ -205,14 +226,15 @@ export type OmitKeys<T, TOmit> = Omit<T, keyof TOmit>;
  * @template TProps - Component-specific properties.
  * @template TStyleProps - Style-specific properties.
  * @template TVariants - Variant-specific properties.
+ * @template ThemeType - Theme-specific properties.
  */
-export type StyledProps<TProps, TStyleProps, TVariants> = {
+export type StyledProps<TProps, TStyleProps, TVariants, ThemeType extends Theme = Theme> = {
     /** Optional variant property for component styling. */
     variant?: TVariants;
     /** Children nodes to be rendered within the component. */
     children?: React.ReactNode;
     /** Style properties including possible overrides. */
-    style?: WithMediaQuery<PatchProps<TStyleProps>>;
+    style?: WithMediaQuery<PatchProps<TStyleProps, ThemeType>>;
 } & WithMediaQuery<PatchProps<TProps & TStyleProps>>;
 /**
  * Type representing parameters for a transformation function.

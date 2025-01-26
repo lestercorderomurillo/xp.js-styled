@@ -1,0 +1,6 @@
+Patch notes
+
+version 0.9.1
++ optimized styled merging so now is memoized properly
++ support for colors from the theme on the component
++ type support for theme color hinting

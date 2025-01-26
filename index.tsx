@@ -1,6 +1,5 @@
 export {
   StyledActivityIndicator as ActivityIndicator,
-  StyledButton as Button,
   StyledFlatList as FlatList,
   StyledFlex as Flex,
   StyledImage as Image,
@@ -21,6 +20,6 @@ export {
   StyledYStack as YStack,
 } from "./lib/src/components";
 
-export { createStyled } from "./lib/src/functions/createStyled";
+export { color, shade, size, hexToRGB } from "./lib/src/functions/transformers";
 export { createTheme } from "./lib/src/functions/createTheme";
-export { color, hexToRGB, shade, size } from "./lib/src/functions/transformers";
+export { createStyledComponent } from "./lib/src/functions/createStyledComponent";

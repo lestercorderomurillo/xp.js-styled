@@ -22,7 +22,7 @@ The following guide will teach you how to get this working in your project rathe
 
 ## CSS-in-JSX
 
-The `createStyled` function returns a optimized high order wrapper around your component that applies the given style schema.
+The `createStyledComponent` function returns a optimized high order wrapper around your component that applies the given style schema.
 Then the styled component subscribes the schema media queries to their specific device change listener, to optimally perform a style update.
 
 This includes variants, prop changes and device changes.
@@ -30,7 +30,7 @@ This includes variants, prop changes and device changes.
 For now, let's start creating a simple Styled View.
 
 ```jsx
-export const StyledView = createStyled(View);
+export const StyledView = createStyledComponent(View);
 ```
 
 `StyledView` now can be inline styled. Notice we pass backgroundColor, fontSize and fontWeight as plain props, and not as part of the `style` prop.
@@ -54,7 +54,7 @@ For example, we conditionally apply a style override when the device is "medium-
 All devices that meet the query condition will apply the style.
 
 ```jsx
-export const StyledView = createStyled(View, {
+export const StyledView = createStyledComponent(View, {
   backgroundColor: "blueViolet.800",
   padding: 20,
   "@md": {
@@ -100,7 +100,7 @@ When developing a style schema, you can implement any required media queries. Ho
 For example, in this code, the background color is "gray.500", but only is the device is larger, then we check if the device is an Android device, in which case the background color should be "blue.300." If the previous condition was met, but at the same time the color scheme is dark mode, then the background color should be "purple.200.", for iOS devices the sample logic will be used.
 
 ```jsx
-export const Box = createStyled(View, {
+export const Box = createStyledComponent(View, {
   backgroundColor: "gray.500",
   "@xl": {
     backgroundColor: "yellow.450",
@@ -180,12 +180,12 @@ export const Theme = createTheme({
   },
 });
 
-export const Card = createStyled(View, {
+export const Card = createStyledComponent(View, {
   theme: Theme,
   parentStyles: ["container", "center"],
 });
 
-export const Banner = createStyled(View, {
+export const Banner = createStyledComponent(View, {
   theme: Theme,
   backgroundColor: "yellow.400",
   parentStyles: ["container"],
@@ -235,7 +235,7 @@ jspm install npm:xp.js-state
 Here is a full example of how to use most of the package.
 
 ```jsx
-export const Card = createStyled(View, {
+export const Card = createStyledComponent(View, {
   backgroundColor: "gold.100",
   padding: 20,
   borderRadius: 10,
@@ -247,9 +247,9 @@ export const Card = createStyled(View, {
   margin: 10,
 });
 
-export const StyledText = createStyled(Text);
+export const StyledText = createStyledComponent(Text);
 
-export const StyledPressable = createStyled(Pressable, {
+export const StyledPressable = createStyledComponent(Pressable, {
   backgroundColor: "indigo.600",
   padding: 10,
   borderRadius: 5,

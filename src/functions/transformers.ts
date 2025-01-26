@@ -1,6 +1,6 @@
 import { Appearance, Dimensions, Platform } from "react-native";
 import { Breakpoints, ColorIntensity, ColorPallete, FontSizes, FontWeights, SizeRegex, Spacing } from "../constants";
-import { ColorsSchema, DeepMapProps, ResponsiveSchema, ThemeSchema, TransformParams, TypedColor, WithMediaQuery } from "../types";
+import { Colors, DeepMapProps, Responsive, Theme, TransformParams, TypedColor, WithMediaQuery } from "../types";
 import { isNullish, isObject, isString, isStyleProp } from "../utils";
 
 /**
@@ -152,7 +152,7 @@ export const deepMerge = (objects, skipKeys = []) => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Generated style with media queries applied on.
  */
-export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: ResponsiveSchema<number>) => {
+export const normalizeMediaQueries = <T = any>(values?: any, breakpoints?: Responsive<number>) => {
   if (isObject(values) && Object.keys(values).length > 0) {
     const colorScheme = Appearance.getColorScheme();
     const width = Dimensions.get("window").width;
@@ -224,7 +224,7 @@ export const shade = (hex: string, lumen: number): string => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: ResponsiveSchema<number>): TypedColor => {
+export const color = (value: string, colorScheme?: Colors, breakpoints?: Responsive<number>): TypedColor => {
   if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")) {
     return value as TypedColor;
   }
@@ -257,7 +257,7 @@ export const color = (value: string, colorScheme?: ColorsSchema, breakpoints?: R
  * @param theme - Theme schema.
  * @returns Resolved size value.
  */
-export const size = ({ key, value }: TransformParams, theme?: ThemeSchema) => {
+export const size = ({ key, value }: TransformParams, theme?: Theme) => {
   // Return numeric value directly
   if (typeof value === 'number') {
     return value;

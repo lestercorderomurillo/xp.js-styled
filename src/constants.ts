@@ -1,3 +1,4 @@
+// Split props
 export const StyleProps = [
   "alignContent",
   "alignItems",
@@ -287,6 +288,7 @@ export const TypographyProps = [
   "whiteSpace",
 ];
 
+// Defaults
 export const ColorPallete = {
   red: "#FF0000",
   coral: "#FF7F50",
@@ -356,6 +358,8 @@ export const Breakpoints = {
   xl: 1200,
   xxl: 1600,
 };
+
+// Match Keys
 
 export const SizeRegex = /^(xxs|xs|sm|md|lg|xl|xxl(?!\/)|[2-8]xxl|(?:\d+)(px|%))$/;
 
