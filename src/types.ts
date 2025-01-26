@@ -129,14 +129,6 @@ export type SpacingProps = {
   gap?: TypedDimension;
   rowGap?: TypedDimension;
   columnGap?: TypedDimension;
-
-  // shortcuts
-  p?: TypedDimension; // padding
-  pX?: TypedDimension; // padding Horizontal
-  pY?: TypedDimension; // padding Vertical
-  m?: TypedDimension; // margin
-  mX?: TypedDimension; // padding Horizontal
-  mY?: TypedDimension; // padding Vertical
 };
 
 /**
@@ -151,8 +143,12 @@ export type LayoutProps = {
   minHeight?: TypedDimension;
   maxWidth?: TypedDimension;
   maxHeight?: TypedDimension;
+};
 
-  // shortcuts
+/**
+ * Shortcut properties type.
+ */
+export type ShortcutProps = {
   f?: TypedDimension; // flex
   s?: TypedDimension; // size
   w?: TypedDimension; // width
@@ -161,7 +157,14 @@ export type LayoutProps = {
   minH?: TypedDimension; // minHeight
   maxW?: TypedDimension; // maxWidth
   maxH?: TypedDimension; // maxHeight
-};
+  br?: TypedDimension; // borderRadius
+  p?: TypedDimension; // padding
+  pX?: TypedDimension; // padding Horizontal
+  pY?: TypedDimension; // padding Vertical
+  m?: TypedDimension; // margin
+  mX?: TypedDimension; // padding Horizontal
+  mY?: TypedDimension; // padding Vertical
+}
 
 /**
  * Border properties type.
@@ -176,9 +179,6 @@ export type BorderProps = {
   borderTopRightRadius?: TypedDimension;
   borderTopStartRadius?: TypedDimension;
   borderTopEndRadius?: TypedDimension;
-
-  // shortcuts
-  br?: TypedDimension; // borderRadius
 };
 
 /**
@@ -205,8 +205,7 @@ export type PatchType<TBase, TOverride> = {
 export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<
   TProps,
   TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps
-> &
-  LayoutProps;
+> & LayoutProps & ShortcutProps;
 
 /**
  * Type representing a dimension.

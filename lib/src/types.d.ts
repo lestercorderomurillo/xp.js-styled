@@ -93,12 +93,6 @@ export type SpacingProps = {
     gap?: TypedDimension;
     rowGap?: TypedDimension;
     columnGap?: TypedDimension;
-    p?: TypedDimension;
-    pX?: TypedDimension;
-    pY?: TypedDimension;
-    m?: TypedDimension;
-    mX?: TypedDimension;
-    mY?: TypedDimension;
 };
 /**
  * Layout properties type.
@@ -112,6 +106,11 @@ export type LayoutProps = {
     minHeight?: TypedDimension;
     maxWidth?: TypedDimension;
     maxHeight?: TypedDimension;
+};
+/**
+ * Shortcut properties type.
+ */
+export type ShortcutProps = {
     f?: TypedDimension;
     s?: TypedDimension;
     w?: TypedDimension;
@@ -120,6 +119,13 @@ export type LayoutProps = {
     minH?: TypedDimension;
     maxW?: TypedDimension;
     maxH?: TypedDimension;
+    br?: TypedDimension;
+    p?: TypedDimension;
+    pX?: TypedDimension;
+    pY?: TypedDimension;
+    m?: TypedDimension;
+    mX?: TypedDimension;
+    mY?: TypedDimension;
 };
 /**
  * Border properties type.
@@ -134,7 +140,6 @@ export type BorderProps = {
     borderTopRightRadius?: TypedDimension;
     borderTopStartRadius?: TypedDimension;
     borderTopEndRadius?: TypedDimension;
-    br?: TypedDimension;
 };
 /**
  * Color properties type.
@@ -155,7 +160,7 @@ export type PatchType<TBase, TOverride> = {
 /**
  * All properties type.
  */
-export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps> & LayoutProps;
+export type PatchProps<TProps = {}, ThemeType extends Theme = Theme> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps<ThemeType> & BorderProps> & LayoutProps & ShortcutProps;
 /**
  * Type representing a dimension.
  */

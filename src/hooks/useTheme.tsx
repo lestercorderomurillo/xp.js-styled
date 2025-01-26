@@ -11,12 +11,12 @@ const ThemeContext = createContext<{ theme: Theme }>({ theme: {} });
  * Type definition for the theme observable
  */
 type ObservableTheme<T extends Theme> = {
-  colors: T['colors'];
+  colors:  {[K in keyof T['colors']]: string;}
   breakpoints: Responsive<number>;
   fontSizes: Responsive<number>;
   fontWeights: Responsive<number>;
   spacing: Responsive<number>;
-  styles: T['styles'];
+  styles:  {[K in keyof T['styles']]: string;}
 };
 
 /**

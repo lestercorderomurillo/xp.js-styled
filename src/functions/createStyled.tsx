@@ -31,7 +31,7 @@ const transpile = (values: unknown, theme?: Theme) => {
  * @param {StyledStyle} schema The style schema.
  * @returns A wrapper around your component with extended features.
  */
-export const createStyledComponent = <
+export const createStyled = <
   TComponent extends React.ComponentType<{}>,
   TStyleProps = ComponentStyleProps<TComponent>,
   TVariantNames extends string = never,
@@ -45,7 +45,9 @@ export const createStyledComponent = <
       ref: React.Ref<TComponent>,
     ) => {
       const { children, ...componentProps } = props;
-      const theme = useTheme();
+      const _theme: any = useTheme();
+      const theme: Theme = _theme;
+
       const deviceColorScheme = useColorScheme();
       const deviceDimensions = useWindowDimensions();
       const devicePixels = useDeferredValue(deviceDimensions.width * deviceDimensions.height);
