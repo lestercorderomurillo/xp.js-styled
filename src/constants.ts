@@ -267,15 +267,15 @@ export const ShortcutStyleProps = {
   "w": "width",
   "h": "height", 
   "p": "padding",
-  "px": "paddingHorizontal",
-  "py": "paddingVertical",
+  "pX": "paddingHorizontal",
+  "pY": "paddingVertical",
   "m": "margin",
-  "mx": "marginHorizontal", 
-  "my": "marginVertical",
-  "minw": "minWidth",
-  "minh": "minHeight",
-  "maxw": "maxWidth",
-  "maxh": "maxHeight",
+  "mX": "marginHorizontal", 
+  "mY": "marginVertical",
+  "minW": "minWidth",
+  "minH": "minHeight",
+  "maxW": "maxWidth",
+  "maxH": "maxHeight",
   "br": "borderRadius"
  } as const;
 

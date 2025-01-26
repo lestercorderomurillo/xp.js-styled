@@ -221,7 +221,7 @@ export const shade = (hex: string, lumen: number): string => {
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export const color = (value: string, colorScheme?: Colors, breakpoints?: Responsive<number>): TypedColor => {
+export const color = (value: string, colorScheme?: Colors, breakpoints?: Responsive<number>): TypedColor | string => {
   if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("hsl")) {
     return value as TypedColor;
   }

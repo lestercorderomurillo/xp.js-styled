@@ -54,7 +54,7 @@ export declare const shade: (hex: string, lumen: number) => string;
  * @param breakpoints - Breakpoint sizes.
  * @returns Resolved color value.
  */
-export declare const color: (value: string, colorScheme?: Colors, breakpoints?: Responsive<number>) => TypedColor;
+export declare const color: (value: string, colorScheme?: Colors, breakpoints?: Responsive<number>) => TypedColor | string;
 /**
  * Function to resolve size values.
  * @param value - Size value to resolve.
