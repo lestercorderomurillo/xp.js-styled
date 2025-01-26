@@ -190,7 +190,7 @@ export type Colors = {
         [key: string]: TypedColor;
     };
 } & {
-    [key: string]: TypedColor | string;
+    [key: string]: TypedColor;
 };
 /**
  * Responsive schema for defining layout at diferent breakpoints.

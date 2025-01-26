@@ -237,7 +237,7 @@ export type Stylesheets = Partial<{
 export type Colors = {
   "@light"?: { [key: string]: TypedColor };
   "@dark"?: { [key: string]: TypedColor };
-} & { [key: string]: TypedColor | string };
+} & { [key: string]: TypedColor };
 
 /**
  * Responsive schema for defining layout at diferent breakpoints.
