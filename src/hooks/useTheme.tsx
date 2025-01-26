@@ -50,24 +50,20 @@ const THEME_PROPERTY_HANDLERS = {
  */
 export const useTheme = () => {
     const {theme} = useContext(ThemeContext);
-
     const handler = {
         get: (target, categoryKey: string) => {
             const propertyHandler = THEME_PROPERTY_HANDLERS[categoryKey];
-            
             if (propertyHandler && categoryKey in target) {
                 return new Proxy({}, {
                 get: (_, key: string) => {
                     const value = target[categoryKey]?.[key] ?? propertyHandler.defaultValue;
-                    return propertyHandler.transformer(value, categoryKey === 'colors' ? (theme.colors ?? {}) : theme);
+                    return value ? propertyHandler.transformer(value, categoryKey === 'colors' ? (theme.colors ?? {}) : theme) : undefined;
                 }
                 });
             }
-    
           return target[categoryKey];
         }
     };
-    
     return new Proxy(theme, handler);
 }
 
