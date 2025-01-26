@@ -4,13 +4,13 @@ export declare const ShortcutStyleProps: {
     readonly s: "size";
     readonly w: "width";
     readonly h: "height";
-    readonly x: "width";
-    readonly y: "height";
     readonly minW: "minWidth";
     readonly minH: "minHeight";
     readonly maxW: "maxWidth";
     readonly maxH: "maxHeight";
+    readonly bW: "borderWidth";
     readonly br: "borderRadius";
+    readonly bColor: "borderColor";
     readonly p: "padding";
     readonly pX: "paddingHorizontal";
     readonly pY: "paddingVertical";
@@ -20,10 +20,16 @@ export declare const ShortcutStyleProps: {
     readonly bg: "background";
     readonly bgColor: "backgroundColor";
     readonly font: "fontFamily";
+    readonly g: "gap";
     readonly t: "top";
     readonly b: "bottom";
     readonly r: "right";
     readonly l: "left";
+    readonly z: "zIndex";
+    readonly align: "alignItems";
+    readonly justify: "justifyContent";
+    readonly grow: "flexGrow";
+    readonly wrap: "flexWrap";
 };
 export declare const TypographyProps: string[];
 export declare const ColorPallete: {
