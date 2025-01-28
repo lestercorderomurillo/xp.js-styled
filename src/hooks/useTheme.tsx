@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { color, size } from "../functions/transformers";
-import { Responsive, Theme } from "../types";
+import { Responsive, Theme, TypedColor } from "../types";
 
 /**
  * Create the theme context with a default empty theme
@@ -11,12 +11,12 @@ const ThemeContext = createContext<{ theme: Theme }>({ theme: {} });
  * Type definition for the theme observable
  */
 type ObservableTheme<T extends Theme> = {
-  colors:  {[K in keyof T['colors']]: string;}
+  colors:  {[K in keyof T['colors']]: TypedColor;}
   breakpoints: Responsive<number>;
   fontSizes: Responsive<number>;
   fontWeights: Responsive<number>;
   spacing: Responsive<number>;
-  styles:  {[K in keyof T['styles']]: string;}
+  styles:  {[K in keyof T['styles']]: any;}
 };
 
 /**

@@ -1,17 +1,17 @@
-import { Responsive, Theme } from "../types";
+import { Responsive, Theme, TypedColor } from "../types";
 /**
  * Type definition for the theme observable
  */
 type ObservableTheme<T extends Theme> = {
     colors: {
-        [K in keyof T['colors']]: string;
+        [K in keyof T['colors']]: TypedColor;
     };
     breakpoints: Responsive<number>;
     fontSizes: Responsive<number>;
     fontWeights: Responsive<number>;
     spacing: Responsive<number>;
     styles: {
-        [K in keyof T['styles']]: string;
+        [K in keyof T['styles']]: any;
     };
 };
 /**
