@@ -353,11 +353,11 @@ export const ColorPallete = {
 export const FontSizes = {
   xxs: 8,
   xs: 10,
-  sm: 14,
-  md: 18,
-  lg: 24,
-  xl: 32,
-  xxl: 48,
+  sm: 12,
+  md: 14,
+  lg: 18,
+  xl: 24,
+  xxl: 32,
 };
 
 export const FontWeights = {
@@ -390,8 +390,6 @@ export const Breakpoints = {
   xl: 1200,
   xxl: 1600,
 };
-
-// Match Keys
 
 export const SizeRegex = /^(xxs|xs|sm|md|lg|xl|xxl(?!\/)|[2-8]xxl|(?:\d+)(px|%))$/;
 
