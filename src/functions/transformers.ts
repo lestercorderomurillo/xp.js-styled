@@ -4,55 +4,83 @@ import { Colors, DeepMapProps, Responsive, Theme, TransformParams, TypedColor } 
 import { isNullish, isObject, isStyleProp } from "../utils";
 
 /**
+ * Maps shortcut props to their corresponding style properties while preserving original props.
+ *
+ * @param {Object} props - The input props object that may contain shortcut properties
+ * @param {boolean} [props.center] - When true, applies centering styles for text, flexbox alignment and justification
+ * @param {...*} [props.style] - Original style object that will be merged with generated styles
+ * @returns {Object} A new props object with the original props and processed style properties
+ **/
+export const mapShortcutProps = (props?) => {
+  let outputStyle = {};
+
+  for (const key in props) {
+    if (key == "center") {
+      outputStyle["textAlign"] = "center";
+      outputStyle["alignItems"] = "center";
+      outputStyle["justifyContent"] = "center";
+    } else if (key in ShortcutStyleProps) {
+      outputStyle[ShortcutStyleProps[key]] = props[key];
+    }
+  }
+
+  return { ...props, style: { ...props?.style, ...outputStyle } };
+};
+
+/**
  * Splits the input props object into separate props and style objects.
- * @param props - The input props object containing both regular props and style props.
+ * @param srcProps - The input props object containing both regular props and style props.
  * @returns An object containing the separated props and style objects.
  */
 export const splitProps = (
-  props,
+  srcProps,
 ): {
   elementProps: { [key: string]: any };
   styleProps: { [key: string]: any };
 } => {
-  if (isNullish(props) || !isObject(props) || Array.isArray(props)) {
+  if (isNullish(srcProps) || !isObject(srcProps) || Array.isArray(srcProps)) {
     return {
       elementProps: {},
       styleProps: {},
     };
   }
 
-  const _props: any = { ...props };
+  const props: any = { ...srcProps };
 
   const output = {
     props: {},
     style: {},
   };
 
-  for (const key in _props) {
-    if(key == "center"){
+  for (const key in props) {
+    if (key == "center") {
       output.style["textAlign"] = "center";
       output.style["alignItems"] = "center";
       output.style["justifyContent"] = "center";
-    }else if(key in ShortcutStyleProps){
-      output.style[ShortcutStyleProps[key]] = _props[key];
-    }else if (isStyleProp(key)) {
-      output.style[key] = _props[key];
+    } else if (key in ShortcutStyleProps) {
+      output.style[ShortcutStyleProps[key]] = props[key];
+    }
+
+    if (isStyleProp(key) || ShortcutStyleProps[key]) {
+      output.style[key] = props[key];
     } else if (key != "style") {
-      output.props[key] = _props[key];
+      output.props[key] = props[key];
     }
   }
 
+  // output.style = {...output.style, ...mapShortcutProps(props)};
+
   // Handle size, width, and height props
-  if (_props.size || _props.width) {
-    output.style["width"] = _props.size ?? _props.width;
+  if (props.size || props.width) {
+    output.style["width"] = props.size ?? props.width;
   }
-  if (_props.size || _props.height) {
-    output.style["height"] = _props.size ?? _props.height;
+  if (props.size || props.height) {
+    output.style["height"] = props.size ?? props.height;
   }
 
   return {
     elementProps: output.props,
-    styleProps: { ...props["style"], ...output.style },
+    styleProps: { ...srcProps["style"], ...output.style },
   };
 };
 
@@ -310,16 +338,26 @@ export const size = ({ key, value }: TransformParams, theme?: Theme) => {
 
 /**
  * Converts a hex color string to an RGB array.
- * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").
+ * @param {string} hex - The hex color string (e.g., "#FFFFFF", "FFFFFF", "#FFF", or "FFF").
  * @returns {number[]} An array of three numbers representing the RGB values.
  * @throws {Error} If the hex string is not valid.
  */
 export const hexToRGB = (hex: string): number[] => {
-  if (!/^#?[0-9A-Fa-f]{6}$/.test(hex)) {
+  // Match either 6-digit or 3-digit hex (with optional #)
+  if (!/^#?([0-9A-Fa-f]{6}|[0-9A-Fa-f]{3})$/.test(hex)) {
     throw new Error("Invalid hex color string");
   }
+  
+  // Remove # if present
+  hex = hex.replace(/^#/, "");
+  
+  // Convert 3-digit hex to 6-digit hex
+  if (hex.length === 3) {
+    hex = hex.split("").map(char => char + char).join("");
+  }
+  
+  // Convert to RGB values
   return hex
-    .replace(/^#/, "")
     .match(/\w\w/g)
     .map((hex: string) => parseInt(hex, 16));
 };

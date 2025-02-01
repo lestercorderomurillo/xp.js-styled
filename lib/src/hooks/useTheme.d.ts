@@ -4,14 +4,14 @@ import { Responsive, Theme, TypedColor } from "../types";
  */
 type ObservableTheme<T extends Theme> = {
     colors: {
-        [K in keyof T['colors']]: TypedColor;
+        [K in keyof T["colors"]]: TypedColor;
     };
     breakpoints: Responsive<number>;
     fontSizes: Responsive<number>;
     fontWeights: Responsive<number>;
     spacing: Responsive<number>;
     styles: {
-        [K in keyof T['styles']]: any;
+        [K in keyof T["styles"]]: any;
     };
 };
 /**

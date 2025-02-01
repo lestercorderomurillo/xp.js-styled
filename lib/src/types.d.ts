@@ -1,4 +1,4 @@
-import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
+import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextProps, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
 import { Breakpoints, ColorPallete, FontWeights } from "./constants";
 /**
@@ -113,14 +113,22 @@ export type ShortcutProps = {
     maxW?: TypedDimension;
     maxH?: TypedDimension;
     bW?: TypedDimension;
-    br?: TypedDimension;
+    bRadius?: TypedDimension;
     bColor?: TypedColor;
     p?: TypedDimension;
     pX?: TypedDimension;
     pY?: TypedDimension;
+    pT?: TypedDimension;
+    pL?: TypedDimension;
+    pB?: TypedDimension;
+    pR?: TypedDimension;
     m?: TypedDimension;
     mX?: TypedDimension;
     mY?: TypedDimension;
+    mT?: TypedDimension;
+    mL?: TypedDimension;
+    mB?: TypedDimension;
+    mR?: TypedDimension;
     bgColor?: TypedColor;
     font?: string;
     g?: TypedDimension;
@@ -128,12 +136,14 @@ export type ShortcutProps = {
     b?: TypedDimension;
     r?: TypedDimension;
     l?: TypedDimension;
-    z?: ViewStyle['zIndex'];
-    align?: ViewStyle['alignItems'];
-    justify?: ViewStyle['justifyContent'];
-    grow?: ViewStyle['flexGrow'];
-    shrink?: ViewStyle['flexShrink'];
-    wrap?: ViewStyle['flexWrap'];
+    z?: ViewStyle["zIndex"];
+    align?: ViewStyle["alignItems"];
+    justify?: ViewStyle["justifyContent"];
+    grow?: ViewStyle["flexGrow"];
+    shrink?: ViewStyle["flexShrink"];
+    wrap?: ViewStyle["flexWrap"];
+    lines?: TextProps["numberOfLines"];
+    spacing?: TextStyle["letterSpacing"];
     center?: boolean;
 };
 /**
@@ -223,7 +233,7 @@ export type ColorPalleteKey = keyof typeof ColorPallete;
  */
 export type BreakpointsKey = KeysOfUnion<typeof Breakpoints>;
 /**
- * Type representing styled components with support for theming, parent styles, and variants.
+ * Type representing styled components with support for theming, and variants.
  */
 export type StyledStyle<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
     parentStyles?: string[];

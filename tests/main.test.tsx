@@ -1,6 +1,6 @@
 import { Appearance, Dimensions } from "react-native";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { SizeRegex } from "../src/constants";
+import { Breakpoints, FontSizes, SizeRegex } from "../src/constants";
 import { color, deepMap, deepMerge, hexToRGB, normalizeMediaQueries, shade, size, splitProps } from "../src/functions/transformers";
 
 // Mock React Native modules
@@ -20,13 +20,13 @@ describe("Library Tests: ", () => {
   describe("font sizes", () => {
     it("should match exact FontSizes values", () => {
       const expectedSizes = {
-        xxs: 8,
-        xs: 10,
-        sm: 14,
-        md: 18,
-        lg: 24,
-        xl: 32,
-        xxl: 48,
+        xxs: FontSizes.xxs,
+        xs: FontSizes.xs,
+        sm: FontSizes.sm,
+        md: FontSizes.md,
+        lg: FontSizes.lg,
+        xl: FontSizes.xl,
+        xxl: FontSizes.xxl,
       };
 
       Object.entries(expectedSizes).forEach(([key, expected]) => {
@@ -497,10 +497,10 @@ describe("Library Tests: ", () => {
       expect(result).toEqual([255, 0, 0]);
     });
 
-    /*it('should handle short hex format', () => {
+    it('should handle short hex format', () => {
       const result = hexToRGB('#F00');
       expect(result).toEqual([255, 0, 0]);
-    });*/
+    });
 
     it("should throw an error for invalid hex", () => {
       expect(() => hexToRGB("#GG0000")).toThrow("Invalid hex color string");

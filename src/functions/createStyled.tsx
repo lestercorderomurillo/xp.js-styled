@@ -3,9 +3,9 @@ import { useColorScheme, useWindowDimensions } from "react-native";
 import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
 import { usePropHash } from "../hooks/usePropHash";
 import { useTheme } from "../hooks/useTheme";
-import { ComponentStyleProps, StyledProps, StyledStyle, Theme } from "../types";
+import { ComponentStyleProps, ShortcutProps, StyledProps, StyledStyle, Theme } from "../types";
 import { isString } from "../utils";
-import { color, deepMap, deepMerge, normalizeMediaQueries as flatMediaQueries, size, splitProps } from "./transformers";
+import { color, deepMap, deepMerge, mapShortcutProps, normalizeMediaQueries as flatMediaQueries, size, splitProps } from "./transformers";
 
 const transpile = (values: unknown, theme?: Theme) => {
   const colorRegex = new RegExp(`\\b(?:${Object.keys({ ...ColorPallete, ...theme?.colors }).join("|")})\\.${ColorIntensity}\\b`);
@@ -33,7 +33,7 @@ const transpile = (values: unknown, theme?: Theme) => {
  */
 export const createStyled = <
   TComponent extends React.ComponentType<{}>,
-  TStyleProps = ComponentStyleProps<TComponent>,
+  TStyleProps = ComponentStyleProps<TComponent> & ShortcutProps,
   TVariantNames extends string = never,
 >(
   Component: TComponent,
@@ -77,18 +77,20 @@ export const createStyled = <
 
         return {
           elementProps: elementProps as any,
-          styleProps: deepMerge(
-            [
-              transpiledStyles.parentStyle,
-              transpiledStyles.schemaStyle,
-              transpiledStyles.variantStyle,
-              transpiledStyles.overrideStyle,
-              transpiledStyles.inlineStyle,
-            ],
-            ["children", "style"],
+          styleProps: mapShortcutProps(
+            deepMerge(
+              [
+                transpiledStyles.parentStyle,
+                transpiledStyles.schemaStyle,
+                transpiledStyles.variantStyle,
+                transpiledStyles.overrideStyle,
+                transpiledStyles.inlineStyle,
+              ],
+              ["children", "style"],
+            ),
           ),
         };
-      }, [hash]); // Only depend on the props hash instead of all componentProps
+      }, [hash]); 
 
       return <Component ref={ref} {...mergedProps.elementProps} children={children} style={mergedProps.styleProps} />;
     },

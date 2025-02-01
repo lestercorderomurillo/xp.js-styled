@@ -1,10 +1,19 @@
 import { Colors, DeepMapProps, Responsive, Theme, TransformParams, TypedColor } from "../types";
 /**
+ * Maps shortcut props to their corresponding style properties while preserving original props.
+ *
+ * @param {Object} props - The input props object that may contain shortcut properties
+ * @param {boolean} [props.center] - When true, applies centering styles for text, flexbox alignment and justification
+ * @param {...*} [props.style] - Original style object that will be merged with generated styles
+ * @returns {Object} A new props object with the original props and processed style properties
+ **/
+export declare const mapShortcutProps: (props?: any) => any;
+/**
  * Splits the input props object into separate props and style objects.
- * @param props - The input props object containing both regular props and style props.
+ * @param srcProps - The input props object containing both regular props and style props.
  * @returns An object containing the separated props and style objects.
  */
-export declare const splitProps: (props: any) => {
+export declare const splitProps: (srcProps: any) => {
     elementProps: {
         [key: string]: any;
     };
@@ -64,7 +73,7 @@ export declare const color: (value: string, colorScheme?: Colors, breakpoints?: 
 export declare const size: ({ key, value }: TransformParams, theme?: Theme) => any;
 /**
  * Converts a hex color string to an RGB array.
- * @param {string} hex - The hex color string (e.g., "#FFFFFF" or "FFFFFF").
+ * @param {string} hex - The hex color string (e.g., "#FFFFFF", "FFFFFF", "#FFF", or "FFF").
  * @returns {number[]} An array of three numbers representing the RGB values.
  * @throws {Error} If the hex string is not valid.
  */

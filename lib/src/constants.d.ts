@@ -9,14 +9,22 @@ export declare const ShortcutStyleProps: {
     readonly maxW: "maxWidth";
     readonly maxH: "maxHeight";
     readonly bW: "borderWidth";
-    readonly br: "borderRadius";
+    readonly bR: "borderRadius";
     readonly bColor: "borderColor";
     readonly p: "padding";
     readonly pX: "paddingHorizontal";
     readonly pY: "paddingVertical";
+    readonly pT: "paddingTop";
+    readonly pL: "paddingLeft";
+    readonly pB: "paddingBottom";
+    readonly pR: "paddingRight";
     readonly m: "margin";
     readonly mX: "marginHorizontal";
     readonly mY: "marginVertical";
+    readonly mT: "marginTop";
+    readonly mL: "marginLeft";
+    readonly mB: "marginBottom";
+    readonly mR: "marginRight";
     readonly bg: "background";
     readonly bgColor: "backgroundColor";
     readonly font: "fontFamily";
@@ -30,6 +38,8 @@ export declare const ShortcutStyleProps: {
     readonly justify: "justifyContent";
     readonly grow: "flexGrow";
     readonly wrap: "flexWrap";
+    readonly lines: "numberOfLines";
+    readonly spacing: "letterSpacing";
 };
 export declare const TypographyProps: string[];
 export declare const ColorPallete: {

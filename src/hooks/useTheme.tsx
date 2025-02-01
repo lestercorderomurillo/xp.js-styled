@@ -11,12 +11,12 @@ const ThemeContext = createContext<{ theme: Theme }>({ theme: {} });
  * Type definition for the theme observable
  */
 type ObservableTheme<T extends Theme> = {
-  colors:  {[K in keyof T['colors']]: TypedColor;}
+  colors: { [K in keyof T["colors"]]: TypedColor };
   breakpoints: Responsive<number>;
   fontSizes: Responsive<number>;
   fontWeights: Responsive<number>;
   spacing: Responsive<number>;
-  styles:  {[K in keyof T['styles']]: any;}
+  styles: { [K in keyof T["styles"]]: any };
 };
 
 /**
@@ -55,7 +55,7 @@ const THEME_PROPERTY_HANDLERS = {
  */
 export const useTheme = <T extends Theme>(): ObservableTheme<T> => {
   const { theme } = useContext(ThemeContext as React.Context<{ theme: T }>);
-  
+
   const handler = {
     get: (target, categoryKey: string) => {
       const propertyHandler = THEME_PROPERTY_HANDLERS[categoryKey];

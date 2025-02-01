@@ -1,4 +1,4 @@
-import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextStyle, View, ViewStyle } from "react-native";
+import { DimensionValue, FlatList, ImageStyle, Pressable, ScrollView, TextProps, TextStyle, View, ViewStyle } from "react-native";
 import { KeysOfUnion } from "type-fest";
 import { Breakpoints, ColorPallete, FontWeights } from "./constants";
 
@@ -142,14 +142,22 @@ export type ShortcutProps = {
   maxW?: TypedDimension; // maxWidth
   maxH?: TypedDimension; // maxHeight
   bW?: TypedDimension; // borderWidth
-  br?: TypedDimension; // borderRadius
+  bRadius?: TypedDimension; // borderRadius
   bColor?: TypedColor; // borderColor
   p?: TypedDimension; // padding
   pX?: TypedDimension; // padding Horizontal
   pY?: TypedDimension; // padding Vertical
+  pT?: TypedDimension; // padding Top
+  pL?: TypedDimension; // padding Left
+  pB?: TypedDimension; // padding Bottom
+  pR?: TypedDimension; // padding Right
   m?: TypedDimension; // margin
-  mX?: TypedDimension; // padding Horizontal
-  mY?: TypedDimension; // padding Vertical
+  mX?: TypedDimension; // margin Horizontal
+  mY?: TypedDimension; // margin Vertical
+  mT?: TypedDimension; // margin Top
+  mL?: TypedDimension; // margin Left
+  mB?: TypedDimension; // margin Bottom
+  mR?: TypedDimension; // margin Right
   bgColor?: TypedColor; // backgroundColor
   font?: string; // fontFamily
   g?: TypedDimension; // gap
@@ -157,14 +165,16 @@ export type ShortcutProps = {
   b?: TypedDimension; // bottom
   r?: TypedDimension; // right
   l?: TypedDimension; // left
-  z?: ViewStyle['zIndex']; 
-  align?: ViewStyle['alignItems']; 
-  justify?: ViewStyle['justifyContent'];
-  grow?: ViewStyle['flexGrow'];
-  shrink?: ViewStyle['flexShrink'];
-  wrap?: ViewStyle['flexWrap'];
+  z?: ViewStyle["zIndex"];
+  align?: ViewStyle["alignItems"];
+  justify?: ViewStyle["justifyContent"];
+  grow?: ViewStyle["flexGrow"];
+  shrink?: ViewStyle["flexShrink"];
+  wrap?: ViewStyle["flexWrap"];
+  lines?: TextProps["numberOfLines"];
+  spacing?: TextStyle["letterSpacing"];
   center?: boolean;
-}
+};
 
 /**
  * Border properties type.
@@ -202,10 +212,9 @@ export type PatchType<TBase, TOverride> = {
 /**
  * All properties type.
  */
-export type PatchProps<TProps = {}> = PatchType<
-  TProps,
-  TypographyProps & SpacingProps & ColorProps & BorderProps
-> & LayoutProps & ShortcutProps;
+export type PatchProps<TProps = {}> = PatchType<TProps, TypographyProps & SpacingProps & ColorProps & BorderProps> &
+  LayoutProps &
+  ShortcutProps;
 
 /**
  * Type representing a dimension.
@@ -264,7 +273,7 @@ export type ColorPalleteKey = keyof typeof ColorPallete;
 export type BreakpointsKey = KeysOfUnion<typeof Breakpoints>;
 
 /**
- * Type representing styled components with support for theming, parent styles, and variants.
+ * Type representing styled components with support for theming, and variants.
  */
 export type StyledStyle<TStyleProps = ViewStyle, TVariantNames extends string = never> = {
   parentStyles?: string[];
