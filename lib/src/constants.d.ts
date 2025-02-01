@@ -9,7 +9,7 @@ export declare const ShortcutStyleProps: {
     readonly maxW: "maxWidth";
     readonly maxH: "maxHeight";
     readonly bW: "borderWidth";
-    readonly bR: "borderRadius";
+    readonly bRadius: "borderRadius";
     readonly bColor: "borderColor";
     readonly p: "padding";
     readonly pX: "paddingHorizontal";
