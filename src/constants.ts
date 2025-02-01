@@ -270,7 +270,7 @@ export const ShortcutStyleProps = {
   maxW: "maxWidth",
   maxH: "maxHeight",
   bW: "borderWidth",
-  bR: "borderRadius",
+  bRadius: "borderRadius",
   bColor: "borderColor",
   p: "padding",
   pX: "paddingHorizontal",
