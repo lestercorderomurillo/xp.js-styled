@@ -316,7 +316,7 @@ export type ExtractStyleProps<T> = T extends {
 /**
  * Maps a React component type to its corresponding style properties.
  */
-export type ComponentStyleProps<T> = T extends typeof View ? ViewStyle : T extends typeof Pressable ? ViewStyle : T extends typeof Text ? TextStyle : T extends typeof Image ? ImageStyle : T extends typeof ScrollView ? ViewStyle : T extends typeof FlatList ? ViewStyle : T extends React.ComponentType<infer P> ? P extends {
+export type ComponentStyleProps<T> = ShortcutProps & T extends typeof View ? ViewStyle : T extends typeof Pressable ? ViewStyle : T extends typeof Text ? TextStyle : T extends typeof Image ? ImageStyle : T extends typeof ScrollView ? ViewStyle : T extends typeof FlatList ? ViewStyle : T extends React.ComponentType<infer P> ? P extends {
     style?: infer S;
 } ? S : {} : {};
 export {};

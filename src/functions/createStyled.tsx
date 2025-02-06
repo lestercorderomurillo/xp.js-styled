@@ -1,5 +1,5 @@
 import React, { forwardRef, useDeferredValue, useMemo } from "react";
-import { useColorScheme, useWindowDimensions, ViewProps } from "react-native";
+import { useColorScheme, useWindowDimensions, View } from "react-native";
 import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
 import { usePropHash } from "../hooks/usePropHash";
 import { useTheme } from "../hooks/useTheme";
@@ -25,6 +25,7 @@ const transpile = (values: unknown, theme?: Theme) => {
   });
 };
 
+
 /**
  * Create a Styled Component given a style schema and a base theme (both optional).
  * @param {React.ComponentType<any>} Component The component to render.
@@ -32,8 +33,8 @@ const transpile = (values: unknown, theme?: Theme) => {
  * @returns A wrapper around your component with extended features.
  */
 export const createStyled = <
-  TComponent extends React.ComponentType<any> = React.ComponentType<ViewProps>,
-  TStyleProps = ComponentStyleProps<TComponent> & ShortcutProps,
+  TComponent extends React.ComponentType<any>,
+  TStyleProps = ComponentStyleProps<TComponent>,
   TVariantNames extends string = never,
 >(
   Component: TComponent,
@@ -96,3 +97,5 @@ export const createStyled = <
     },
   );
 };
+
+const X = createStyled(View);
