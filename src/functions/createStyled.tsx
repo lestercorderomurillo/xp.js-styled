@@ -1,5 +1,5 @@
 import React, { forwardRef, useDeferredValue, useMemo } from "react";
-import { useColorScheme, useWindowDimensions } from "react-native";
+import { useColorScheme, useWindowDimensions, ViewProps } from "react-native";
 import { ColorIntensity, ColorPallete, SizeRegex } from "../constants";
 import { usePropHash } from "../hooks/usePropHash";
 import { useTheme } from "../hooks/useTheme";
@@ -32,7 +32,7 @@ const transpile = (values: unknown, theme?: Theme) => {
  * @returns A wrapper around your component with extended features.
  */
 export const createStyled = <
-  TComponent extends React.ComponentType<{}>,
+  TComponent extends React.ComponentType<any> = React.ComponentType<ViewProps>,
   TStyleProps = ComponentStyleProps<TComponent> & ShortcutProps,
   TVariantNames extends string = never,
 >(
